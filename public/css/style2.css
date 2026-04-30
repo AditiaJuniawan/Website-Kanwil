@@ -1,0 +1,125 @@
+:root {
+    --primary-color: #003366; /* Warna Biru Khas Instansi */
+    --secondary-color: #FFCC00; /* Warna Aksen Kuning/Emas */
+    --text-color: #333333;
+    --light-bg: #f4f6f9;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+     background: linear-gradient(rgba(6, 6, 77, 0.881), rgba(0, 51, 102, 0.8)), url('../images/gedung2.png') center/cover;
+    
+}
+.wrapper{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+    height: 100vh;
+    margin: 0;
+}
+.logo{
+    display: flex;
+}
+.logo h2 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+.logo img{
+    height: 50px;
+    margin: auto;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    margin-left: 20px;
+
+}
+
+.container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-box h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #667eea;
+}
+
+/* .custom-shape-divider-top-1776321563 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1776321563 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 203px;
+}
+
+.custom-shape-divider-top-1776321563 .shape-fill {
+    fill: #FFFFFF;
+} */
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background:var(--primary-color);
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #5a6fd6;
+}
+
+.hidden {
+    display: none;
+}
+
+p {
+    margin-top: 1rem;
+    font-size: 14px;
+    color: #666;
+}
+
+a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+}
