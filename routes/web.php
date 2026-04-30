@@ -5,17 +5,12 @@ use App\Http\Controllers\KanwilController;
 use App\Http\Controllers\SessionController;
 
 Route::get('/', [KanwilController::class, 'home']);
+Route::get('/visi', [KanwilController::class, 'visi']);
+Route::get('/profil', [KanwilController::class, 'profil']);
+Route::get('/maskot', [KanwilController::class, 'maskot']);
+
 route::get('/tentang',function(){
     return view('tentang');
-});
-route::get('/profil',function(){
-    return view('profil');
-});
-route::get('/visi',function(){
-    return view('visi');
-});
-route::get('/maskot',function(){
-    return view('maskot');
 });
 route::get('/LayananInformasi',function(){
     return view('layananinformasi');

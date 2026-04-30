@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Kanwil extends Model
+class Leader extends Model
 {
     protected $guarded = [];
 }

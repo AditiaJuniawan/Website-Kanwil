@@ -61,6 +61,33 @@ class KanwilResource extends Resource
                             ->label('Alamat Lengkap')
                             ->maxLength(255),
                     ])->columns(2),
+
+                Forms\Components\Section::make('Maskot Kanwil')
+                    ->schema([
+                        Forms\Components\Tabs::make('Maskot')
+                            ->tabs([
+                                Forms\Components\Tabs\Tab::make('Kang')
+                                    ->schema([
+                                        Forms\Components\FileUpload::make('maskot_kang_image')
+                                            ->label('Foto Kang')
+                                            ->directory('maskot')
+                                            ->image(),
+                                        Forms\Components\Textarea::make('maskot_kang_description')
+                                            ->label('Deskripsi Kang')
+                                            ->rows(3),
+                                    ]),
+                                Forms\Components\Tabs\Tab::make('Nong')
+                                    ->schema([
+                                        Forms\Components\FileUpload::make('maskot_nong_image')
+                                            ->label('Foto Nong')
+                                            ->directory('maskot')
+                                            ->image(),
+                                        Forms\Components\Textarea::make('maskot_nong_description')
+                                            ->label('Deskripsi Nong')
+                                            ->rows(3),
+                                    ]),
+                            ]),
+                    ]),
             ]);
     }
 

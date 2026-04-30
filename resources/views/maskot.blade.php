@@ -14,23 +14,32 @@
             <div class="card-profil">
                 <h2 class="section-title">KANG</h2>
                 <div class="fotokanwil">
-                    <img src="{{ asset('images/Kang Pas.png') }}" alt="">
+                    @if($kanwil && $kanwil->maskot_kang_image)
+                        <img src="{{ asset('storage/' . $kanwil->maskot_kang_image) }}" alt="Kang">
+                    @else
+                        <img src="{{ asset('images/Kang Pas.png') }}" alt="Kang">
+                    @endif
                 </div>
                 <br>
-                <p class="paragraf-tengah">"Kang merupakan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Visualisasinya mengadopsi bentuk bidak catur yang melambangkan strategi dan ketetapan langkah, serta dipadukan dengan busana adat Baduy sebagai representasi penghormatan terhadap nilai kearifan lokal Provinsi Banten."</p>
+                <p class="paragraf-tengah">
+                    {{ $kanwil->maskot_kang_description ?? ' "Kang merupakan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Visualisasinya mengadopsi bentuk bidak catur yang melambangkan strategi dan ketetapan langkah, serta dipadukan dengan busana adat Baduy sebagai representasi penghormatan terhadap nilai kearifan lokal Provinsi Banten."' }}
+                </p>
             </div>    
             <div class="card-profil">   
                 <h2 class="section-title">NONG</h2>
                 <div class="fotokanwil">
-                    <img src="{{ asset('images/Nong Pas.png') }}" alt="">
+                    @if($kanwil && $kanwil->maskot_nong_image)
+                        <img src="{{ asset('storage/' . $kanwil->maskot_nong_image) }}" alt="Nong">
+                    @else
+                        <img src="{{ asset('images/Nong Pas.png') }}" alt="Nong">
+                    @endif
                 </div>
                 <br>
-                <p class="paragraf-tengah">"Nong merupakan pasangan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Direpresentasikan melalui figur bidak catur yang melambangkan kecerdasan strategi, Nong tampil anggun dengan balutan kerudung bermotif batik Baduy sebagai perwujudan martabat dan keanggunan budaya lokal di lingkungan pemasyarakatan."</p>
+                <p class="paragraf-tengah">
+                    {{ $kanwil->maskot_nong_description ?? ' "Nong merupakan pasangan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Direpresentasikan melalui figur bidak catur yang melambangkan kecerdasan strategi, Nong tampil anggun dengan balutan kerudung bermotif batik Baduy sebagai perwujudan martabat dan keanggunan budaya lokal di lingkungan pemasyarakatan."' }}
+                </p>
             </div>
-
         </div>
-        
-        
     </section>
     
 
