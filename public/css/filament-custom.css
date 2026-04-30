@@ -1,0 +1,39 @@
+.fi-body {
+    background-color: #f8fafc;
+}
+
+.fi-layout-guest {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.fi-layout-guest::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: url('/images/logopas.png') no-repeat center;
+    background-size: 20%;
+    opacity: 0.03;
+    animation: rotate 100s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.fi-layout-guest-main {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 1.5rem !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+}
+
+.fi-btn {
+    border-radius: 0.75rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700 !important;
+}
