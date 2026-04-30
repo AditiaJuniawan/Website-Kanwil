@@ -46,6 +46,9 @@
     right: -100px;
     pointer-events: none;
 }
+@utility hero-sub{
+    background-color:black;
+}
 
 @keyframes float {
     0% { transform: translateY(0px); }

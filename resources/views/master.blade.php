@@ -14,6 +14,7 @@
     <link href="{{ asset('images/logopas.png') }}" rel="shortcut icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/css-tambahan.css">
 </head>
 <body class="font-sans text-slate-600 antialiased flex flex-col min-h-screen bg-slate-50">
 
@@ -21,8 +22,8 @@
     <div class="bg-brand-900 text-slate-300 text-[11px] font-medium py-2 px-4 hidden md:block tracking-wide z-[60]">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-6">
-                <span class="flex items-center hover:text-white transition cursor-pointer"><i class="fa-solid fa-phone mr-2 text-brand-400"></i> Call Center: 0822-6666-2055</span>
-                <span class="flex items-center hover:text-white transition cursor-pointer"><i class="fa-solid fa-envelope mr-2 text-brand-400"></i> djpasbanten@gmail.com</span>
+                <span class="flex items-center hover:text-white transition cursor-pointer"><a href="tel:082266662055"><i class="fa-solid fa-phone mr-2 text-brand-400"></i> Call Center: 0822-6666-2055</a></span>
+                <span class="flex items-center hover:text-white transition cursor-pointer"><a href="mailto:Djpasbanten@gmail.com" ><i class="fa-solid fa-envelope mr-2 text-brand-400"></i> djpasbanten@gmail.com</a></span>
             </div>
             <div class="flex items-center space-x-4">
                 <a href="https://www.instagram.com/pemasyarakatanbanten/" class="hover:text-gold-400 transition"><i class="fa-brands fa-instagram"></i></a>
@@ -92,8 +93,8 @@
                 <!-- Mobile menu button -->
                 <div class="lg:hidden flex items-center">
                     <button id="mobile-toggle" class="text-slate-600 hover:text-brand-700 p-2">
-                        <i class="fa-solid fa-bars text-2xl" id="icon-bars"></i>
-                        <i class="fa-solid fa-xmark text-2xl hidden" id="icon-close"></i>
+                        <i class="fa-solid fa-bars text-2xl" id="icon-bars" ></i>
+                        <i class="fa-solid fa-xmark text-2xl " id="icon-close" style="display: none;"></i>
                     </button>
                 </div>
             </div>
@@ -170,11 +171,11 @@
                         </li>
                         <li class="flex items-center group">
                             <div class="w-8 flex-shrink-0 text-brand-500 group-hover:text-brand-400 transition"><i class="fa-solid fa-phone text-lg"></i></div>
-                            <span class="group-hover:text-white transition">0822-6666-2055</span>
+                            <a href="https://wa.me/6282266662055" target="_blank"><span class="group-hover:text-white transition">0822-6666-2055</span></a>
                         </li>
                         <li class="flex items-center group">
                             <div class="w-8 flex-shrink-0 text-brand-500 group-hover:text-brand-400 transition"><i class="fa-solid fa-envelope text-lg"></i></div>
-                            <span class="group-hover:text-white transition">djpasbanten@gmail.com</span>
+                            <a href="mailto:Djpasbanten@gmail.com" ><span class="group-hover:text-white transition">djpasbanten@gmail.com</span></a>
                         </li>
                     </ul>
                 </div>
@@ -207,8 +208,17 @@
 
         mobileToggle.addEventListener('click', () => {
             mobilePanel.classList.toggle('hidden');
-            iconBars.classList.toggle('hidden');
-            iconClose.classList.toggle('hidden');
+            mobilePanel.classList.toggle('active');
+            
+            // Ubah Ikon antara Hamburger dan Silang (X)
+            if (mobilePanel.classList.contains('active')) {
+                iconBars.style.display = 'none';
+                iconClose.style.display = 'block';
+            } 
+            else {
+                iconBars.style.display = 'block';
+                iconClose.style.display = 'none';
+            }
         });
 
         // Sticky Nav Effect

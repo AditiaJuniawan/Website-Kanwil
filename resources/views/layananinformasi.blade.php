@@ -12,7 +12,7 @@
     <h2 class="section-title-profil">Alur Layanan Informasi</h2>
     <div class="SOP">
         <img src="{{ asset('images/SOPINFORMASI.png') }}" alt="">   
-        <a href="{{ url('/formLayananInformasi') }}" class="btn-informasi">> KLIK DISINI UNTUK PENGAJUAN INFORMASI <</a>
+        <a href="{{ url('/formLayananInformasi') }}" class="btn-layanan">> KLIK DISINI UNTUK PENGAJUAN INFORMASI <</a>
         <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSd80rCHwrVXwEcdPEeeE4r2TvM9lH9sH1qg4NKvuc5iE2G_bw/viewform?usp=send_form" class="btn-informasi" target="_blank">> KLIK DISINI UNTUK PENGAJUAN INFORMASI <</a> -->
     </div>
     
