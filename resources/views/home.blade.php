@@ -36,10 +36,10 @@
             <!-- Hero Illustration -->
             <div class="hidden md:block md:w-2/5 mt-16 md:mt-0 relative" data-aos="fade-left" data-aos-delay="200">
                 <div class="relative w-full max-w-md mx-auto aspect-square flex items-center justify-center">
-                    <div class="absolute inset-0 border border-white/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
-                    <div class="absolute inset-8 border border-brand-400/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                    <!-- <div class="absolute inset-0 border border-white/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
+                    <div class="absolute inset-8 border border-brand-400/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div> -->
                     
-                    <div class="relative bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-2xl animate-float w-64 text-center z-10">
+                    <!-- <div class="relative bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-2xl animate-float w-64 text-center z-10">
                         <div class="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl mx-auto flex items-center justify-center mb-4 shadow-lg">
                             <i class="fa-solid fa-shield-halved text-2xl text-white"></i>
                         </div>
@@ -50,23 +50,23 @@
                             <div class="h-2 w-full bg-white/20 rounded-full"></div>
                             <div class="h-2 w-3/4 bg-white/20 rounded-full mx-auto"></div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="absolute top-10 -left-6 bg-white p-3 rounded-2xl shadow-xl animate-float-delayed z-20 flex items-center gap-3">
+                    <!-- <div class="absolute top-10 -left-6 bg-white p-3 rounded-2xl shadow-xl animate-float-delayed z-20 flex items-center gap-3">
                         <div class="bg-green-100 text-green-600 w-10 h-10 rounded-full flex items-center justify-center"><i class="fa-solid fa-check"></i></div>
                         <div>
                             <p class="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Status Layanan</p>
                             <p class="text-sm font-bold text-slate-800">Aktif & Berjalan</p>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="absolute bottom-12 -right-8 bg-white p-3 rounded-2xl shadow-xl animate-float z-20 flex items-center gap-3" style="animation-delay: 1s;">
+                    <!-- <div class="absolute bottom-12 -right-8 bg-white p-3 rounded-2xl shadow-xl animate-float z-20 flex items-center gap-3" style="animation-delay: 1s;">
                         <div class="bg-gold-100 text-gold-500 w-10 h-10 rounded-full flex items-center justify-center"><i class="fa-solid fa-star"></i></div>
                         <div>
                             <p class="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Indeks Kepuasan</p>
                             <p class="text-sm font-bold text-slate-800">Sangat Baik</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
