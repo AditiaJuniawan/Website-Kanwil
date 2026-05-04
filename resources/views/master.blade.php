@@ -52,7 +52,7 @@
                 <!-- Desktop Menu -->
                 <nav class="hidden lg:flex space-x-1 items-center">
                     <a href="/" class="{{ Request::is('/') ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50 hover:text-brand-700' }} px-4 py-2 font-semibold rounded-lg transition">Beranda</a>
-                    
+                    <a href="/berita" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Berita</a>
                     <div class="relative group px-1">
                         <button class="px-4 py-2 text-slate-600 hover:text-brand-700 font-medium flex items-center rounded-lg hover:bg-slate-50 transition">
                             Tentang <i class="fa-solid fa-chevron-down ml-2 text-[10px] opacity-70"></i>
@@ -103,7 +103,10 @@
         <!-- Mobile Menu Panel -->
         <div id="mobile-panel" class="hidden lg:hidden bg-white border-t border-slate-100 shadow-xl p-4 space-y-2">
             <a href="/" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Beranda</a>
+            <a href="/berita" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Berita</a>
+
             <div class="space-y-1">
+           
                 <p class="px-4 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Tentang</p>
                 <a href="{{ url('/profil') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Profil</a>
                 <a href="{{ url('/visi') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Visi & Misi</a>

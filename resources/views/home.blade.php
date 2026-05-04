@@ -76,7 +76,7 @@
     <div class="max-w-6xl mx-auto px-4 relative z-20 -mt-6" data-aos="fade-up" data-aos-delay="400">
         <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-2 flex items-center">
             <div class="bg-red-500 text-white text-xs font-bold px-4 py-2 rounded-xl uppercase tracking-wider flex-shrink-0 flex items-center shadow-md shadow-red-500/20">
-                <i class="fa-solid fa-bell mr-2 animate-bounce"></i> Info
+                <i class="fa-solid fa-bell mr-2 animate-bounce"></i> Berita Terkini
             </div>
             <div class="overflow-hidden w-full ml-3 relative">
                 <marquee class="text-sm font-medium text-slate-600 mt-1">Selamat Datang di Portal Resmi Kanwil Ditjenpas Banten. Kami berkomitmen menghadirkan pelayanan publik yang bersih dari pungutan liar dan korupsi. Gunakan layanan digital kami untuk proses yang lebih transparan.</marquee>
