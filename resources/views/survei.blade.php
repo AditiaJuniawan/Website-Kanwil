@@ -111,10 +111,10 @@
                 </div>
 
                 <!-- Main Title -->
-                <h1 class="text-5xl md:text-7xl font-extrabold text-brand-dark tracking-tight mb-2 uppercase">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-brand-dark tracking-tight mb-2 uppercase" data-aos="zoom-in">
                     Hasil Survei
                 </h1>
-                <p class="text-base md:text-lg font-bold text-brand-blue">
+                <p class="text-base md:text-lg font-bold text-brand-blue" data-aos="zoom-in">
                     Berdasarkan star-survei3a.kemenimipas.go.id
                 </p>
             </header>
@@ -130,7 +130,7 @@
                     </div>
                     
                     <!-- Bubble Container -->
-                    <div class="glass-panel rounded-[40px] px-6 py-12 md:py-16 text-center relative bubble-tail-left h-full flex flex-col justify-center items-center">
+                    <div  class="glass-panel rounded-[40px] px-6 py-12 md:py-16 text-center relative bubble-tail-left h-full flex flex-col justify-center items-center " data-aos="zoom-in">
                         <p class="text-sm md:text-base font-bold text-brand-blue/80 mb-6 px-4">
                             Survei Persepsi Kualitas Pelayanan (SPKP/SKM)
                         </p>
@@ -149,12 +149,12 @@
                 <!-- Card 2: SPAK -->
                 <div class="relative w-full mt-10 md:mt-0">
                     <!-- Quote Icon Badge -->
-                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 bg-gradient-to-b from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg border-2 border-white transform rotate-6 z-20">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 bg-gradient-to-b from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg border-2 border-white transform rotate-6 z-20 ">
                         <i class="fa-solid fa-quote-left text-white text-xl" style="color:#1e3a5f"></i>
                     </div>
                     
                     <!-- Bubble Container -->
-                    <div class="glass-panel rounded-[40px] px-6 py-12 md:py-16 text-center relative bubble-tail-right h-full flex flex-col justify-center items-center">
+                    <div class="glass-panel rounded-[40px] px-6 py-12 md:py-16 text-center relative bubble-tail-right h-full flex flex-col justify-center items-center " data-aos="zoom-in">
                         <p class="text-sm md:text-base font-bold text-brand-blue/80 mb-6 px-4">
                             Survei Persepsi Anti Korupsi (SPAK)
                         </p>
@@ -185,7 +185,7 @@
             <div class="flex justify-center items-end gap-2 md:gap-8 mt-4 relative z-20 w-full max-w-3xl">
                 <!-- Mascot 1: Kang Pas -->
                 <div class="flex flex-col items-center relative">
-                    <!-- Placeholder Image for Mascot. Replace src with actual image -->
+                    
                     <img src="{{ asset('images/Kang Pas.png') }}" alt="Kang Pas" class="h-100 md:h-100 w-auto object-contain drop-shadow-xl" />
                     
                     <!-- Name Badge -->
@@ -197,7 +197,7 @@
 
                 <!-- Mascot 2: Nong Pas -->
                 <div class="flex flex-col items-center relative">
-                    <!-- Placeholder Image for Mascot. Replace src with actual image -->
+                    
                     <img src="{{ asset('images/Nong Pas.png') }}" alt="Nong Pas" class="h-100 md:h-100 w-auto object-contain drop-shadow-xl" style="top:-30px" />
                     
                     <!-- Name Badge -->

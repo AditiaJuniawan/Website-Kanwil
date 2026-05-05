@@ -85,9 +85,9 @@
 
                 <!-- Search & Actions -->
                 <div class="hidden md:flex items-center space-x-3">
-                    <button class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:text-brand-700 hover:bg-slate-100 transition">
+                    <!-- <button class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:text-brand-700 hover:bg-slate-100 transition">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
+                    </button> -->
                     <div class="h-6 w-px bg-slate-200"></div>
                     <a href="https://wa.me/6282266662055" target="_blank" class="bg-brand-700 hover:bg-brand-800 text-white px-6 py-2.5 rounded-full font-medium transition shadow-md shadow-brand-700/20 text-sm flex items-center">
                         <i class="fa-brands fa-whatsapp mr-2"></i> Pengaduan
@@ -114,6 +114,9 @@
                 <p class="px-4 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Tentang</p>
                 <a href="{{ url('/profil') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Profil</a>
                 <a href="{{ url('/visi') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Visi & Misi</a>
+                <a href="{{ url('/maskot') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Maskot</a>
+                <a href="{{ url('/survei') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Survei</a>
+  
             </div>
             <div class="space-y-1">
                 <p class="px-4 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Layanan</p>

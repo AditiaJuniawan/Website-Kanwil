@@ -8,7 +8,7 @@
           
         </div>
     </section>
-    <section class="profil-kanwil container">
+    <section class="profil-Layanan container">
     <h2 class="section-title-profil">Formulir Layanan Informasi</h2>
     <form action="">
         <div class="row">
