@@ -253,7 +253,7 @@
                     <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Kabar Terkini</p>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Berita & Informasi</h2>
                 </div>
-                <a href="#" class="hidden md:flex items-center text-brand-600 font-semibold hover:text-brand-800 transition group">
+                <a href="/berita" class="hidden md:flex items-center text-brand-600 font-semibold hover:text-brand-800 transition group">
                     Semua Berita <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                 </a>
             </div>

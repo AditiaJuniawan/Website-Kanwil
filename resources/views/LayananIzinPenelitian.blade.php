@@ -8,7 +8,7 @@
           
         </div>
     </section>
-    <section class="profil-kanwil container">
+    <section class="profil-layanan container">
     <h2 class="section-title-profil">Alur layanan Izin Penelitian dan Peliputan</h2>
     <div class="SOP">
         <img src="{{ asset('images/SOPmagang.png') }}" alt="">   

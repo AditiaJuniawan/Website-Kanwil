@@ -9,7 +9,7 @@
         </div>
     </section>
 
-    <section class="profil-kanwil container">
+    <section class="profil-Layanan container">
         <h2 class="section-title">VISI</h2>
         <p class="paragraf-tengah">{!! $kanwil->vision ?? '"Terwujudnya Pemasyarakatan yang Profesional dalam Mendukung Penegakan Hukum Berbasis Hak Asasi Manusia yang Berkeadilan untuk Mewujudkan Indonesia Maju yang Berdaulat, Mandiri dan Berkepribadian, berlandaskan Gotong Royong"' !!}</p>
         <br><br><br>

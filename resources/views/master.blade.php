@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/css-tambahan.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
 </head>
 <body class="font-sans text-slate-600 antialiased flex flex-col min-h-screen bg-slate-50">
 
@@ -52,7 +56,7 @@
                 <!-- Desktop Menu -->
                 <nav class="hidden lg:flex space-x-1 items-center">
                     <a href="/" class="{{ Request::is('/') ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50 hover:text-brand-700' }} px-4 py-2 font-semibold rounded-lg transition">Beranda</a>
-                    <a href="/berita" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Berita</a>
+                    <a href="/berita" class="px-4 py-2 text-slate-600 hover:text-brand-700 font-medium rounded-lg hover:bg-slate-50 transition">Berita</a>
                     <div class="relative group px-1">
                         <button class="px-4 py-2 text-slate-600 hover:text-brand-700 font-medium flex items-center rounded-lg hover:bg-slate-50 transition">
                             Tentang <i class="fa-solid fa-chevron-down ml-2 text-[10px] opacity-70"></i>

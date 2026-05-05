@@ -24,6 +24,12 @@ route::get('/LayananPengaduan',function(){
 route::get('/LayananPerizinan',function(){
     return view('LayananIzinPenelitian');
 });
+route::get('/survei',function(){
+    return view('survei');
+});
+route::get('/berita',function(){
+    return view('berita');
+});
 route::get('/login',function(){
     return view('/sesi/index');
 });

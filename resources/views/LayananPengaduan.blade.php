@@ -8,7 +8,7 @@
           
         </div>
     </section>
-    <section class="profil-kanwil container">
+    <section class="profil-Layanan container">
     <h2 class="section-title-profil">Alur Layanan Pengaduan</h2>
     <div class="SOP">
         <img src="{{ asset('images/SOPLayananPengaduan.png') }}" alt="">   

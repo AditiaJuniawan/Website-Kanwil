@@ -81,6 +81,13 @@
     padding: 80px 20px;
     width: 100%;
 }
+.profil-Layanan {
+    padding: 80px 20px;
+    width: 80%;
+}
+.profil-Layanan img{
+    border-radius: 1%;
+}
 .fotokanwil{
     width: 320px;
     margin: auto;
