@@ -18,6 +18,12 @@ route::get('/LayananInformasi',function(){
 route::get('/formLayananInformasi',function(){
     return view('/form/forminformasi');
 });
+route::get('/formperizinan',function(){
+    return view('/form/formperizinan');
+});
+route::get('/formpengaduan',function(){
+    return view('/form/formpengaduan');
+});
 route::get('/LayananPengaduan',function(){
     return view('LayananPengaduan');
 });

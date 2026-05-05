@@ -3,13 +3,13 @@
 @section('content')
     <section class="hero-sub">
         <div class="container hero-content-sub">
-            <h1>Formulir Layanan Informasi</h1>
-            <a href="/">Beranda</a> > <a href="/layanan1">layanan Informasi</a> > <a href="/formLayananInformasi">Formulir Layanan Informasi</a>
+            <h1>Formulir Layanan Perizinan</h1>
+            <a href="/">Beranda</a> > <a href="/layanan1">layanan Perizinan</a> > <a href="/formLayananInformasi">Formulir Layanan Perizinan</a>
           
         </div>
     </section>
     <section class="profil-Layanan container">
-    <h2 class="section-title-profil">Formulir Layanan Informasi</h2>
+    <h2 class="section-title-profil">Formulir Layanan Perizinan</h2>
     <form action="">
         <div class="row">
             <div class="col">
@@ -30,18 +30,25 @@
 
     <div class="detail-informasi" style="border: 1px solid gray; border-radius:5px; padding : 20px; margin-bottom:20px">
     <div class="font-bold">
-        <h6 class="fw-bold mb-3 border-bottom pb-2 text-success"><i class="bi bi-info-square"></i> Detail Permintaan Informasi</h6>
+        <h6 class="fw-bold mb-3 border-bottom pb-2 text-primary"><i class="bi bi-file-earmark-person"></i> Detail Perizinan</h6>
     </div>
     <br>
+    <label for="Nosurat">Nomor Surat Pengantar Instansi/Kampus</label>
+    <input type="text" name="Nosurat" id="Nosurat">
 
-    <label for="uraian">Uraian Informasi / Data yang diminta</label>
-    <textarea rows="6" class="fullinput" id="alamat" type="text"></textarea>
+    <label for="Jenis">Jenis Perizinan</label>
+    <select name="Jenis" id="Jenis" style="display: block; border:1px solid black; padding:2px;">
+        <option value="Magang / PKL">Magang / PKL</option>
+        <option value="Penelitian / Skripsi">Penelitian / Skripsi</option>
+        <option value="Kegiatan Lainnya">Kegiatan Lainnya</option>
+    </select>
+    <br>
 
-    <label for="tujuan">Tujuan Penggunaan Informasi</label>
-    <input type="text" name="tujuan" id="tujuan">
+    <label for="uraian">Uraian Ringkas (Lokasi & Waktu Pelaksanaan )</label>
+    <textarea rows="6" class="fullinput" id="uraian" type="text"></textarea>
 
-    <label for="fileinformasi">Upload informasi/Surat Permohonan (PDF/DOC/PNG/JPG)</label>
-    <input type="file" name="fileinformasi" id="fileinformasi">
+    <label for="filePerizinan">Upload Surat Pengantar (PDF/DOC/PNG/JPG, Wajib)</label>
+    <input type="file" name="filePerizinan" id="filePerizinan">
     </div>
 
 

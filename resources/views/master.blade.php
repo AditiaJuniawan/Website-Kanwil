@@ -18,6 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     
 </head>
 <body class="font-sans text-slate-600 antialiased flex flex-col min-h-screen bg-slate-50">
@@ -32,10 +33,10 @@
             <div class="flex items-center space-x-4">
                 <a href="https://www.instagram.com/pemasyarakatanbanten/" class="hover:text-gold-400 transition"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#" class="hover:text-gold-400 transition"><i class="fa-brands fa-facebook-f"></i></a>
-                <div class="h-3 w-px bg-slate-600 mx-2"></div>
+                <!-- <div class="h-3 w-px bg-slate-600 mx-2"></div>
                 <span class="flex items-center cursor-pointer hover:text-white transition">
                     <i class="fa-solid fa-globe mr-1"></i> Indonesia
-                </span>
+                </span> -->
             </div>
         </div>
     </div>
