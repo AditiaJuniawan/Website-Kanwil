@@ -8,6 +8,8 @@ Route::get('/', [KanwilController::class, 'home']);
 Route::get('/visi', [KanwilController::class, 'visi']);
 Route::get('/profil', [KanwilController::class, 'profil']);
 Route::get('/maskot', [KanwilController::class, 'maskot']);
+Route::get('/berita', [KanwilController::class, 'post']);
+Route::get('/survei', [KanwilController::class, 'survei']);
 
 route::get('/tentang',function(){
     return view('tentang');
@@ -30,12 +32,10 @@ route::get('/LayananPengaduan',function(){
 route::get('/LayananPerizinan',function(){
     return view('LayananIzinPenelitian');
 });
-route::get('/survei',function(){
-    return view('survei');
-});
-route::get('/berita',function(){
-    return view('berita');
-});
+
+// route::get('/berita',function(){
+//     return view('berita');
+// });
 route::get('/login',function(){
     return view('/sesi/index');
 });

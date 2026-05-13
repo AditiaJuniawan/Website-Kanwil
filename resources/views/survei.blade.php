@@ -135,13 +135,21 @@
                             Survei Persepsi Kualitas Pelayanan (SPKP/SKM)
                         </p>
                         <h2 class="text-5xl md:text-[3.5rem] leading-none font-extrabold text-brand-dark mb-2">
-                            3.98/4
+                            {{ $survei->SPKP1 ?? '3.98' }}/4
                         </h2>
                         <h3 class="text-4xl md:text-5xl font-extrabold text-brand-dark mb-4">
-                            99.47/100
+                            {{ $survei->SPKP2 ?? '99.47'}}/100
                         </h3>
                         <p class="text-lg font-bold text-brand-blue">
-                            (Sangat Baik)
+                             @if($survei->SPKP2 >= 90)
+                                (Sangat Baik)
+                            @elseif ($survei->SPKP2 >= 70 && $survei->SPKP2 < 90)
+                                (Baik)
+                            @elseif ($survei->SPKP2 >= 50 && $survei->SPKP2 < 70 )
+                                (Kurang Baik)
+                            @else
+                                (Tidak Baik)
+                            @endif
                         </p>
                     </div>
                 </div>
@@ -159,13 +167,22 @@
                             Survei Persepsi Anti Korupsi (SPAK)
                         </p>
                         <h2 class="text-5xl md:text-[3.5rem] leading-none font-extrabold text-brand-dark mb-2">
-                            3.98/4
+                            {!! $survei->SPAK1 ?? '3.98' !!}/4
                         </h2>
                         <h3 class="text-4xl md:text-5xl font-extrabold text-brand-dark mb-4">
-                            99.42/100
+                            {!! $survei->SPAK2 ?? '99.42' !!}/100
                         </h3>
                         <p class="text-lg font-bold text-brand-blue">
-                            (Sangat Baik)
+                            @if($survei->SPAK2 >= 90)
+                                (Sangat Baik)
+                            @elseif ($survei->SPAK2 >= 70 && $survei->SPAK2 < 90)
+                                (Baik)
+                            @elseif ($survei->SPAK2 >= 50 && $survei->SPAK2 < 70 )
+                                (Kurang Baik)
+                            @else
+                                (Tidak Baik)
+                            @endif
+
                         </p>
                     </div>
                 </div>
@@ -176,7 +193,13 @@
             <div class="mt-14 mb-4 relative z-30">
                 <div class="bg-white/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/50 shadow-sm max-w-sm text-center">
                     <p class="text-xs md:text-sm font-medium text-brand-dark/70">
-                        Survei dilaksanakan pada periode bulan<br>April 2026 dengan jumlah responden<br>sebanyak 31 orang.
+                        Survei dilaksanakan pada periode bulan<br> 
+                        <?php
+                            $date = new Datetime();
+                            $date->modify('-1 month');
+                            echo $date->format('F Y');
+                        ?>
+                        dengan jumlah responden<br>sebanyak 31 orang.
                     </p>
                 </div>
             </div>

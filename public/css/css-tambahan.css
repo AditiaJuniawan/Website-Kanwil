@@ -84,9 +84,23 @@
 .profil-Layanan {
     padding: 80px 20px;
     width: 80%;
+
+}
+.profil-Layanan ol{
+    list-style: disc !important;
+    padding-left: 20px;
+}
+.profil-Padding {
+    padding: 20px 20px;
+    width: 80%;
+
 }
 .profil-Layanan img{
     border-radius: 1%;
+}
+.profil-padding ul{
+    list-style: disc !important;
+    padding-left: 20px;
 }
 .fotokanwil{
     width: 320px;
@@ -101,6 +115,13 @@
 
 /* ------------------------------------title---------------------------- */
 .section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    position: relative;
+}
+.section-titlenone {
     text-align: center;
     font-size: 2rem;
     color: var(--primary-color);

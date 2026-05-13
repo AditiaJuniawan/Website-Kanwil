@@ -54,7 +54,7 @@ class SultanBantenService
         $results = [];
         foreach ($list['data'] as $upt) {
             $id = $upt['id'] ?? null;
-            if ($id && isset($responses[$id]) && $responses[$id]->successful()) {
+            if ($id && isset($responses[$id]) && ($responses[$id] instanceof \Illuminate\Http\Client\Response) && $responses[$id]->successful()) {
                 $json = $responses[$id]->json();
                 if (isset($json['success']) && $json['success'] && isset($json['data']['statistics'])) {
                     $results[] = [

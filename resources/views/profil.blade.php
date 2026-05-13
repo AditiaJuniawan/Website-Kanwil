@@ -14,7 +14,7 @@
         
         @if($leaders->isEmpty())
             {{-- Fallback content if database is empty --}}
-            <div class="fotokanwil">
+            <div class="fotokanwil ">
                 <img src="{{ asset('images/kakanwil.png') }}" alt="">
             </div>
             <h2 class="section-name-profil">Mumammad Ali Syeh Banna,Bc.I.P.,S.Sos.,M.Si</h2>
@@ -47,7 +47,7 @@
             @foreach($leaders as $index => $leader)
                 @if($index == 0)
                     {{-- First leader is the head --}}
-                    <div class="fotokanwil">
+                    <div class="fotokanwil transition-transform group-hover:scale-105">
                         <img src="{{ $leader->image ? asset('storage/' . $leader->image) : asset('images/kakanwil.png') }}" alt="{{ $leader->name }}">
                     </div>
                     <h2 class="section-name-profil">{{ $leader->name }}</h2>

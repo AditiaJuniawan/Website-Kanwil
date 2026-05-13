@@ -18,12 +18,13 @@ class KanwilController extends Controller
         $uptData = $this->sultanService->getFullUptData();
         $statsData = $this->sultanService->getStats();
         $kanwil = \App\Models\Kanwil::first();
+        $posts = \App\Models\Post::orderBy('order')->get();
         
         $totalStats = (isset($statsData['success']) && $statsData['success'] && isset($statsData['data']['statistics']))
             ? $statsData['data']['statistics']
             : null;
 
-        return view('home', compact('uptData', 'totalStats', 'kanwil'));
+        return view('home', compact('uptData', 'totalStats', 'kanwil','posts'));
     }
 
     public function visi()
@@ -42,5 +43,16 @@ class KanwilController extends Controller
     {
         $kanwil = \App\Models\Kanwil::first();
         return view('maskot', compact('kanwil'));
+    }
+
+     public function survei()
+    {
+        $survei = \App\Models\Survei::first();
+        return view('survei', compact('survei'));
+    }
+     public function post()
+    {
+        $posts = \App\Models\Post::orderBy('order')->get();
+        return view('berita', compact('posts'));
     }
 }

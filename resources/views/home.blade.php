@@ -79,7 +79,7 @@
                 <i class="fa-solid fa-bell mr-2 animate-bounce"></i> Berita Terkini
             </div>
             <div class="overflow-hidden w-full ml-3 relative">
-                <marquee class="text-sm font-medium text-slate-600 mt-1">Selamat Datang di Portal Resmi Kanwil Ditjenpas Banten. Kami berkomitmen menghadirkan pelayanan publik yang bersih dari pungutan liar dan korupsi. Gunakan layanan digital kami untuk proses yang lebih transparan.</marquee>
+                <marquee class="text-sm font-medium text-slate-600 mt-1"> {!! $kanwil->description ?? 'deskripsi' !!}</marquee>
             </div>
         </div>
     </div>
@@ -96,38 +96,38 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Layanan 1 -->
-                <a href="{{ url('/LayananPengaduan') }}" class="bg-white rounded-[2rem] p-8 service-card border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://sites.google.com/view/starpasbanten/" class="bg-white rounded-[2rem] p-8 service-card border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-icon-wrap w-16 h-16 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
                         <i class="fa-solid fa-bullhorn"></i>
                     </div>
-                    <h4 class="font-bold text-slate-800 text-lg mb-3">Pengaduan</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Sampaikan keluhan, aspirasi, atau temuan indikasi pelanggaran secara aman dan anonim.</p>
+                    <h4 class="font-bold text-slate-800 text-lg mb-3">STARPAS Banten</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Merupakan Layanan untuk Pengajuan Pengaduan, Pengajuan Informasi serta Pengajuan Perizinan Baik Penelitian, Magang ataupun Kunjungan</p>
                     <div class="text-brand-600 text-sm font-semibold flex items-center group-hover:text-brand-700">
-                        Lapor Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                        Kunjungi Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                     </div>
                 </a>
 
                 <!-- Layanan 2 -->
-                <a href="{{ url('/LayananInformasi') }}" class="bg-white rounded-[2rem] p-8 service-card border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://sipas.ditjenpasbanten.com/" class="bg-white rounded-[2rem] p-8 service-card border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-icon-wrap w-16 h-16 bg-gold-50 text-gold-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-white">
-                        <i class="fa-solid fa-circle-info"></i>
+                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <h4 class="font-bold text-slate-800 text-lg mb-3">Pusat Informasi</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Akses data, dokumen publik, dan informasi terkini seputar kegiatan pemasyarakatan.</p>
+                    <h4 class="font-bold text-slate-800 text-lg mb-3">SIPAS Banten</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Merupakan Layanan Sharin Inovasi Milik Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten</p>
                     <div class="text-brand-600 text-sm font-semibold flex items-center group-hover:text-brand-700">
-                        Cek Informasi <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                        Kunjungi Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                     </div>
                 </a>
 
                 <!-- Layanan 3 -->
-                <a href="{{ url('/LayananPerizinan') }}" class="bg-white rounded-[2rem] p-8 service-card border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="300">
+                <a href="https://ditjenpasbanten.com/dashboard.php" class="bg-white rounded-[2rem] p-8 service-card border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon-wrap w-16 h-16 bg-green-50 text-green-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-green-500 group-hover:text-white">
                         <i class="fa-solid fa-file-signature"></i>
                     </div>
-                    <h4 class="font-bold text-slate-800 text-lg mb-3">Perizinan</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Layanan izin penelitian, magang, dan izin kegiatan khusus lainnya di lingkungan Kanwil.</p>
+                    <h4 class="font-bold text-slate-800 text-lg mb-3">Dashboard Kantor Wilayah</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Merupakan Layanan Dashboard Sistem Update Laporan Terpadu Harian yang ada di Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten </p>
                     <div class="text-brand-600 text-sm font-semibold flex items-center group-hover:text-brand-700">
-                        Ajukan Izin <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                        Kunjungi Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                     </div>
                 </a>
             </div>
@@ -253,65 +253,88 @@
                     <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Kabar Terkini</p>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Berita & Informasi</h2>
                 </div>
-                <a href="/berita" class="hidden md:flex items-center text-brand-600 font-semibold hover:text-brand-800 transition group">
+                <a href="{{ url('/berita') }}" class="hidden md:flex items-center text-brand-600 font-semibold hover:text-brand-800 transition group">
                     Semua Berita <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                 </a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- News Card 1 -->
-                <a href="#" class="group block" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fa-solid fa-image text-4xl text-slate-300"></i>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
-                            Siaran Pers
-                        </div>
-                    </div>
-                    <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
-                        <i class="fa-regular fa-calendar mr-2"></i> 26 Februari 2026
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
-                        Optimalkan Reintegrasi Sosial, Evaluasi Bapas Karangasem
-                    </h3>
-                </a>
+                @if($posts->isEmpty())
+                    {{-- Fallback content if database is empty --}}
+                        <!-- News Card 1 -->
+                            <a href="#" class="group block" data-aos="fade-up" data-aos-delay="100">
+                                <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <i class="fa-solid fa-image text-4xl text-slate-300"></i>
+                                    </div>
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
+                                        Siaran Pers
+                                    </div>
+                                </div>
+                                <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
+                                    <i class="fa-regular fa-calendar mr-2"></i> 26 Februari 2026
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
+                                    Siaran Pers
+                                </h3>
+                            </a>
 
-                <!-- News Card 2 -->
-                <a href="#" class="group block" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fa-solid fa-image text-4xl text-slate-300"></i>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
-                            Kegiatan
-                        </div>
-                    </div>
-                    <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
-                        <i class="fa-regular fa-calendar mr-2"></i> 3 Maret 2026
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
-                        Persembahyangan Purnama, Momentum Penguatan Nilai Spiritual
-                    </h3>
-                </a>
+                            <!-- News Card 2 -->
+                            <a href="#" class="group block" data-aos="fade-up" data-aos-delay="200">
+                                <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <i class="fa-solid fa-image text-4xl text-slate-300"></i>
+                                    </div>
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
+                                        Kegiatan
+                                    </div>
+                                </div>
+                                <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
+                                    <i class="fa-regular fa-calendar mr-2"></i> 3 Maret 2026
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
+                                    Persembahyangan Purnama, Momentum Penguatan Nilai Spiritual
+                                </h3>
+                            </a>
 
-                <!-- News Card 3 -->
-                <a href="#" class="group block" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fa-solid fa-image text-4xl text-slate-300"></i>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
-                            Informasi
-                        </div>
-                    </div>
-                    <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
-                        <i class="fa-regular fa-calendar mr-2"></i> 28 Februari 2026
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
-                        Perkuat Layanan Kesehatan, Tinjau Akreditasi Klinik Rutan
-                    </h3>
-                </a>
+                            <!-- News Card 3 -->
+                            <a href="#" class="group block" data-aos="fade-up" data-aos-delay="300">
+                                <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <i class="fa-solid fa-image text-4xl text-slate-300"></i>
+                                    </div>
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
+                                        Informasi
+                                    </div>
+                                </div>
+                                <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
+                                    <i class="fa-regular fa-calendar mr-2"></i> 28 Februari 2026
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
+                                    Perkuat Layanan Kesehatan, Tinjau Akreditasi Klinik Rutan
+                                </h3>
+                            </a>
+                    @else
+                        <!-- News Card 1 -->
+                        @foreach($posts as $post)
+                            <a href="{!! $post->slug ?? 'tanggal' !!}" class="group block" data-aos="fade-up" data-aos-delay="100">
+                                <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('images/kakanwil.png') }}"  alt="{{ $post->title }}" >
+                                    </div>
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
+                                        Kegiatan
+                                    </div>
+                                </div>
+                                <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
+                                    <i class="fa-regular fa-calendar mr-2"></i> {!! $post->published_at ?? 'tanggal' !!}
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
+                                    {!! nl2br(e($post->title ?? 'isi nya')) !!}
+                                </h3>
+                            </a>
+                        @endforeach
+                    @endif
             </div>
         </div>
     </section>

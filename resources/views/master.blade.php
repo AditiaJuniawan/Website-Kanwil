@@ -57,7 +57,7 @@
                 <!-- Desktop Menu -->
                 <nav class="hidden lg:flex space-x-1 items-center">
                     <a href="/" class="{{ Request::is('/') ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50 hover:text-brand-700' }} px-4 py-2 font-semibold rounded-lg transition">Beranda</a>
-                    <a href="/berita" class="px-4 py-2 text-slate-600 hover:text-brand-700 font-medium rounded-lg hover:bg-slate-50 transition">Berita</a>
+                    <a href="{{ url('/berita') }}" class="px-4 py-2 text-slate-600 hover:text-brand-700 font-medium rounded-lg hover:bg-slate-50 transition">Berita</a>
                     <div class="relative group px-1">
                         <button class="px-4 py-2 text-slate-600 hover:text-brand-700 font-medium flex items-center rounded-lg hover:bg-slate-50 transition">
                             Tentang <i class="fa-solid fa-chevron-down ml-2 text-[10px] opacity-70"></i>
@@ -75,9 +75,12 @@
                             Layanan <i class="fa-solid fa-chevron-down ml-2 text-[10px] opacity-70"></i>
                         </button>
                         <div class="absolute left-0 mt-2 w-56 bg-white border border-slate-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 p-2">
-                            <a href="{{ url('/LayananPengaduan') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Pengaduan</a>
+                            <!-- <a href="{{ url('/LayananPengaduan') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Pengaduan</a>
                             <a href="{{ url('/LayananInformasi') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Informasi</a>
-                            <a href="{{ url('/LayananPerizinan') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Perizinan</a>
+                            <a href="{{ url('/LayananPerizinan') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Perizinan</a> -->
+                            <a href="https://sites.google.com/view/starpasbanten/" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">STARPAS Banten</a>
+                            <a href="https://sipas.ditjenpasbanten.com/" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">SIPAS Banten</a>
+                            <a href="https://ditjenpasbanten.com/dashboard.php" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">Dashboard Kanwil</a>
                         </div>
                     </div>
 
@@ -108,7 +111,7 @@
         <!-- Mobile Menu Panel -->
         <div id="mobile-panel" class="hidden lg:hidden bg-white border-t border-slate-100 shadow-xl p-4 space-y-2">
             <a href="/" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Beranda</a>
-            <a href="/berita" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Berita</a>
+            <a href="{{ url('/profil') }}" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Berita</a>
 
             <div class="space-y-1">
            
