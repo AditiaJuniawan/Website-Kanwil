@@ -14,8 +14,8 @@
         
         @if($leaders->isEmpty())
             {{-- Fallback content if database is empty --}}
-            <div class="fotokanwil ">
-                <img src="{{ asset('images/kakanwil.png') }}" alt="">
+            <div class="fotokanwil" >
+                <img src="{{ asset('images/kakanwil.png') }}" alt="" >
             </div>
             <h2 class="section-name-profil">Mumammad Ali Syeh Banna,Bc.I.P.,S.Sos.,M.Si</h2>
             <h3 class="section-jabatan-profil">Kepala Kantor Wilayah Ditjenpas Banten</h3>

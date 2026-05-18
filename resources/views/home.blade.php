@@ -2,6 +2,12 @@
 
 @section('content')
     <!-- HERO SECTION: Elegant & Animated -->
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
     <section class="hero-gradient text-white pb-20 pt-16 md:pt-24 md:pb-32 relative z-10 rounded-b-[2rem] md:rounded-b-[4rem] shadow-xl" style="background-image: linear-gradient(135deg, rgba(27, 61, 106, 0.85) 0%, rgba(27, 61, 106, 0.6) 100%), url('{{ asset('images/gedung2.png') }}'); background-size: cover; background-position: center;">
         <div class="hero-glow"></div>
         
@@ -16,7 +22,7 @@
                 
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-6 tracking-tight">
                     Transformasi Digital <br class="hidden md:block">
-                    Pemasyarakatan <span class="text-gold-400">Banten</span>
+                    Kantor Wilayah Direktorat Jenderal Pemasyarakatan <span class="text-gold-400">Banten</span>
                 </h2>
                 
                 <p class="text-lg text-brand-100 mb-8 max-w-2xl font-light leading-relaxed">
@@ -179,12 +185,62 @@
                 <!-- Map Area -->
                 <div class="lg:col-span-2 bg-white rounded-[3rem] p-6 md:p-10 shadow-soft border border-slate-100 overflow-hidden relative" data-aos="zoom-in">
                     <div class="relative w-full overflow-hidden rounded-2xl group">
-                        <img src="{{ asset('images/mapbanten.png') }}" class="w-full h-auto transition duration-700 group-hover:scale-105">
-                        
-                        <!-- Pulsating Markers for UPTs (Simulated markers based on coordinates would be better, but we use dynamic info cards) -->
-                        <div class="absolute top-1/4 left-1/3 w-4 h-4 bg-red-500 rounded-full animate-ping opacity-75"></div>
-                        <div class="absolute top-1/2 left-1/2 w-4 h-4 bg-gold-500 rounded-full animate-ping opacity-75"></div>
-                        <div class="absolute bottom-1/3 right-1/4 w-4 h-4 bg-brand-500 rounded-full animate-ping opacity-75"></div>
+                        <div id="map">
+                            <script>
+                                var map = L.map('map').setView([-6.4982, 106.3435], 9);
+                                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                }).addTo(map);
+
+                                L.marker([-6.165046291467, 106.15532961352031]).addTo(map)
+                                    .bindPopup('Lembaga Pemasyarakatan Klas IIA Serang')
+                                    .openPopup();
+
+                                L.marker([-6.113062176461319, 106.15264822391872]).addTo(map)
+                                    .bindPopup('Rumah Tahanan Negara Klas IIB Serang')
+                                    .openPopup();
+
+                                L.marker([-6.184870619669394, 106.64292731456891]).addTo(map)
+                                    .bindPopup('Lembaga Pemasyarakatan Kelas I Tangerang')
+                                    .openPopup();
+
+                                L.marker([-6.0563729906886605, 106.05577514426227]).addTo(map)
+                                    .bindPopup('Lembaga Pemasyarakatan Kelas III Cilegon')
+                                    .openPopup();
+
+                                L.marker([-6.16752462603619, 106.647498060153]).addTo(map)
+                                    .bindPopup('Lembaga Pemasyarakatan Kelas IIA Tangerang')
+                                    .openPopup();
+
+                                L.marker([-6.320145157491542, 106.52379318289553]).addTo(map)
+                                    .bindPopup('Lembaga Pemasyarakatan Kelas IIB Ciangir')
+                                    .openPopup();
+
+                                L.marker([-6.358826775550805, 106.24745669823848]).addTo(map)
+                                    .bindPopup('Lembaga Pemasyarakatan Kelas III Rangkasbitung')
+                                    .openPopup();
+
+                                L.marker([-6.177873328938102, 106.64012473316684]).addTo(map)
+                                    .bindPopup('Lembaga Pemasyarakatan Pemuda Kelas IIA Tangerang')
+                                    .openPopup();
+                                L.marker([-6.190564262423674, 106.63924623077085]).addTo(map)
+                                    .bindPopup('Lembaga Pemasyarakatan Perempuan Kelas IIA Tangerang')
+                                    .openPopup();
+
+                                L.marker([-6.168258809552569, 106.63931170433122]).addTo(map)
+                                    .bindPopup('Lembaga Pembinaan Khusus Anak Kelas I Tangerang')
+                                    .openPopup();
+
+                                L.marker([-6.323806949722216, 106.50107576755292]).addTo(map)
+                                    .bindPopup('Rumah Tahanan Negara Kelas I Tangerang')
+                                    .openPopup();
+                                L.marker([-6.308178352327864, 106.10521021967558]).addTo(map)
+                                    .bindPopup('Rumah Tahanan Negara Kelas IIB Pandeglang')
+                                    .openPopup();
+
+                          
+                            </script>
+                        </div>
                     </div>
                     
                     <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
