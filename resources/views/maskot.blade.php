@@ -135,7 +135,7 @@
                     <div class="reveal-up delay-300 w-full">
                         <div class="bg-white/70 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-white/50 shadow-sm transition-all duration-300 group-hover:shadow-md group-hover:bg-white/90">
                             <p class="text-slate-600 leading-relaxed text-center md:text-justify text-[15px] lg:text-base font-medium">
-                                {{ $kanwil->maskot_kang_description ?? ' "Kang merupakan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Visualisasinya mengadopsi bentuk bidak catur yang melambangkan strategi dan ketetapan langkah, serta dipadukan dengan busana adat Baduy sebagai representasi penghormatan terhadap nilai kearifan lokal Provinsi Banten."' }}
+                                {{ $kanwil?->maskot_kang_description ?? ' "Kang merupakan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Visualisasinya mengadopsi bentuk bidak catur yang melambangkan strategi dan ketetapan langkah, serta dipadukan dengan busana adat Baduy sebagai representasi penghormatan terhadap nilai kearifan lokal Provinsi Banten."' }}
                             </p>
                         </div>
                     </div>
@@ -181,7 +181,7 @@
                     <div class="reveal-up delay-500 w-full">
                         <div class="bg-white/70 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-white/50 shadow-sm transition-all duration-300 group-hover:shadow-md group-hover:bg-white/90">
                             <p class="text-slate-600 leading-relaxed text-center md:text-justify text-[15px] lg:text-base font-medium">
-                                {{ $kanwil->maskot_nong_description ?? ' "Nong merupakan pasangan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Direpresentasikan melalui figur bidak catur yang melambangkan kecerdasan strategi, Nong tampil anggun dengan balutan kerudung bermotif batik Baduy sebagai perwujudan martabat dan keanggunan budaya lokal di lingkungan pemasyarakatan."' }}
+                                {{ $kanwil?->maskot_nong_description ?? ' "Nong merupakan pasangan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Direpresentasikan melalui figur bidak catur yang melambangkan kecerdasan strategi, Nong tampil anggun dengan balutan kerudung bermotif batik Baduy sebagai perwujudan martabat dan keanggunan budaya lokal di lingkungan pemasyarakatan."' }}
                             </p>
                         </div>
                     </div>
@@ -277,7 +277,7 @@
                 </div>
                 <br>
                 <p class="paragraf-tengah">
-                    {{ $kanwil->maskot_kang_description ?? ' "Kang merupakan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Visualisasinya mengadopsi bentuk bidak catur yang melambangkan strategi dan ketetapan langkah, serta dipadukan dengan busana adat Baduy sebagai representasi penghormatan terhadap nilai kearifan lokal Provinsi Banten."' }}
+                    {{ $kanwil?->maskot_kang_description ?? ' "Kang merupakan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Visualisasinya mengadopsi bentuk bidak catur yang melambangkan strategi dan ketetapan langkah, serta dipadukan dengan busana adat Baduy sebagai representasi penghormatan terhadap nilai kearifan lokal Provinsi Banten."' }}
                 </p>
             </div>    
             <div class="card-profil">   
@@ -291,7 +291,7 @@
                 </div>
                 <br>
                 <p class="paragraf-tengah">
-                    {{ $kanwil->maskot_nong_description ?? ' "Nong merupakan pasangan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Direpresentasikan melalui figur bidak catur yang melambangkan kecerdasan strategi, Nong tampil anggun dengan balutan kerudung bermotif batik Baduy sebagai perwujudan martabat dan keanggunan budaya lokal di lingkungan pemasyarakatan."' }}
+                    {{ $kanwil?->maskot_nong_description ?? ' "Nong merupakan pasangan maskot resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan (Ditjenpas) Banten. Direpresentasikan melalui figur bidak catur yang melambangkan kecerdasan strategi, Nong tampil anggun dengan balutan kerudung bermotif batik Baduy sebagai perwujudan martabat dan keanggunan budaya lokal di lingkungan pemasyarakatan."' }}
                 </p>
             </div>
         </div>
