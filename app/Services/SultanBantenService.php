@@ -12,7 +12,7 @@ class SultanBantenService
 
     public function __construct()
     {
-        $this->baseUrl = 'http://ditjenpasbanten.com/api/stats.php';
+        $this->baseUrl = 'https://sultan.ditjenpasbanten.com/api/stats.php';
         $this->apiKey = 'ditjenpas_banten_secret_key_2026';
     }
 
