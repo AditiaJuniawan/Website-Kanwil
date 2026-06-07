@@ -7,6 +7,44 @@ if (($_GET['key'] ?? '') !== 'ditjenpas_secure_2026') {
 
 echo "<h2>Hosting Debugger</h2>";
 
+// Handle symlink action
+if (($_GET['action'] ?? '') === 'link') {
+    $target = __DIR__ . '/../storage/app/public';
+    $shortcut = __DIR__ . '/storage';
+    
+    // Check if target directory exists
+    if (!file_exists($target)) {
+        mkdir($target, 0755, true);
+    }
+
+    if (file_exists($shortcut)) {
+        if (is_link($shortcut)) {
+            unlink($shortcut);
+        } else {
+            rename($shortcut, $shortcut . '_old_' . time());
+        }
+    }
+    
+    if (symlink($target, $shortcut)) {
+        echo "<p style='color:green; font-weight:bold;'>Storage symlink created successfully!</p>";
+    } else {
+        echo "<p style='color:red; font-weight:bold;'>Failed to create storage symlink.</p>";
+    }
+}
+
+echo "<h3>Storage Symlink Check:</h3>";
+$shortcut = __DIR__ . '/storage';
+if (file_exists($shortcut)) {
+    if (is_link($shortcut)) {
+        echo "<p style='color:green;'>/storage exists and is a symlink pointing to: <strong>" . readlink($shortcut) . "</strong></p>";
+    } else {
+        echo "<p style='color:orange;'>/storage exists but is a <strong>PHYSICAL DIRECTORY</strong>. Please rename/remove it to create a symlink.</p>";
+    }
+} else {
+    echo "<p style='color:red;'>/storage symlink does not exist.</p>";
+}
+echo "<p><a href='?key=ditjenpas_secure_2026&action=link' style='display:inline-block; padding:8px 15px; background:#007bff; color:#fff; text-decoration:none; border-radius:4px; font-weight:bold;'>Create / Recreate Symlink</a></p>";
+
 echo "<h3>Laravel Log (Last 50 lines):</h3>";
 $logPath = __DIR__ . '/../storage/logs/laravel.log';
 if (file_exists($logPath)) {
