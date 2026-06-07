@@ -414,8 +414,11 @@
                                             <h6 style="margin: 0 0 8px 0; color: #1b3d6a; font-weight: bold; font-size: 13px;">
                                                 <i class="fas fa-building"></i> ${upt.nama_upt}
                                             </h6>
-                                            <p style="margin: 0 0 5px 0; font-size: 11px; color: #64748b; line-height: 1.4;">
-                                                <i class="fas fa-map-marker-alt text-red-500"></i> ${alamat}
+                                            <p style="margin: 0 0 5px 0; font-size: 11px; line-height: 1.4;">
+                                                <a href="https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}" target="_blank" rel="noopener noreferrer" style="color: #64748b; text-decoration: none; display: inline-flex; align-items: flex-start; gap: 4px; transition: color 0.2s;" onmouseover="this.style.color='#2563eb'; this.style.textDecoration='underline';" onmouseout="this.style.color='#64748b'; this.style.textDecoration='none';">
+                                                    <i class="fas fa-map-marker-alt text-red-500" style="margin-top: 2px;"></i>
+                                                    <span>${alamat}</span>
+                                                </a>
                                             </p>
                                             <hr style="margin: 8px 0; border-color: #e2e8f0;">
                                             <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
