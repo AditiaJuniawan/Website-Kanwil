@@ -27,7 +27,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
-            ->path('admin')
+            ->path('control')
             ->login()
             ->brandLogo(asset('images/logokementerian.png'))
             ->brandLogoHeight('3rem')
