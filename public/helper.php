@@ -7,11 +7,19 @@ if (($_GET['key'] ?? '') !== 'ditjenpas_secure_2026') {
 
 echo "<h2>Hosting Debugger</h2>";
 
+// Handle dynamic paths
+$laravelRoot = __DIR__ . '/laravel';
+if (!file_exists($laravelRoot)) {
+    $laravelRoot = dirname(__DIR__);
+}
+
+$target = $laravelRoot . '/storage/app/public';
+$shortcut = __DIR__ . '/storage';
+$envPath = $laravelRoot . '/.env';
+$logPath = $laravelRoot . '/storage/logs/laravel.log';
+
 // Handle symlink action
 if (($_GET['action'] ?? '') === 'link') {
-    $target = __DIR__ . '/../storage/app/public';
-    $shortcut = __DIR__ . '/storage';
-    
     // Check if target directory exists
     if (!file_exists($target)) {
         mkdir($target, 0755, true);
@@ -33,7 +41,6 @@ if (($_GET['action'] ?? '') === 'link') {
 }
 
 echo "<h3>Storage Symlink Check:</h3>";
-$shortcut = __DIR__ . '/storage';
 if (file_exists($shortcut)) {
     if (is_link($shortcut)) {
         echo "<p style='color:green;'>/storage exists and is a symlink pointing to: <strong>" . readlink($shortcut) . "</strong></p>";
@@ -54,7 +61,6 @@ $parentFiles = scandir(dirname(__DIR__));
 echo "<pre style='background:#f4f4f4; pading:10px; border:1px solid #ccc;'>" . htmlspecialchars(implode("\n", $parentFiles)) . "</pre>";
 
 echo "<h3>Laravel Log (Last 50 lines):</h3>";
-$logPath = __DIR__ . '/../storage/logs/laravel.log';
 if (file_exists($logPath)) {
     $lines = file($logPath);
     $lastLines = array_slice($lines, -50);
@@ -67,7 +73,6 @@ echo "<h3>PHP Version:</h3>";
 echo phpversion();
 
 echo "<h3>Environment Configuration (Passwords masked):</h3>";
-$envPath = __DIR__ . '/../.env';
 if (file_exists($envPath)) {
     $env = file_get_contents($envPath);
     $env = preg_replace('/DB_PASSWORD=.*/', 'DB_PASSWORD=*****', $env);
