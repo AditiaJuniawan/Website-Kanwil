@@ -45,6 +45,14 @@ if (file_exists($shortcut)) {
 }
 echo "<p><a href='?key=ditjenpas_secure_2026&action=link' style='display:inline-block; padding:8px 15px; background:#007bff; color:#fff; text-decoration:none; border-radius:4px; font-weight:bold;'>Create / Recreate Symlink</a></p>";
 
+echo "<h3>Directory Listing of __DIR__ (" . __DIR__ . "):</h3>";
+$files = scandir(__DIR__);
+echo "<pre style='background:#f4f4f4; pading:10px; border:1px solid #ccc;'>" . htmlspecialchars(implode("\n", $files)) . "</pre>";
+
+echo "<h3>Directory Listing of Parent (" . dirname(__DIR__) . "):</h3>";
+$parentFiles = scandir(dirname(__DIR__));
+echo "<pre style='background:#f4f4f4; pading:10px; border:1px solid #ccc;'>" . htmlspecialchars(implode("\n", $parentFiles)) . "</pre>";
+
 echo "<h3>Laravel Log (Last 50 lines):</h3>";
 $logPath = __DIR__ . '/../storage/logs/laravel.log';
 if (file_exists($logPath)) {
