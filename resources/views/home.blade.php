@@ -126,12 +126,12 @@
                 </a>
 
                 <!-- Layanan 3 -->
-                <a href="https://ditjenpasbanten.com/dashboard.php" class="bg-white rounded-[2rem] p-8 service-card border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="300">
+                <a href="https://sultan.ditjenpasbanten.com/dashboard.php" class="bg-white rounded-[2rem] p-8 service-card border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon-wrap w-16 h-16 bg-green-50 text-green-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-green-500 group-hover:text-white">
                         <i class="fa-solid fa-file-signature"></i>
                     </div>
-                    <h4 class="font-bold text-slate-800 text-lg mb-3">Dashboard Kantor Wilayah</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Merupakan Layanan Dashboard Sistem Update Laporan Terpadu Harian yang ada di Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten </p>
+                    <h4 class="font-bold text-slate-800 text-lg mb-3">Sultan Banten</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Merupakan Layanan Sultan Banten (Sistem Update Laporan Terpadu Harian) Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten</p>
                     <div class="text-brand-600 text-sm font-semibold flex items-center group-hover:text-brand-700">
                         Kunjungi Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                     </div>
