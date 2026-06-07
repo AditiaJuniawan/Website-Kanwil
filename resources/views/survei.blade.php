@@ -1,6 +1,12 @@
 @extends('master')
 
 @section('content')
+    @php
+        $spkp1 = $survei?->SPKP1 ?? 3.98;
+        $spkp2 = $survei?->SPKP2 ?? 99.47;
+        $spak1 = $survei?->SPAK1 ?? 3.98;
+        $spak2 = $survei?->SPAK2 ?? 99.42;
+    @endphp
     <script src="https://cdn.tailwindcss.com"></script>
     <section class="hero-sub">
         <div class="container hero-content-sub">
@@ -135,17 +141,17 @@
                             Survei Persepsi Kualitas Pelayanan (SPKP/SKM)
                         </p>
                         <h2 class="text-5xl md:text-[3.5rem] leading-none font-extrabold text-brand-dark mb-2">
-                            {{ $survei->SPKP1 ?? '3.98' }}/4
+                            {{ $spkp1 }}/4
                         </h2>
                         <h3 class="text-4xl md:text-5xl font-extrabold text-brand-dark mb-4">
-                            {{ $survei->SPKP2 ?? '99.47'}}/100
+                            {{ $spkp2 }}/100
                         </h3>
                         <p class="text-lg font-bold text-brand-blue">
-                             @if($survei->SPKP2 >= 90)
+                             @if($spkp2 >= 90)
                                 (Sangat Baik)
-                            @elseif ($survei->SPKP2 >= 70 && $survei->SPKP2 < 90)
+                            @elseif ($spkp2 >= 70 && $spkp2 < 90)
                                 (Baik)
-                            @elseif ($survei->SPKP2 >= 50 && $survei->SPKP2 < 70 )
+                            @elseif ($spkp2 >= 50 && $spkp2 < 70 )
                                 (Kurang Baik)
                             @else
                                 (Tidak Baik)
@@ -167,17 +173,17 @@
                             Survei Persepsi Anti Korupsi (SPAK)
                         </p>
                         <h2 class="text-5xl md:text-[3.5rem] leading-none font-extrabold text-brand-dark mb-2">
-                            {!! $survei->SPAK1 ?? '3.98' !!}/4
+                            {!! $spak1 !!}/4
                         </h2>
                         <h3 class="text-4xl md:text-5xl font-extrabold text-brand-dark mb-4">
-                            {!! $survei->SPAK2 ?? '99.42' !!}/100
+                            {!! $spak2 !!}/100
                         </h3>
                         <p class="text-lg font-bold text-brand-blue">
-                            @if($survei->SPAK2 >= 90)
+                            @if($spak2 >= 90)
                                 (Sangat Baik)
-                            @elseif ($survei->SPAK2 >= 70 && $survei->SPAK2 < 90)
+                            @elseif ($spak2 >= 70 && $spak2 < 90)
                                 (Baik)
-                            @elseif ($survei->SPAK2 >= 50 && $survei->SPAK2 < 70 )
+                            @elseif ($spak2 >= 50 && $spak2 < 70 )
                                 (Kurang Baik)
                             @else
                                 (Tidak Baik)

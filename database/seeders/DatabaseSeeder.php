@@ -34,6 +34,17 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        // Seed default Survei results if table is empty
+        \App\Models\Survei::firstOrCreate(
+            ['id' => 1],
+            [
+                'SPKP1' => 3.98,
+                'SPKP2' => 99.47,
+                'SPAK1' => 3.98,
+                'SPAK2' => 99.42,
+            ]
+        );
+
         // Seed default leaders if table is empty
         \App\Models\Leader::firstOrCreate(
             ['name' => 'Mumammad Ali Syeh Banna,Bc.I.P.,S.Sos.,M.Si'],
