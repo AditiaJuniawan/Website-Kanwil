@@ -76,12 +76,9 @@
                             Layanan <i class="fa-solid fa-chevron-down ml-2 text-[10px] opacity-70"></i>
                         </button>
                         <div class="absolute left-0 mt-2 w-56 bg-white border border-slate-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 p-2">
-                            <!-- <a href="{{ url('/LayananPengaduan') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Pengaduan</a>
-                            <a href="{{ url('/LayananInformasi') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Informasi</a>
-                            <a href="{{ url('/LayananPerizinan') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Perizinan</a> -->
                             <a href="https://sites.google.com/view/starpasbanten/" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">STARPAS Banten</a>
                             <a href="https://sipas.ditjenpasbanten.com/" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">SIPAS Banten</a>
-                            <a href="https://ditjenpasbanten.com/dashboard.php" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">Dashboard Kanwil</a>
+                            <a href="https://sultan.ditjenpasbanten.com/dashboard.php" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">Sultan Banten</a>
                         </div>
                     </div>
 
@@ -125,9 +122,9 @@
             </div>
             <div class="space-y-1">
                 <p class="px-4 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Layanan</p>
-                <a href="{{ url('/LayananPengaduan') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Pengaduan</a>
-                <a href="{{ url('/LayananInformasi') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Informasi</a>
-                <a href="{{ url('/LayananPerizinan') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Perizinan</a>
+                <a href="https://sites.google.com/view/starpasbanten/" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition" target="_blank">STARPAS Banten</a>
+                <a href="https://sipas.ditjenpasbanten.com/" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition" target="_blank">SIPAS Banten</a>
+                <a href="https://sultan.ditjenpasbanten.com/dashboard.php" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition" target="_blank">Sultan Banten</a>
             </div>
             <a href="#kontakkanwil" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Kontak</a>
             <div class="pt-4">
