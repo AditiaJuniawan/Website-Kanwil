@@ -68,22 +68,30 @@ class SultanBantenService
             // Test the database connection
             DB::connection('sultan')->getPdo();
 
-            // Fetch the maximum date from data_penghuni table
-            $maxDate = DB::connection('sultan')
+            // Check if there is any data in data_penghuni table
+            $hasData = DB::connection('sultan')
                 ->table('data_penghuni')
-                ->max('tanggal');
+                ->exists();
 
-            if (!$maxDate) {
+            if (!$hasData) {
                 return false;
             }
 
-            // Query UPT list with statistics and coordinates directly
+            // Subquery to get the latest date for each UPT
+            $maxDatesSubquery = DB::connection('sultan')
+                ->table('data_penghuni')
+                ->select('upt_id', DB::raw('MAX(tanggal) as latest_date'))
+                ->groupBy('upt_id');
+
+            // Query UPT list with statistics and coordinates directly using per-UPT latest date
             $upts = DB::connection('sultan')
                 ->table('upt as u')
-                ->leftJoin('data_penghuni as dp', function ($join) use ($maxDate) {
+                ->leftJoinSub($maxDatesSubquery, 'max_date', function ($join) {
+                    $join->on('u.id', '=', 'max_date.upt_id');
+                })
+                ->leftJoin('data_penghuni as dp', function ($join) {
                     $join->on('u.id', '=', 'dp.upt_id')
-                         ->where('dp.tanggal', '=', $maxDate)
-                         ->whereNotIn('dp.klasifikasi_pidana', ['WNA', 'Sakit Berkepanjangan', 'Lansia >70 tahun']);
+                         ->on('dp.tanggal', '=', 'max_date.latest_date');
                 })
                 ->select([
                     'u.id',
@@ -94,7 +102,7 @@ class SultanBantenService
                     'u.longitude',
                     DB::raw("COALESCE(SUM(CASE WHEN dp.klasifikasi_pidana NOT IN ('WNA', 'Sakit Berkepanjangan', 'Lansia >70 tahun') THEN dp.tahanan_dewasa_laki + dp.tahanan_dewasa_perempuan + dp.tahanan_anak_laki + dp.tahanan_anak_perempuan ELSE 0 END), 0) as tahanan"),
                     DB::raw("COALESCE(SUM(CASE WHEN dp.klasifikasi_pidana NOT IN ('WNA', 'Sakit Berkepanjangan', 'Lansia >70 tahun') THEN dp.narapidana_dewasa_laki + dp.narapidana_dewasa_perempuan + dp.narapidana_anak_laki + dp.narapidana_anak_perempuan ELSE 0 END), 0) as narapidana"),
-                    DB::raw("COALESCE(SUM(dp.tahanan_dewasa_laki + dp.tahanan_dewasa_perempuan + dp.tahanan_anak_laki + dp.tahanan_anak_perempuan + dp.narapidana_dewasa_laki + dp.narapidana_dewasa_perempuan + dp.narapidana_anak_laki + dp.narapidana_anak_perempuan), 0) as isi_penghuni")
+                    DB::raw("COALESCE(SUM(CASE WHEN dp.klasifikasi_pidana NOT IN ('WNA', 'Sakit Berkepanjangan', 'Lansia >70 tahun') THEN dp.tahanan_dewasa_laki + dp.tahanan_dewasa_perempuan + dp.tahanan_anak_laki + dp.tahanan_anak_perempuan + dp.narapidana_dewasa_laki + dp.narapidana_dewasa_perempuan + dp.narapidana_anak_laki + dp.narapidana_anak_perempuan ELSE 0 END), 0) as isi_penghuni")
                 ])
                 ->groupBy('u.id', 'u.nama_upt', 'u.alamat', 'u.kapasitas', 'u.latitude', 'u.longitude')
                 ->orderBy('u.nama_upt')

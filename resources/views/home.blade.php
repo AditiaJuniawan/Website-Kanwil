@@ -468,7 +468,7 @@
                         <p class="text-xl font-extrabold text-slate-800">{{ number_format($totalStats['kapasitas'] ?? 0, 0, ',', '.') }}</p>
                     </div>
                     <div class="bg-red-50 p-4 rounded-2xl border border-red-100">
-                        <p class="text-[10px] text-red-600 font-bold uppercase tracking-wider mb-1">Isi (%)</p>
+                        <p class="text-[10px] text-red-600 font-bold uppercase tracking-wider mb-1">Overkapasitas</p>
                         <p class="text-xl font-extrabold text-red-700">{{ $totalStats['persen_overkapasitas'] ?? 0 }}%</p>
                     </div>
                 </div>
