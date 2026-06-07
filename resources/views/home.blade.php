@@ -181,336 +181,299 @@
                 <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
-                <!-- Map Area -->
-                <div class="lg:col-span-2 bg-white rounded-[3rem] p-6 md:p-10 shadow-soft border border-slate-100 overflow-hidden relative" data-aos="zoom-in">
-                    <style>
-                        .custom-marker {
-                            background: transparent !important;
-                            border: none !important;
-                        }
-                        .leaflet-popup-content-wrapper {
-                            border-radius: 1rem !important;
-                            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
-                            border: 1px solid #e2e8f0 !important;
-                            padding: 4px !important;
-                        }
-                        .leaflet-popup-content {
-                            margin: 8px 12px !important;
-                        }
-                        .leaflet-popup-tip {
-                            background: white !important;
-                            box-shadow: none !important;
-                        }
-                    </style>
+            <div class="w-full bg-white rounded-[3rem] p-6 md:p-10 shadow-soft border border-slate-100 overflow-hidden relative" data-aos="zoom-in">
+                <style>
+                    .custom-marker {
+                        background: transparent !important;
+                        border: none !important;
+                    }
+                    .leaflet-popup-content-wrapper {
+                        border-radius: 1rem !important;
+                        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+                        border: 1px solid #e2e8f0 !important;
+                        padding: 4px !important;
+                    }
+                    .leaflet-popup-content {
+                        margin: 8px 12px !important;
+                    }
+                    .leaflet-popup-tip {
+                        background: white !important;
+                        box-shadow: none !important;
+                    }
+                </style>
 
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-                        <div>
-                            <h3 class="font-bold text-slate-800 text-lg flex items-center">
-                                <i class="fas fa-map-marked-alt mr-2 text-brand-600"></i> Peta Lokasi Unit Pelaksana Teknis
-                            </h3>
-                            <p class="text-xs text-slate-400 mt-1">Klik marker untuk melihat detail kapasitas dan status hunian UPT</p>
-                        </div>
-                        <div class="flex items-center space-x-1.5 bg-slate-100 p-1 rounded-xl" role="group">
-                            <button type="button" class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all text-slate-500 hover:text-slate-800 hover:bg-slate-50" id="btnStreet">Street</button>
-                            <button type="button" class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all text-slate-500 hover:text-slate-800 hover:bg-slate-50" id="btnSatellite">Satellite</button>
-                            <button type="button" class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all bg-white text-slate-800 shadow-sm border-slate-200" id="btnHybrid">Hybrid</button>
-                        </div>
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-lg flex items-center">
+                            <i class="fas fa-map-marked-alt mr-2 text-brand-600"></i> Peta Lokasi Unit Pelaksana Teknis
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-1">Klik marker untuk melihat detail kapasitas dan status hunian UPT</p>
                     </div>
-
-                    <div class="relative w-full overflow-hidden rounded-2xl group">
-                        <div id="map" style="z-index: 1;"></div>
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                // Define Map Layers
-                                const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                });
-
-                                const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                                    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-                                });
-
-                                const hybridLayer = L.layerGroup([
-                                    satelliteLayer,
-                                    L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
-                                        attribution: 'Labels &copy; Esri'
-                                    })
-                                ]);
-
-                                // Initialize Map on #map with Hybrid as default
-                                const map = L.map('map', {
-                                    layers: [hybridLayer]
-                                }).setView([-6.4409, 106.1385], 9);
-
-                                // Map Mode Switcher Logic
-                                const btnStreet = document.getElementById('btnStreet');
-                                const btnSatellite = document.getElementById('btnSatellite');
-                                const btnHybrid = document.getElementById('btnHybrid');
-
-                                function updateActiveMapBtn(activeBtn) {
-                                    [btnStreet, btnSatellite, btnHybrid].forEach(btn => {
-                                        btn.className = 'px-3 py-1.5 text-xs font-semibold rounded-lg transition-all text-slate-500 hover:text-slate-800 hover:bg-slate-50';
-                                    });
-                                    activeBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-lg transition-all bg-white text-slate-800 shadow-sm border-slate-200';
-                                }
-
-                                btnStreet.addEventListener('click', function() {
-                                    map.removeLayer(satelliteLayer);
-                                    map.removeLayer(hybridLayer);
-                                    streetLayer.addTo(map);
-                                    updateActiveMapBtn(this);
-                                });
-
-                                btnSatellite.addEventListener('click', function() {
-                                    map.removeLayer(streetLayer);
-                                    map.removeLayer(hybridLayer);
-                                    satelliteLayer.addTo(map);
-                                    updateActiveMapBtn(this);
-                                });
-
-                                btnHybrid.addEventListener('click', function() {
-                                    map.removeLayer(streetLayer);
-                                    map.removeLayer(satelliteLayer);
-                                    hybridLayer.addTo(map);
-                                    updateActiveMapBtn(this);
-                                });
-
-                                // Banten Province Boundary (simplified GeoJSON)
-                                const bantenBoundary = {
-                                    "type": "Feature",
-                                    "properties": {"name": "Banten"},
-                                    "geometry": {
-                                        "type": "Polygon",
-                                        "coordinates": [[
-                                            [105.1, -5.9], [105.3, -5.85], [105.6, -5.9], [105.8, -6.0],
-                                            [106.0, -6.1], [106.2, -6.2], [106.4, -6.3], [106.6, -6.5],
-                                            [106.8, -6.6], [106.9, -6.7], [107.0, -6.85], [106.95, -7.0],
-                                            [106.8, -7.1], [106.6, -7.05], [106.4, -6.95], [106.2, -6.85],
-                                            [106.0, -6.75], [105.8, -6.6], [105.6, -6.45], [105.4, -6.3],
-                                            [105.2, -6.1], [105.1, -5.9]
-                                        ]]
-                                    }
-                                };
-
-                                // Add boundary layer
-                                L.geoJSON(bantenBoundary, {
-                                    style: {
-                                        color: '#667eea',
-                                        weight: 2,
-                                        opacity: 0.6,
-                                        fillColor: '#667eea',
-                                        fillOpacity: 0.05
-                                    }
-                                }).addTo(map);
-
-                                // Custom marker icon (linear gradient matching the dashboard)
-                                const uptIcon = L.divIcon({
-                                    className: 'custom-marker',
-                                    html: '<div style="background: linear-gradient(135deg, #1b3d6a 0%, #3b82f6 100%); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 2px solid white;"><i class="fas fa-building" style="font-size: 12px;"></i></div>',
-                                    iconSize: [32, 32],
-                                    iconAnchor: [16, 16],
-                                    popupAnchor: [0, -16]
-                                });
-
-                                // Add markers dynamically from PHP $uptData
-                                const uptLocations = @json($uptData);
-                                
-                                const uptDetails = {
-                                    "1": {
-                                        latitude: -6.185508,
-                                        longitude: 106.637717,
-                                        alamat: "Jalan Veteran No.2, RT.03 / RW.11, Babakan, Tangerang, Jl. Veteran II No.27, RT.005/RW.004, Babakan, Kec. Tangerang, Kota Tangerang, Banten 15118"
-                                    },
-                                    "3": {
-                                        latitude: -6.178012,
-                                        longitude: 106.637164,
-                                        alamat: "RT.001/RW.012, Buaran Indah, Kec. Tangerang, Kota Tangerang, Banten 15119"
-                                    },
-                                    "4": {
-                                        latitude: -6.1676953,
-                                        longitude: 106.6446013,
-                                        alamat: "Jl. Daan Mogot Km-23 No.28C, RT.005/RW.013, Tanah Tinggi, Kec. Tangerang, Kota Tangerang, Banten 15000"
-                                    },
-                                    "5": {
-                                        latitude: -6.1906176,
-                                        longitude: 106.6358023,
-                                        alamat: "Jl. Mochammad Yamin No.1, RT.001/RW.004, Babakan, Kec. Tangerang, Kota Tangerang, Banten 15118"
-                                    },
-                                    "6": {
-                                        latitude: -6.1660207,
-                                        longitude: 106.1519884,
-                                        alamat: "Jalan Raya Pandeglang KM. 6,5 Cipocok Jaya, Karundang, Kec. Serang, Kota Serang, Banten 42125"
-                                    },
-                                    "7": {
-                                        latitude: -6.168182,
-                                        longitude: 106.639025,
-                                        alamat: "Jl. Daan Mogot No.29 C, RT.001/RW.001, Sukaasih, Kec. Tangerang, Kota Tangerang, Banten 15111"
-                                    },
-                                    "8": {
-                                        latitude: -6.35870948,
-                                        longitude: 106.2468988,
-                                        alamat: "Jl. Multatuli No.12, Muara Ciujung Bar., Kec. Rangkasbitung, Kabupaten Lebak, Banten 42312"
-                                    },
-                                    "9": {
-                                        latitude: -6.32011317,
-                                        longitude: 106.52308508,
-                                        alamat: "Jl. Raya Ciangir, Ciangir, Kec. Legok, Kabupaten Tangerang, Banten 15820"
-                                    },
-                                    "10": {
-                                        latitude: -6.05630898,
-                                        longitude: 106.05491684,
-                                        alamat: "W3V3+9XP, Jl. Cikerai, Kalitimbang, Kec. Cibeber, Kota Cilegon, Banten 42426"
-                                    },
-                                    "11": {
-                                        latitude: -6.3238496,
-                                        longitude: 106.50041058,
-                                        alamat: "Jl. Pacing Raya Ds. Taban Kc. Jambe, Tigaraksa, Taban, Kec. Jambe, Kabupaten Tangerang, Banten 15720"
-                                    },
-                                    "12": {
-                                        latitude: -6.11297683,
-                                        longitude: 106.15262677,
-                                        alamat: "Jl. Mayor syafei No.118, Kotabaru, Kec. Serang, Kota Serang, Banten 42112"
-                                    },
-                                    "13": {
-                                        latitude: -6.30823167,
-                                        longitude: 106.1047918,
-                                        alamat: "Jl. Masjid Agung, Pandeglang, Kec. Pandeglang, Kabupaten Pandeglang, Banten 42211"
-                                    }
-                                };
-
-                                const markers = [];
-
-                                function formatNumber(num) {
-                                    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                                }
-
-                                uptLocations.forEach(upt => {
-                                    const details = uptDetails[upt.id];
-                                    
-                                    // Prefer database coordinates/address if returned, otherwise fallback to static mapping
-                                    const latitude = parseFloat(upt.latitude) || (details ? details.latitude : null);
-                                    const longitude = parseFloat(upt.longitude) || (details ? details.longitude : null);
-                                    const alamat = upt.alamat || (details ? details.alamat : 'Alamat tidak tersedia');
-
-                                    if (!latitude || !longitude) return;
-
-                                    const totalPenghuni = parseInt(upt.isi_penghuni) || 0;
-                                    const kapasitas = parseInt(upt.kapasitas) || 0;
-                                    const persen = kapasitas > 0 ? Math.round(((totalPenghuni - kapasitas) / kapasitas) * 100) : 0;
-                                    const persenText = persen > 0 ? '+' + persen + '%' : persen + '%';
-                                    
-                                    // Determine color based on capacity percentage (new formula)
-                                    let statusColor = '#22c55e'; // green (masih longgar)
-                                    let statusText = 'Masih Longgar';
-                                    if (persen > 100) { statusColor = '#b71c1c'; statusText = 'Sangat Over'; }
-                                    else if (persen > 20) { statusColor = '#ef4444'; statusText = 'Over Kapasitas'; }
-                                    else if (persen > 0) { statusColor = '#ff9800'; statusText = 'Sedikit Over'; }
-                                    else if (persen === 0) { statusColor = '#eab308'; statusText = 'Pas Penuh'; }
-                                    else if (persen > -25) { statusColor = '#06b6d4'; statusText = 'Hampir Penuh'; }
-
-                                    const marker = L.marker([latitude, longitude], { icon: uptIcon })
-                                        .addTo(map)
-                                        .bindPopup(`
-                                            <div style="min-width: 220px; font-family: 'Plus Jakarta Sans', sans-serif;">
-                                                <h6 style="margin: 0 0 8px 0; color: #1b3d6a; font-weight: bold; font-size: 13px;">
-                                                    <i class="fas fa-building"></i> ${upt.nama_upt}
-                                                </h6>
-                                                <p style="margin: 0 0 5px 0; font-size: 11px; color: #64748b; line-height: 1.4;">
-                                                    <i class="fas fa-map-marker-alt text-red-500"></i> ${alamat}
-                                                </p>
-                                                <hr style="margin: 8px 0; border-color: #e2e8f0;">
-                                                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                                    <span style="font-size: 11px; color: #475569;"><i class="fas fa-bed text-sky-500"></i> Kapasitas:</span>
-                                                    <strong style="font-size: 11px; color: #1e293b;">${formatNumber(kapasitas)}</strong>
-                                                </div>
-                                                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                                    <span style="font-size: 11px; color: #475569;"><i class="fas fa-users text-indigo-500"></i> Penghuni:</span>
-                                                    <strong style="font-size: 11px; color: #1e293b;">${formatNumber(totalPenghuni)}</strong>
-                                                </div>
-                                                <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                                    <span style="font-size: 11px; color: #475569;"><i class="fas fa-user-lock text-emerald-500"></i> Tahanan / Napi:</span>
-                                                    <strong style="font-size: 11px; color: #1e293b;">${formatNumber(upt.tahanan)} / ${formatNumber(upt.narapidana)}</strong>
-                                                </div>
-                                                <div style="display: flex; justify-content: space-between;">
-                                                    <span style="font-size: 11px; color: #475569;"><i class="fas fa-percentage" style="color:${statusColor}"></i> Status:</span>
-                                                    <strong style="font-size: 11px; color: ${statusColor};">${persenText} (${statusText})</strong>
-                                                </div>
-                                            </div>
-                                        `);
-                                    markers.push(marker);
-                                });
-
-                                // Fit bounds to show all markers if there are any
-                                if (markers.length > 0) {
-                                    const group = L.featureGroup(markers);
-                                    map.fitBounds(group.getBounds().pad(0.1));
-                                }
-
-                                // Fix map display issue when in hidden container
-                                setTimeout(() => {
-                                    map.invalidateSize();
-                                }, 500);
-                            });
-                        </script>
-                    </div>
-
-                    
-                    <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="bg-brand-50 p-4 rounded-2xl border border-brand-100">
-                            <p class="text-[10px] text-brand-600 font-bold uppercase tracking-wider mb-1">Total Tahanan</p>
-                            <p class="text-xl font-extrabold text-brand-900">{{ number_format($totalStats['tahanan'] ?? 0, 0, ',', '.') }}</p>
-                        </div>
-                        <div class="bg-gold-50 p-4 rounded-2xl border border-gold-100">
-                            <p class="text-[10px] text-gold-600 font-bold uppercase tracking-wider mb-1">Total Narapidana</p>
-                            <p class="text-xl font-extrabold text-gold-700">{{ number_format($totalStats['narapidana'] ?? 0, 0, ',', '.') }}</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Kapasitas</p>
-                            <p class="text-xl font-extrabold text-slate-800">{{ number_format($totalStats['kapasitas'] ?? 0, 0, ',', '.') }}</p>
-                        </div>
-                        <div class="bg-red-50 p-4 rounded-2xl border border-red-100">
-                            <p class="text-[10px] text-red-600 font-bold uppercase tracking-wider mb-1">Isi (%)</p>
-                            <p class="text-xl font-extrabold text-red-700">{{ $totalStats['persen_overkapasitas'] ?? 0 }}%</p>
-                        </div>
+                    <div class="flex items-center space-x-1.5 bg-slate-100 p-1 rounded-xl" role="group">
+                        <button type="button" class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all text-slate-500 hover:text-slate-800 hover:bg-slate-50" id="btnStreet">Street</button>
+                        <button type="button" class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all text-slate-500 hover:text-slate-800 hover:bg-slate-50" id="btnSatellite">Satellite</button>
+                        <button type="button" class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all bg-white text-slate-800 shadow-sm border-slate-200" id="btnHybrid">Hybrid</button>
                     </div>
                 </div>
 
-                <!-- Info List Area (UPT Data from API) -->
-                <div class="space-y-4 max-h-[600px] overflow-y-auto pr-4 custom-scrollbar" data-aos="fade-left">
-                    <h3 class="font-bold text-slate-800 mb-6 flex items-center">
-                        <i class="fa-solid fa-list-check mr-3 text-brand-500"></i> Data UPT Terbaru
-                    </h3>
-                    
-                    @forelse($uptData as $upt)
-                        @if(is_array($upt) && isset($upt['nama_upt']))
-                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-brand-200 transition group">
-                            <div class="flex justify-between items-start mb-3">
-                                <h4 class="text-sm font-bold text-slate-800 leading-tight group-hover:text-brand-600">{{ $upt['nama_upt'] ?? 'UPT' }}</h4>
-                                <span class="bg-brand-50 text-brand-600 text-[10px] font-bold px-2 py-1 rounded-md">{{ $upt['isi_penghuni'] ?? 0 }} / {{ $upt['kapasitas'] ?? 0 }}</span>
-                            </div>
-                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mb-2">
-                                @php
-                                    $isi = $upt['isi_penghuni'] ?? 0;
-                                    $kap = $upt['kapasitas'] ?? 0;
-                                    $percentage = $kap > 0 ? ($isi / $kap) * 100 : 0;
-                                    $barColor = $percentage > 100 ? 'bg-red-500' : 'bg-brand-500';
-                                @endphp
-                                <div class="{{ $barColor }} h-full" style="width: {{ min($percentage, 100) }}%"></div>
-                            </div>
-                            <div class="flex justify-between text-[10px] text-slate-400 font-medium">
-                                <span>Tahanan: {{ $upt['tahanan'] ?? 0 }}</span>
-                                <span>Napi: {{ $upt['narapidana'] ?? 0 }}</span>
-                            </div>
-                        </div>
-                        @endif
-                    @empty
-                        <div class="text-center py-10 bg-white rounded-2xl border border-dashed border-slate-200">
-                            <p class="text-slate-400 text-sm">Gagal memuat data UPT</p>
-                        </div>
-                    @endforelse
+                <div class="relative w-full overflow-hidden rounded-2xl group">
+                    <div id="map" style="height: 500px; z-index: 1;"></div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            // Define Map Layers
+                            const streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            });
+
+                            const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                                attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                            });
+
+                            const hybridLayer = L.layerGroup([
+                                satelliteLayer,
+                                L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+                                    attribution: 'Labels &copy; Esri'
+                                })
+                            ]);
+
+                            // Initialize Map on #map with Hybrid as default
+                            const map = L.map('map', {
+                                layers: [hybridLayer]
+                            }).setView([-6.4409, 106.1385], 9);
+
+                            // Map Mode Switcher Logic
+                            const btnStreet = document.getElementById('btnStreet');
+                            const btnSatellite = document.getElementById('btnSatellite');
+                            const btnHybrid = document.getElementById('btnHybrid');
+
+                            function updateActiveMapBtn(activeBtn) {
+                                [btnStreet, btnSatellite, btnHybrid].forEach(btn => {
+                                    btn.className = 'px-3 py-1.5 text-xs font-semibold rounded-lg transition-all text-slate-500 hover:text-slate-800 hover:bg-slate-50';
+                                });
+                                activeBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-lg transition-all bg-white text-slate-800 shadow-sm border-slate-200';
+                            }
+
+                            btnStreet.addEventListener('click', function() {
+                                map.removeLayer(satelliteLayer);
+                                map.removeLayer(hybridLayer);
+                                streetLayer.addTo(map);
+                                updateActiveMapBtn(this);
+                            });
+
+                            btnSatellite.addEventListener('click', function() {
+                                map.removeLayer(streetLayer);
+                                map.removeLayer(hybridLayer);
+                                satelliteLayer.addTo(map);
+                                updateActiveMapBtn(this);
+                            });
+
+                            btnHybrid.addEventListener('click', function() {
+                                map.removeLayer(streetLayer);
+                                map.removeLayer(satelliteLayer);
+                                hybridLayer.addTo(map);
+                                updateActiveMapBtn(this);
+                            });
+
+                            // Banten Province Boundary (simplified GeoJSON)
+                            const bantenBoundary = {
+                                "type": "Feature",
+                                "properties": {"name": "Banten"},
+                                "geometry": {
+                                    "type": "Polygon",
+                                    "coordinates": [[
+                                        [105.1, -5.9], [105.3, -5.85], [105.6, -5.9], [105.8, -6.0],
+                                        [106.0, -6.1], [106.2, -6.2], [106.4, -6.3], [106.6, -6.5],
+                                        [106.8, -6.6], [106.9, -6.7], [107.0, -6.85], [106.95, -7.0],
+                                        [106.8, -7.1], [106.6, -7.05], [106.4, -6.95], [106.2, -6.85],
+                                        [106.0, -6.75], [105.8, -6.6], [105.6, -6.45], [105.4, -6.3],
+                                        [105.2, -6.1], [105.1, -5.9]
+                                    ]]
+                                }
+                            };
+
+                            // Add boundary layer
+                            L.geoJSON(bantenBoundary, {
+                                style: {
+                                    color: '#667eea',
+                                    weight: 2,
+                                    opacity: 0.6,
+                                    fillColor: '#667eea',
+                                    fillOpacity: 0.05
+                                }
+                            }).addTo(map);
+
+                            // Custom marker icon (linear gradient matching the dashboard)
+                            const uptIcon = L.divIcon({
+                                className: 'custom-marker',
+                                html: '<div style="background: linear-gradient(135deg, #1b3d6a 0%, #3b82f6 100%); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 2px solid white;"><i class="fas fa-building" style="font-size: 12px;"></i></div>',
+                                iconSize: [32, 32],
+                                iconAnchor: [16, 16],
+                                popupAnchor: [0, -16]
+                            });
+
+                            // Add markers dynamically from PHP $uptData
+                            const uptLocations = @json($uptData);
+                            
+                            const uptDetails = {
+                                "1": {
+                                    latitude: -6.185508,
+                                    longitude: 106.637717,
+                                    alamat: "Jalan Veteran No.2, RT.03 / RW.11, Babakan, Tangerang, Jl. Veteran II No.27, RT.005/RW.004, Babakan, Kec. Tangerang, Kota Tangerang, Banten 15118"
+                                },
+                                "3": {
+                                    latitude: -6.178012,
+                                    longitude: 106.637164,
+                                    alamat: "RT.001/RW.012, Buaran Indah, Kec. Tangerang, Kota Tangerang, Banten 15119"
+                                },
+                                "4": {
+                                    latitude: -6.1676953,
+                                    longitude: 106.6446013,
+                                    alamat: "Jl. Daan Mogot Km-23 No.28C, RT.005/RW.013, Tanah Tinggi, Kec. Tangerang, Kota Tangerang, Banten 15000"
+                                },
+                                "5": {
+                                    latitude: -6.1906176,
+                                    longitude: 106.6358023,
+                                    alamat: "Jl. Mochammad Yamin No.1, RT.001/RW.004, Babakan, Kec. Tangerang, Kota Tangerang, Banten 15118"
+                                },
+                                "6": {
+                                    latitude: -6.1660207,
+                                    longitude: 106.1519884,
+                                    alamat: "Jalan Raya Pandeglang KM. 6,5 Cipocok Jaya, Karundang, Kec. Serang, Kota Serang, Banten 42125"
+                                },
+                                "7": {
+                                    latitude: -6.168182,
+                                    longitude: 106.639025,
+                                    alamat: "Jl. Daan Mogot No.29 C, RT.001/RW.001, Sukaasih, Kec. Tangerang, Kota Tangerang, Banten 15111"
+                                },
+                                "8": {
+                                    latitude: -6.35870948,
+                                    longitude: 106.2468988,
+                                    alamat: "Jl. Multatuli No.12, Muara Ciujung Bar., Kec. Rangkasbitung, Kabupaten Lebak, Banten 42312"
+                                },
+                                "9": {
+                                    latitude: -6.32011317,
+                                    longitude: 106.52308508,
+                                    alamat: "Jl. Raya Ciangir, Ciangir, Kec. Legok, Kabupaten Tangerang, Banten 15820"
+                                },
+                                "10": {
+                                    latitude: -6.05630898,
+                                    longitude: 106.05491684,
+                                    alamat: "W3V3+9XP, Jl. Cikerai, Kalitimbang, Kec. Cibeber, Kota Cilegon, Banten 42426"
+                                },
+                                "11": {
+                                    latitude: -6.3238496,
+                                    longitude: 106.50041058,
+                                    alamat: "Jl. Pacing Raya Ds. Taban Kc. Jambe, Tigaraksa, Taban, Kec. Jambe, Kabupaten Tangerang, Banten 15720"
+                                },
+                                "12": {
+                                    latitude: -6.11297683,
+                                    longitude: 106.15262677,
+                                    alamat: "Jl. Mayor syafei No.118, Kotabaru, Kec. Serang, Kota Serang, Banten 42112"
+                                },
+                                "13": {
+                                    latitude: -6.30823167,
+                                    longitude: 106.1047918,
+                                    alamat: "Jl. Masjid Agung, Pandeglang, Kec. Pandeglang, Kabupaten Pandeglang, Banten 42211"
+                                }
+                            };
+
+                            const markers = [];
+
+                            function formatNumber(num) {
+                                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                            }
+
+                            uptLocations.forEach(upt => {
+                                const details = uptDetails[upt.id];
+                                
+                                // Prefer database coordinates/address if returned, otherwise fallback to static mapping
+                                const latitude = parseFloat(upt.latitude) || (details ? details.latitude : null);
+                                const longitude = parseFloat(upt.longitude) || (details ? details.longitude : null);
+                                const alamat = upt.alamat || (details ? details.alamat : 'Alamat tidak tersedia');
+
+                                if (!latitude || !longitude) return;
+
+                                const totalPenghuni = parseInt(upt.isi_penghuni) || 0;
+                                const kapasitas = parseInt(upt.kapasitas) || 0;
+                                const persen = kapasitas > 0 ? Math.round(((totalPenghuni - kapasitas) / kapasitas) * 100) : 0;
+                                const persenText = persen > 0 ? '+' + persen + '%' : persen + '%';
+                                
+                                // Determine color based on capacity percentage (new formula)
+                                let statusColor = '#22c55e'; // green (masih longgar)
+                                let statusText = 'Masih Longgar';
+                                if (persen > 100) { statusColor = '#b71c1c'; statusText = 'Sangat Over'; }
+                                else if (persen > 20) { statusColor = '#ef4444'; statusText = 'Over Kapasitas'; }
+                                else if (persen > 0) { statusColor = '#ff9800'; statusText = 'Sedikit Over'; }
+                                else if (persen === 0) { statusColor = '#eab308'; statusText = 'Pas Penuh'; }
+                                else if (persen > -25) { statusColor = '#06b6d4'; statusText = 'Hampir Penuh'; }
+
+                                const marker = L.marker([latitude, longitude], { icon: uptIcon })
+                                    .addTo(map)
+                                    .bindPopup(`
+                                        <div style="min-width: 220px; font-family: 'Plus Jakarta Sans', sans-serif;">
+                                            <h6 style="margin: 0 0 8px 0; color: #1b3d6a; font-weight: bold; font-size: 13px;">
+                                                <i class="fas fa-building"></i> ${upt.nama_upt}
+                                            </h6>
+                                            <p style="margin: 0 0 5px 0; font-size: 11px; color: #64748b; line-height: 1.4;">
+                                                <i class="fas fa-map-marker-alt text-red-500"></i> ${alamat}
+                                            </p>
+                                            <hr style="margin: 8px 0; border-color: #e2e8f0;">
+                                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                                <span style="font-size: 11px; color: #475569;"><i class="fas fa-bed text-sky-500"></i> Kapasitas:</span>
+                                                <strong style="font-size: 11px; color: #1e293b;">${formatNumber(kapasitas)}</strong>
+                                            </div>
+                                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                                <span style="font-size: 11px; color: #475569;"><i class="fas fa-users text-indigo-500"></i> Penghuni:</span>
+                                                <strong style="font-size: 11px; color: #1e293b;">${formatNumber(totalPenghuni)}</strong>
+                                            </div>
+                                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                                <span style="font-size: 11px; color: #475569;"><i class="fas fa-user-lock text-emerald-500"></i> Tahanan / Napi:</span>
+                                                <strong style="font-size: 11px; color: #1e293b;">${formatNumber(upt.tahanan)} / ${formatNumber(upt.narapidana)}</strong>
+                                            </div>
+                                            <div style="display: flex; justify-content: space-between;">
+                                                <span style="font-size: 11px; color: #475569;"><i class="fas fa-percentage" style="color:${statusColor}"></i> Status:</span>
+                                                <strong style="font-size: 11px; color: ${statusColor};">${persenText} (${statusText})</strong>
+                                            </div>
+                                        </div>
+                                    `);
+                                markers.push(marker);
+                            });
+
+                            // Fit bounds to show all markers if there are any
+                            if (markers.length > 0) {
+                                const group = L.featureGroup(markers);
+                                map.fitBounds(group.getBounds().pad(0.1));
+                            }
+
+                            // Fix map display issue when in hidden container
+                            setTimeout(() => {
+                                map.invalidateSize();
+                            }, 500);
+                        });
+                    </script>
+                </div>
+
+                
+                <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-brand-50 p-4 rounded-2xl border border-brand-100">
+                        <p class="text-[10px] text-brand-600 font-bold uppercase tracking-wider mb-1">Total Tahanan</p>
+                        <p class="text-xl font-extrabold text-brand-900">{{ number_format($totalStats['tahanan'] ?? 0, 0, ',', '.') }}</p>
+                    </div>
+                    <div class="bg-gold-50 p-4 rounded-2xl border border-gold-100">
+                        <p class="text-[10px] text-gold-600 font-bold uppercase tracking-wider mb-1">Total Narapidana</p>
+                        <p class="text-xl font-extrabold text-gold-700">{{ number_format($totalStats['narapidana'] ?? 0, 0, ',', '.') }}</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Kapasitas</p>
+                        <p class="text-xl font-extrabold text-slate-800">{{ number_format($totalStats['kapasitas'] ?? 0, 0, ',', '.') }}</p>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-2xl border border-red-100">
+                        <p class="text-[10px] text-red-600 font-bold uppercase tracking-wider mb-1">Isi (%)</p>
+                        <p class="text-xl font-extrabold text-red-700">{{ $totalStats['persen_overkapasitas'] ?? 0 }}%</p>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
