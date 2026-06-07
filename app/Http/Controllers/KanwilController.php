@@ -18,7 +18,7 @@ class KanwilController extends Controller
         $uptData = $this->sultanService->getFullUptData();
         $statsData = $this->sultanService->getStats();
         $kanwil = \App\Models\Kanwil::first();
-        $posts = \App\Models\Post::orderBy('order')->get();
+        $posts = \App\Models\Post::orderBy('published_at', 'desc')->get();
         
         $totalStats = (isset($statsData['success']) && $statsData['success'] && isset($statsData['data']['statistics']))
             ? $statsData['data']['statistics']
@@ -52,7 +52,7 @@ class KanwilController extends Controller
     }
      public function post()
     {
-        $posts = \App\Models\Post::orderBy('order')->get();
+        $posts = \App\Models\Post::orderBy('published_at', 'desc')->get();
         return view('berita', compact('posts'));
     }
 }
