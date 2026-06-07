@@ -85,7 +85,7 @@
                 <i class="fa-solid fa-bell mr-2 animate-bounce"></i> Berita Terkini
             </div>
             <div class="overflow-hidden w-full ml-3 relative">
-                <marquee class="text-sm font-medium text-slate-600 mt-1"> {!! $kanwil?->description ?? 'deskripsi' !!}</marquee>
+                <marquee class="text-sm font-medium text-slate-600 mt-1">{!! $kanwil?->running_text ?? $kanwil?->description ?? 'Selamat Datang di Website Resmi Kantor Wilayah Kementerian Hukum dan HAM Banten' !!}</marquee>
             </div>
         </div>
     </div>

@@ -32,6 +32,10 @@ class KanwilResource extends Resource
                         Forms\Components\Textarea::make('description')
                             ->label('Deskripsi Singkat')
                             ->columnSpanFull(),
+                        Forms\Components\Textarea::make('running_text')
+                            ->label('Running Text Berita Terkini')
+                            ->rows(3)
+                            ->columnSpanFull(),
                         Forms\Components\RichEditor::make('history')
                             ->label('Sejarah')
                             ->columnSpanFull(),
