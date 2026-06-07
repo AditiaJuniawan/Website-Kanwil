@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SurveiResource\Pages;
 use App\Filament\Resources\SurveiResource\RelationManagers;
-use App\Models\survei;
+use App\Models\Survei;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
