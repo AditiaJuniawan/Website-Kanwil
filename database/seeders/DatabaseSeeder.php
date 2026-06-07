@@ -45,6 +45,37 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        // Seed default Posts if table is empty
+        \App\Models\Post::firstOrCreate(
+            ['slug' => 'siaran-pers'],
+            [
+                'title' => 'Siaran Pers',
+                'content' => 'Materi siaran pers Kantor Wilayah Kementerian Hukum dan HAM Banten.',
+                'image' => null,
+                'published_at' => '2026-02-26 00:00:00',
+            ]
+        );
+
+        \App\Models\Post::firstOrCreate(
+            ['slug' => 'persembahyangan-purnama'],
+            [
+                'title' => 'Persembahyangan Purnama, Momentum Penguatan Nilai Spiritual',
+                'content' => 'Kegiatan persembahyangan bersama dalam rangka meningkatkan spiritualitas jajaran pemasyarakatan.',
+                'image' => null,
+                'published_at' => '2026-03-03 00:00:00',
+            ]
+        );
+
+        \App\Models\Post::firstOrCreate(
+            ['slug' => 'perkuat-layanan-kesehatan'],
+            [
+                'title' => 'Perkuat Layanan Kesehatan, Tinjau Akreditasi Klinik Rutan',
+                'content' => 'Peninjauan langsung proses akreditasi klinik guna memastikan pelayanan kesehatan WBP berjalan optimal.',
+                'image' => null,
+                'published_at' => '2026-02-28 00:00:00',
+            ]
+        );
+
         // Seed default leaders if table is empty
         \App\Models\Leader::firstOrCreate(
             ['name' => 'Mumammad Ali Syeh Banna,Bc.I.P.,S.Sos.,M.Si'],
