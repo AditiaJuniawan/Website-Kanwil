@@ -69,6 +69,31 @@ if (file_exists($logPath)) {
     echo "Log file not found at " . $logPath;
 }
 
+echo "<h3>Database Kanwil Records:</h3>";
+try {
+    if (file_exists($laravelRoot . '/vendor/autoload.php')) {
+        require_once $laravelRoot . '/vendor/autoload.php';
+        $app = require_once $laravelRoot . '/bootstrap/app.php';
+        $kernel = $app->make(\Illuminate\Contracts\Console\Kernel::class);
+        $kernel->bootstrap();
+        
+        $kanwils = \App\Models\Kanwil::all();
+        echo "<p>Total records in <code>kanwils</code> table: <strong>" . $kanwils->count() . "</strong></p>";
+        foreach ($kanwils as $k) {
+            echo "<pre style='background:#f4f4f4; padding:10px; border:1px solid #ccc;'>";
+            echo "ID: " . $k->id . "\n";
+            echo "Vision: " . htmlspecialchars($k->vision) . "\n";
+            echo "Mission: " . htmlspecialchars($k->mission) . "\n";
+            echo "Updated At: " . $k->updated_at . "\n";
+            echo "</pre>";
+        }
+    } else {
+        echo "Autoload file not found to query database.";
+    }
+} catch (\Exception $e) {
+    echo "<p style='color:red;'>Error querying database: " . $e->getMessage() . "</p>";
+}
+
 echo "<h3>PHP Version:</h3>";
 echo phpversion();
 
