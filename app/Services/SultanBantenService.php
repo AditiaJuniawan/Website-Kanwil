@@ -4,11 +4,14 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class SultanBantenService
 {
     protected string $baseUrl;
     protected string $apiKey;
+    protected ?array $cachedDbData = null;
+    protected bool $dbLoaded = false;
 
     public function __construct()
     {
@@ -18,6 +21,10 @@ class SultanBantenService
 
     public function getStats(int $uptId = null)
     {
+        if ($uptId === null && $this->loadFromDb()) {
+            return $this->cachedDbData['stats'];
+        }
+
         return $this->request('stats', ['upt_id' => $uptId]);
     }
 
@@ -37,6 +44,98 @@ class SultanBantenService
     }
 
     public function getFullUptData()
+    {
+        if ($this->loadFromDb()) {
+            return $this->cachedDbData['uptData'];
+        }
+
+        return $this->getFullUptDataFromApi();
+    }
+
+    protected function loadFromDb(): bool
+    {
+        if ($this->dbLoaded) {
+            return $this->cachedDbData !== null;
+        }
+
+        $this->dbLoaded = true;
+
+        try {
+            if (!env('DB_SULTAN_DATABASE')) {
+                return false;
+            }
+
+            // Test the database connection
+            DB::connection('sultan')->getPdo();
+
+            // Fetch the maximum date from data_penghuni table
+            $maxDate = DB::connection('sultan')
+                ->table('data_penghuni')
+                ->max('tanggal');
+
+            if (!$maxDate) {
+                return false;
+            }
+
+            // Query UPT list with statistics and coordinates directly
+            $upts = DB::connection('sultan')
+                ->table('upt as u')
+                ->leftJoin('data_penghuni as dp', function ($join) use ($maxDate) {
+                    $join->on('u.id', '=', 'dp.upt_id')
+                         ->where('dp.tanggal', '=', $maxDate)
+                         ->whereNotIn('dp.klasifikasi_pidana', ['WNA', 'Sakit Berkepanjangan', 'Lansia >70 tahun']);
+                })
+                ->select([
+                    'u.id',
+                    'u.nama_upt',
+                    'u.alamat',
+                    'u.kapasitas',
+                    'u.latitude',
+                    'u.longitude',
+                    DB::raw("COALESCE(SUM(CASE WHEN dp.klasifikasi_pidana NOT IN ('WNA', 'Sakit Berkepanjangan', 'Lansia >70 tahun') THEN dp.tahanan_dewasa_laki + dp.tahanan_dewasa_perempuan + dp.tahanan_anak_laki + dp.tahanan_anak_perempuan ELSE 0 END), 0) as tahanan"),
+                    DB::raw("COALESCE(SUM(CASE WHEN dp.klasifikasi_pidana NOT IN ('WNA', 'Sakit Berkepanjangan', 'Lansia >70 tahun') THEN dp.narapidana_dewasa_laki + dp.narapidana_dewasa_perempuan + dp.narapidana_anak_laki + dp.narapidana_anak_perempuan ELSE 0 END), 0) as narapidana"),
+                    DB::raw("COALESCE(SUM(dp.tahanan_dewasa_laki + dp.tahanan_dewasa_perempuan + dp.tahanan_anak_laki + dp.tahanan_anak_perempuan + dp.narapidana_dewasa_laki + dp.narapidana_dewasa_perempuan + dp.narapidana_anak_laki + dp.narapidana_anak_perempuan), 0) as isi_penghuni")
+                ])
+                ->groupBy('u.id', 'u.nama_upt', 'u.alamat', 'u.kapasitas', 'u.latitude', 'u.longitude')
+                ->orderBy('u.nama_upt')
+                ->get()
+                ->map(fn($u) => (array)$u)
+                ->toArray();
+
+            // Calculate aggregated statistics
+            $totalUpt = count(array_filter($upts, fn($u) => ($u['isi_penghuni'] ?? 0) > 0));
+            $totalTahanan = array_sum(array_column($upts, 'tahanan'));
+            $totalNarapidana = array_sum(array_column($upts, 'narapidana'));
+            $totalPenghuni = array_sum(array_column($upts, 'isi_penghuni'));
+            $totalKapasitas = array_sum(array_column($upts, 'kapasitas'));
+            $persenOverkapasitas = $totalKapasitas > 0 ? round((($totalPenghuni - $totalKapasitas) / $totalKapasitas) * 100, 1) : 0;
+
+            $this->cachedDbData = [
+                'uptData' => $upts,
+                'stats' => [
+                    'success' => true,
+                    'data' => [
+                        'statistics' => [
+                            'total_upt' => $totalUpt,
+                            'kapasitas' => $totalKapasitas,
+                            'tahanan' => $totalTahanan,
+                            'narapidana' => $totalNarapidana,
+                            'isi_penghuni' => $totalPenghuni,
+                            'persen_overkapasitas' => $persenOverkapasitas,
+                        ]
+                    ]
+                ]
+            ];
+
+            return true;
+        } catch (\Exception $e) {
+            Log::warning("Sultan Banten direct database connection failed, falling back to API: " . $e->getMessage());
+            $this->cachedDbData = null;
+            return false;
+        }
+    }
+
+    protected function getFullUptDataFromApi()
     {
         $list = $this->getUptList();
         if (!$list['success']) return [];
@@ -90,3 +189,4 @@ class SultanBantenService
         return ['success' => false, 'data' => []];
     }
 }
+

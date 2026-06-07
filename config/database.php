@@ -64,6 +64,22 @@ return [
             ]) : [],
         ],
 
+        'sultan' => [
+            'driver' => 'mysql',
+            'host' => env('DB_SULTAN_HOST', '127.0.0.1'),
+            'port' => env('DB_SULTAN_PORT', '3306'),
+            'database' => env('DB_SULTAN_DATABASE'),
+            'username' => env('DB_SULTAN_USERNAME', 'root'),
+            'password' => env('DB_SULTAN_PASSWORD', ''),
+            'unix_socket' => env('DB_SULTAN_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_general_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+
         'mariadb' => [
             'driver' => 'mariadb',
             'url' => env('DB_URL'),
