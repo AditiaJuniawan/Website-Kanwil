@@ -131,7 +131,7 @@
                         <i class="fa-solid fa-file-signature"></i>
                     </div>
                     <h4 class="font-bold text-slate-800 text-lg mb-3">Sultan Banten</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Merupakan Layanan Sultan Banten (Sistem Update Laporan Terpadu Harian) Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten</p>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Sistem Update Laporan Terpadu Harian Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten</p>
                     <div class="text-brand-600 text-sm font-semibold flex items-center group-hover:text-brand-700">
                         Kunjungi Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                     </div>
