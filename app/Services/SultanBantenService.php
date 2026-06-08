@@ -77,21 +77,26 @@ class SultanBantenService
                 return false;
             }
 
-            // Subquery to get the latest date for each UPT
-            $maxDatesSubquery = DB::connection('sultan')
+            // Get target date (today) and fallback to latest date <= today if no records exist for today
+            $targetDate = date('Y-m-d');
+            $hasTodayData = DB::connection('sultan')
                 ->table('data_penghuni')
-                ->select('upt_id', DB::raw('MAX(tanggal) as latest_date'))
-                ->groupBy('upt_id');
+                ->where('tanggal', $targetDate)
+                ->exists();
 
-            // Query UPT list with statistics and coordinates directly using per-UPT latest date
+            if (!$hasTodayData) {
+                $targetDate = DB::connection('sultan')
+                    ->table('data_penghuni')
+                    ->where('tanggal', '<=', $targetDate)
+                    ->max('tanggal') ?? $targetDate;
+            }
+
+            // Query UPT list with statistics and coordinates directly using the target date
             $upts = DB::connection('sultan')
                 ->table('upt as u')
-                ->leftJoinSub($maxDatesSubquery, 'max_date', function ($join) {
-                    $join->on('u.id', '=', 'max_date.upt_id');
-                })
-                ->leftJoin('data_penghuni as dp', function ($join) {
+                ->leftJoin('data_penghuni as dp', function ($join) use ($targetDate) {
                     $join->on('u.id', '=', 'dp.upt_id')
-                         ->on('dp.tanggal', '=', 'max_date.latest_date');
+                         ->on('dp.tanggal', '=', DB::raw("'$targetDate'"));
                 })
                 ->select([
                     'u.id',
@@ -111,7 +116,7 @@ class SultanBantenService
                 ->toArray();
 
             // Calculate aggregated statistics
-            $totalUpt = count(array_filter($upts, fn($u) => ($u['isi_penghuni'] ?? 0) > 0));
+            $totalUpt = count($upts);
             $totalTahanan = array_sum(array_column($upts, 'tahanan'));
             $totalNarapidana = array_sum(array_column($upts, 'narapidana'));
             $totalPenghuni = array_sum(array_column($upts, 'isi_penghuni'));
