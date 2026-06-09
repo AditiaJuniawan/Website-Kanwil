@@ -19,6 +19,7 @@
 <meta name="twitter:description" content="Kumpulan berita dan informasi terkini Kanwil Ditjenpas Banten.">
 <meta name="twitter:image" content="https://ditjenpasbanten.com/images/logokementerian.png">
 <script type="application/ld+json">
+@verbatim
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -38,6 +39,7 @@
     }
   ]
 }
+@endverbatim
 </script>
 @endsection
 

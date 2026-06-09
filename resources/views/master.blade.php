@@ -56,6 +56,7 @@
 
     {{-- JSON-LD: GovernmentOrganization (global, di setiap halaman) --}}
     <script type="application/ld+json">
+    @verbatim
     {
         "@context": "https://schema.org",
         "@type": "GovernmentOrganization",
@@ -89,6 +90,7 @@
             "url": "https://ditjenpas.go.id"
         }
     }
+    @endverbatim
     </script>
 </head>
 <body class="font-sans text-slate-600 antialiased flex flex-col min-h-screen bg-slate-50">

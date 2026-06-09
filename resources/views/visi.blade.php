@@ -16,6 +16,7 @@
 <meta name="twitter:title" content="Visi dan Misi — Kanwil Ditjenpas Banten">
 <meta name="twitter:description" content="Visi dan Misi Kanwil Ditjenpas Banten.">
 <script type="application/ld+json">
+@verbatim
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -24,6 +25,7 @@
     {"@type": "ListItem", "position": 2, "name": "Visi dan Misi", "item": "https://ditjenpasbanten.com/visi"}
   ]
 }
+@endverbatim
 </script>
 @endsection
 

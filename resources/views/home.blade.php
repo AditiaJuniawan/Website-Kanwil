@@ -21,6 +21,7 @@
 <meta name="twitter:description" content="Website resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten.">
 <meta name="twitter:image" content="https://ditjenpasbanten.com/images/gedung2.png">
 <script type="application/ld+json">
+@verbatim
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -55,6 +56,7 @@
     }
   ]
 }
+@endverbatim
 </script>
 @endsection
 

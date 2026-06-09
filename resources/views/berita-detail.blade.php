@@ -27,43 +27,46 @@
 <meta name="twitter:description" content="{{ Str::limit(strip_tags($post->content), 160) }}">
 <meta name="twitter:image" content="{{ $post->image ? asset('storage/' . $post->image) : asset('images/logokementerian.png') }}">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "NewsArticle",
-      "headline": "{{ addslashes($post->title) }}",
-      "description": "{{ addslashes(Str::limit(strip_tags($post->content), 200)) }}",
-      "image": "{{ $post->image ? asset('storage/' . $post->image) : asset('images/logokementerian.png') }}",
-      "url": "{{ url('/berita/' . $post->slug) }}",
-      "datePublished": "{{ $post->published_at ? \Carbon\Carbon::parse($post->published_at)->toIso8601String() : $post->created_at->toIso8601String() }}",
-      "dateModified": "{{ $post->updated_at?->toIso8601String() ?? now()->toIso8601String() }}",
-      "author": {
-        "@type": "Organization",
-        "name": "Kanwil Ditjenpas Banten",
-        "url": "https://ditjenpasbanten.com"
-      },
-      "publisher": {
-        "@type": "GovernmentOrganization",
-        "name": "Kanwil Ditjenpas Banten",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://ditjenpasbanten.com/images/logokementerian.png"
-        }
-      },
-      "mainEntityOfPage": "{{ url('/berita/' . $post->slug) }}",
-      "inLanguage": "id"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://ditjenpasbanten.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Berita", "item": "https://ditjenpasbanten.com/berita"},
-        {"@type": "ListItem", "position": 3, "name": "{{ addslashes($post->title) }}", "item": "{{ url('/berita/' . $post->slug) }}"}
-      ]
-    }
-  ]
-}
+@php
+$jsonLd = [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+        [
+            '@type' => 'NewsArticle',
+            'headline' => addslashes($post->title),
+            'description' => addslashes(Str::limit(strip_tags($post->content), 200)),
+            'image' => $post->image ? asset('storage/' . $post->image) : asset('images/logokementerian.png'),
+            'url' => url('/berita/' . $post->slug),
+            'datePublished' => $post->published_at ? \Carbon\Carbon::parse($post->published_at)->toIso8601String() : $post->created_at->toIso8601String(),
+            'dateModified' => $post->updated_at?->toIso8601String() ?? now()->toIso8601String(),
+            'author' => [
+                '@type' => 'Organization',
+                'name' => 'Kanwil Ditjenpas Banten',
+                'url' => 'https://ditjenpasbanten.com',
+            ],
+            'publisher' => [
+                '@type' => 'GovernmentOrganization',
+                'name' => 'Kanwil Ditjenpas Banten',
+                'logo' => [
+                    '@type' => 'ImageObject',
+                    'url' => 'https://ditjenpasbanten.com/images/logokementerian.png',
+                ],
+            ],
+            'mainEntityOfPage' => url('/berita/' . $post->slug),
+            'inLanguage' => 'id',
+        ],
+        [
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => [
+                ['@type' => 'ListItem', 'position' => 1, 'name' => 'Beranda', 'item' => 'https://ditjenpasbanten.com/'],
+                ['@type' => 'ListItem', 'position' => 2, 'name' => 'Berita', 'item' => 'https://ditjenpasbanten.com/berita'],
+                ['@type' => 'ListItem', 'position' => 3, 'name' => addslashes($post->title), 'item' => url('/berita/' . $post->slug)],
+            ],
+        ],
+    ],
+];
+@endphp
+{!! json_encode($jsonLd, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>
 @endsection
 

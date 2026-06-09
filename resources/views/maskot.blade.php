@@ -17,6 +17,7 @@
 <meta name="twitter:description" content="Maskot resmi Kanwil Ditjenpas Banten: Kang dan Nong Pas.">
 <meta name="twitter:image" content="https://ditjenpasbanten.com/images/Kang Pas.png">
 <script type="application/ld+json">
+@verbatim
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -25,6 +26,7 @@
     {"@type": "ListItem", "position": 2, "name": "Maskot", "item": "https://ditjenpasbanten.com/maskot"}
   ]
 }
+@endverbatim
 </script>
 @endsection
 

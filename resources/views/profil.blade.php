@@ -16,6 +16,7 @@
 <meta name="twitter:title" content="Profil Pejabat — Kanwil Ditjenpas Banten">
 <meta name="twitter:description" content="Profil jajaran pimpinan Kanwil Ditjenpas Banten.">
 <script type="application/ld+json">
+@verbatim
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -24,6 +25,7 @@
     {"@type": "ListItem", "position": 2, "name": "Profil", "item": "https://ditjenpasbanten.com/profil"}
   ]
 }
+@endverbatim
 </script>
 @endsection
 
