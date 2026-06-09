@@ -534,6 +534,141 @@
         </div>
     </section>
 
+    <!-- TABEL PENGHUNI & OVERKAPASITAS PER UPT -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Data Real-Time</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Data Penghuni &amp; Overkapasitas per UPT</h2>
+                <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden" data-aos="fade-up">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="bg-slate-50 border-b border-slate-200">
+                                <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider w-16">No</th>
+                                <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Unit Pelaksana Teknis</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">Kapasitas</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">Tahanan</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">Narapidana</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">Total</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">% Over</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                                $statusMap = [
+                                    'longgar' => ['color' => 'bg-emerald-500', 'bg' => 'bg-emerald-100', 'text' => 'text-emerald-700', 'label' => 'Longgar'],
+                                    'hampir_penuh' => ['color' => 'bg-cyan-500', 'bg' => 'bg-cyan-100', 'text' => 'text-cyan-700', 'label' => 'Hampir Penuh'],
+                                    'sedikit_over' => ['color' => 'bg-yellow-500', 'bg' => 'bg-yellow-100', 'text' => 'text-yellow-700', 'label' => 'Sedikit Over'],
+                                    'over' => ['color' => 'bg-red-500', 'bg' => 'bg-red-100', 'text' => 'text-red-700', 'label' => 'Over'],
+                                    'sangat_over' => ['color' => 'bg-rose-700', 'bg' => 'bg-rose-100', 'text' => 'text-rose-700', 'label' => 'Sangat Over'],
+                                ];
+                            @endphp
+                            @forelse($uptOverkapasitas ?? [] as $index => $row)
+                                @php
+                                    $total = ($row['tahanan'] ?? 0) + ($row['narapidana'] ?? 0);
+                                    $overPercent = $total > 0 && $row['kapasitas'] > 0 ? round((($total - $row['kapasitas']) / $row['kapasitas']) * 100, 1) : 0;
+                                    $statusKey = $row['status'] ?? 'sangat_over';
+                                    $status = $statusMap[$statusKey] ?? $statusMap['sangat_over'];
+                                    $isOver = $total > $row['kapasitas'] && $row['kapasitas'] > 0;
+                                @endphp
+                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition">
+                                    <td class="px-6 py-4 font-bold text-slate-400">{{ $index + 1 }}</td>
+                                    <td class="px-6 py-4 font-semibold text-slate-800">{{ $row['nama'] ?? '' }}</td>
+                                    <td class="px-6 py-4 text-center text-slate-700 font-medium">{{ number_format($row['kapasitas'] ?? 0, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center text-slate-700">{{ number_format($row['tahanan'] ?? 0, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center text-slate-700">{{ number_format($row['narapidana'] ?? 0, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center font-extrabold text-slate-900 text-base">{{ number_format($total, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center">
+                                        @if($isOver)
+                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold {{ $status['bg'] }} {{ $status['text'] }}">
+                                                +{{ number_format($overPercent, 1, ',', '.') }}%
+                                            </span>
+                                        @else
+                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-600">
+                                                -{{ number_format(abs($overPercent), 1, ',', '.') }}%
+                                            </span>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="7" class="px-6 py-12 text-center text-slate-400">
+                                        <i class="fas fa-inbox text-4xl mb-3 block"></i>
+                                        Belum tersedia data overkapasitas.
+                                    </td>
+                                </tr>
+                            @endforelse
+                            @php
+                                $grandKapasitas = 0; $grandTahanan = 0; $grandNarapidana = 0; $grandTotal = 0;
+                                $grandOverPercent = 0; $grandStatus = 'sangat_over';
+                                foreach(($uptOverkapasitas ?? []) as $r) {
+                                    $grandKapasitas += $r['kapasitas'] ?? 0;
+                                    $grandTahanan += $r['tahanan'] ?? 0;
+                                    $grandNarapidana += $r['narapidana'] ?? 0;
+                                }
+                                $grandTotal = $grandTahanan + $grandNarapidana;
+                                if ($grandTotal > $grandKapasitas && $grandKapasitas > 0) {
+                                    $grandOverPercent = round((($grandTotal - $grandKapasitas) / $grandKapasitas) * 100, 1);
+                                }
+                            @endphp
+                            @if(count($uptOverkapasitas ?? []) > 0)
+                            <tfoot>
+                                <tr class="bg-slate-50 border-t-2 border-slate-200 font-bold">
+                                    <td colspan="2" class="px-6 py-4 text-right text-sm uppercase tracking-wider text-slate-700">Total</td>
+                                    <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandKapasitas, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandTahanan, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandNarapidana, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center text-base">{{ number_format($grandTotal, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center">
+                                        @php $gStatus = $statusMap[$grandStatus] ?? $statusMap['sangat_over']; @endphp
+                                        @if($grandTotal > $grandKapasitas && $grandKapasitas > 0)
+                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold {{ $gStatus['bg'] }} {{ $gStatus['text'] }}">
+                                                +{{ number_format($grandOverPercent, 1, ',', '.') }}%
+                                            </span>
+                                        @else
+                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-600">
+                                                -{{ number_format(abs($grandOverPercent), 1, ',', '.') }}%
+                                            </span>
+                                        @endif
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="flex flex-wrap items-center justify-center gap-4 mt-8" data-aos="fade-up">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                    <span class="text-xs text-slate-500 font-medium">Longgar</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-cyan-500"></span>
+                    <span class="text-xs text-slate-500 font-medium">Hampir Penuh</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                    <span class="text-xs text-slate-500 font-medium">Sedikit Over</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                    <span class="text-xs text-slate-500 font-medium">Over</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-rose-700"></span>
+                    <span class="text-xs text-slate-500 font-medium">Sangat Over</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- BERITA TERBARU -->
     <section id="berita" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
