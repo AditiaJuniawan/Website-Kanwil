@@ -55,9 +55,22 @@
                             <div class="h-px bg-slate-100 mb-8"></div>
 
                             {{-- Isi Berita --}}
-                            <div class="prose prose-slate prose-lg max-w-none leading-relaxed text-slate-600">
-                                {!! nl2br(e($post->content)) !!}
+                            <div class="berita-content leading-relaxed text-slate-600 text-justify">
+                                {!! $post->content !!}
                             </div>
+
+                            <style>
+                                .berita-content p {
+                                    margin-bottom: 1.25rem;
+                                    line-height: 1.85;
+                                    text-align: justify;
+                                }
+                                .berita-content br + br {
+                                    display: block;
+                                    margin-top: 1rem;
+                                    content: "";
+                                }
+                            </style>
 
                             {{-- Divider --}}
                             <div class="h-px bg-slate-100 mt-10 mb-8"></div>

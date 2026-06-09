@@ -80,9 +80,7 @@
                         @foreach($posts as $post)
                             <a href="{{ route('berita.show', $post->slug) }}" class="group block" data-aos="fade-up" data-aos-delay="100">
                                 <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('images/kakanwil.png') }}"  alt="{{ $post->title }}" >
-                                    </div>
+                                    <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('images/kakanwil.png') }}" alt="{{ $post->title }}" class="w-full h-full object-cover absolute inset-0">
                                     <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
                                         Kegiatan
                                     </div>
