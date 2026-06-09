@@ -3,24 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanwil Ditjenpas Banten</title>
-    
-    <!-- Vite: Tailwind CSS & JS -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    
-    <!-- Google Fonts: Plus Jakarta Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link href="{{ asset('images/logopas.png') }}" rel="shortcut icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    {{-- ============================================================
+         SEO META — Di-override per halaman via @section('seo')
+    ============================================================ --}}
+    @hasSection('seo')
+        @yield('seo')
+    @else
+        {{-- Default fallback jika halaman tidak mendefinisikan @section('seo') --}}
+        <title>Kanwil Ditjenpas Banten — Portal Resmi Pemasyarakatan Banten</title>
+        <meta name="description" content="Website resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten. Informasi layanan publik, berita, dan data pemasyarakatan wilayah Banten.">
+        <meta name="keywords" content="kanwil ditjenpas banten, pemasyarakatan banten, lapas banten, rutan banten, layanan publik pemasyarakatan">
+        <meta name="author" content="Kanwil Ditjenpas Banten">
+        <meta name="robots" content="index, follow, max-image-preview:large">
+        <link rel="canonical" href="{{ url()->current() }}">
+
+        {{-- Open Graph --}}
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Kanwil Ditjenpas Banten — Portal Resmi Pemasyarakatan Banten">
+        <meta property="og:description" content="Website resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten. Informasi layanan publik, berita, dan data pemasyarakatan wilayah Banten.">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:image" content="{{ asset('images/logokementerian.png') }}">
+        <meta property="og:image:width" content="800">
+        <meta property="og:image:height" content="600">
+        <meta property="og:site_name" content="Kanwil Ditjenpas Banten">
+        <meta property="og:locale" content="id_ID">
+
+        {{-- Twitter Card --}}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Kanwil Ditjenpas Banten — Portal Resmi Pemasyarakatan Banten">
+        <meta name="twitter:description" content="Website resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten.">
+        <meta name="twitter:image" content="{{ asset('images/logokementerian.png') }}">
+    @endif
+
+    {{-- Favicon --}}
+    <link rel="icon" type="image/png" href="{{ asset('images/logopas.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logopas.png') }}">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/css-tambahan.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    {{-- Vite: Tailwind CSS & JS --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- JSON-LD: GovernmentOrganization (global, di setiap halaman) --}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "GovernmentOrganization",
+        "name": "Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten",
+        "alternateName": "Kanwil Ditjenpas Banten",
+        "url": "https://ditjenpasbanten.com",
+        "logo": "https://ditjenpasbanten.com/images/logokementerian.png",
+        "image": "https://ditjenpasbanten.com/images/logokementerian.png",
+        "description": "Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten adalah instansi pemerintah yang menyelenggarakan fungsi pemasyarakatan di wilayah Provinsi Banten.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. Brigjen KH Samun, Kotabaru",
+            "addressLocality": "Serang",
+            "addressRegion": "Banten",
+            "postalCode": "42112",
+            "addressCountry": "ID"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+62-822-6666-2055",
+            "contactType": "customer service",
+            "availableLanguage": "Indonesian",
+            "areaServed": "ID"
+        },
+        "sameAs": [
+            "https://www.instagram.com/pemasyarakatanbanten/"
+        ],
+        "parentOrganization": {
+            "@type": "GovernmentOrganization",
+            "name": "Direktorat Jenderal Pemasyarakatan",
+            "url": "https://ditjenpas.go.id"
+        }
+    }
+    </script>
 </head>
 <body class="font-sans text-slate-600 antialiased flex flex-col min-h-screen bg-slate-50">
 

@@ -1,5 +1,32 @@
 @extends('master')
 
+@section('seo')
+<title>Profil Pejabat — Kanwil Ditjenpas Banten</title>
+<meta name="description" content="Profil jajaran pimpinan Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten, termasuk Kepala Kantor Wilayah dan para pejabat struktural.">
+<meta name="keywords" content="profil kakanwil ditjenpas banten, pejabat pemasyarakatan banten, struktur organisasi kanwil">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ditjenpasbanten.com/profil">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Profil Pejabat — Kanwil Ditjenpas Banten">
+<meta property="og:description" content="Profil jajaran pimpinan Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten.">
+<meta property="og:url" content="https://ditjenpasbanten.com/profil">
+<meta property="og:image" content="https://ditjenpasbanten.com/images/logokementerian.png">
+<meta property="og:site_name" content="Kanwil Ditjenpas Banten">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Profil Pejabat — Kanwil Ditjenpas Banten">
+<meta name="twitter:description" content="Profil jajaran pimpinan Kanwil Ditjenpas Banten.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://ditjenpasbanten.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Profil", "item": "https://ditjenpasbanten.com/profil"}
+  ]
+}
+</script>
+@endsection
+
 @section('content')
     <section class="hero-sub">
         <div class="container hero-content-sub">

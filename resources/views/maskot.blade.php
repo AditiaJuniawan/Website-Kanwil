@@ -1,5 +1,33 @@
 @extends('master')
 
+@section('seo')
+<title>Maskot Kang & Nong Pas — Kanwil Ditjenpas Banten</title>
+<meta name="description" content="Maskot resmi Kanwil Ditjenpas Banten: Kang dan Nong Pas. Terinspirasi dari budaya Baduy dan arsitektur Masjid Agung Banten, maskot ini melambangkan profesionalisme pemasyarakatan.">
+<meta name="keywords" content="maskot kanwil ditjenpas banten, kang pas, nong pas, maskot pemasyarakatan banten">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ditjenpasbanten.com/maskot">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Maskot Kang & Nong Pas — Kanwil Ditjenpas Banten">
+<meta property="og:description" content="Maskot resmi Kanwil Ditjenpas Banten: Kang dan Nong Pas terinspirasi budaya Baduy.">
+<meta property="og:url" content="https://ditjenpasbanten.com/maskot">
+<meta property="og:image" content="https://ditjenpasbanten.com/images/Kang Pas.png">
+<meta property="og:site_name" content="Kanwil Ditjenpas Banten">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maskot Kang & Nong Pas — Kanwil Ditjenpas Banten">
+<meta name="twitter:description" content="Maskot resmi Kanwil Ditjenpas Banten: Kang dan Nong Pas.">
+<meta name="twitter:image" content="https://ditjenpasbanten.com/images/Kang Pas.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://ditjenpasbanten.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Maskot", "item": "https://ditjenpasbanten.com/maskot"}
+  ]
+}
+</script>
+@endsection
+
 @section('content')
     
     <!-- Tailwind CSS -->

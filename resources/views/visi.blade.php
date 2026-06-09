@@ -1,5 +1,32 @@
 @extends('master')
 
+@section('seo')
+<title>Visi dan Misi — Kanwil Ditjenpas Banten</title>
+<meta name="description" content="Visi dan Misi Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten: Mewujudkan pemasyarakatan yang profesional, berkeadilan, dan berbasis Hak Asasi Manusia.">
+<meta name="keywords" content="visi misi kanwil ditjenpas banten, visi pemasyarakatan banten, misi ditjenpas banten">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ditjenpasbanten.com/visi">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Visi dan Misi — Kanwil Ditjenpas Banten">
+<meta property="og:description" content="Visi dan Misi Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten.">
+<meta property="og:url" content="https://ditjenpasbanten.com/visi">
+<meta property="og:image" content="https://ditjenpasbanten.com/images/logokementerian.png">
+<meta property="og:site_name" content="Kanwil Ditjenpas Banten">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Visi dan Misi — Kanwil Ditjenpas Banten">
+<meta name="twitter:description" content="Visi dan Misi Kanwil Ditjenpas Banten.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://ditjenpasbanten.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Visi dan Misi", "item": "https://ditjenpasbanten.com/visi"}
+  ]
+}
+</script>
+@endsection
+
 @section('content')
     <section class="hero-sub">
         <div class="container hero-content-sub">

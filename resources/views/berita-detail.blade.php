@@ -1,5 +1,72 @@
 @extends('master')
 
+@section('seo')
+<title>{{ $post->title }} — Kanwil Ditjenpas Banten</title>
+<meta name="description" content="{{ Str::limit(strip_tags($post->content), 160) }}">
+<meta name="keywords" content="{{ $post->title }}, kanwil ditjenpas banten, pemasyarakatan banten, berita pemasyarakatan">
+<meta name="author" content="Kanwil Ditjenpas Banten">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="{{ url('/berita/' . $post->slug) }}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ $post->title }}">
+<meta property="og:description" content="{{ Str::limit(strip_tags($post->content), 160) }}">
+<meta property="og:url" content="{{ url('/berita/' . $post->slug) }}">
+<meta property="og:image" content="{{ $post->image ? asset('storage/' . $post->image) : asset('images/logokementerian.png') }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Kanwil Ditjenpas Banten">
+<meta property="og:locale" content="id_ID">
+@if($post->published_at)
+<meta property="article:published_time" content="{{ \Carbon\Carbon::parse($post->published_at)->toIso8601String() }}">
+<meta property="article:modified_time" content="{{ $post->updated_at?->toIso8601String() }}">
+@endif
+<meta property="article:author" content="Kanwil Ditjenpas Banten">
+<meta property="article:section" content="Berita">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $post->title }}">
+<meta name="twitter:description" content="{{ Str::limit(strip_tags($post->content), 160) }}">
+<meta name="twitter:image" content="{{ $post->image ? asset('storage/' . $post->image) : asset('images/logokementerian.png') }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "NewsArticle",
+      "headline": "{{ addslashes($post->title) }}",
+      "description": "{{ addslashes(Str::limit(strip_tags($post->content), 200)) }}",
+      "image": "{{ $post->image ? asset('storage/' . $post->image) : asset('images/logokementerian.png') }}",
+      "url": "{{ url('/berita/' . $post->slug) }}",
+      "datePublished": "{{ $post->published_at ? \Carbon\Carbon::parse($post->published_at)->toIso8601String() : $post->created_at->toIso8601String() }}",
+      "dateModified": "{{ $post->updated_at?->toIso8601String() ?? now()->toIso8601String() }}",
+      "author": {
+        "@type": "Organization",
+        "name": "Kanwil Ditjenpas Banten",
+        "url": "https://ditjenpasbanten.com"
+      },
+      "publisher": {
+        "@type": "GovernmentOrganization",
+        "name": "Kanwil Ditjenpas Banten",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ditjenpasbanten.com/images/logokementerian.png"
+        }
+      },
+      "mainEntityOfPage": "{{ url('/berita/' . $post->slug) }}",
+      "inLanguage": "id"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://ditjenpasbanten.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Berita", "item": "https://ditjenpasbanten.com/berita"},
+        {"@type": "ListItem", "position": 3, "name": "{{ addslashes($post->title) }}", "item": "{{ url('/berita/' . $post->slug) }}"}
+      ]
+    }
+  ]
+}
+</script>
+@endsection
+
 @section('content')
     {{-- Hero Sub --}}
     <section class="hero-sub">

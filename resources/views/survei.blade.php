@@ -1,5 +1,32 @@
 @extends('master')
 
+@section('seo')
+<title>Survei Indeks Kepuasan Masyarakat — Kanwil Ditjenpas Banten</title>
+<meta name="description" content="Hasil Survei Indeks Kepuasan Masyarakat (IKM) dan Survei Persepsi Anti Korupsi (SPAK) Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten.">
+<meta name="keywords" content="survei kepuasan masyarakat ditjenpas banten, IKM kanwil banten, SPAK pemasyarakatan, indeks kepuasan layanan banten">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ditjenpasbanten.com/survei">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Survei IKM — Kanwil Ditjenpas Banten">
+<meta property="og:description" content="Hasil Survei Kepuasan Masyarakat dan SPAK Kanwil Ditjenpas Banten.">
+<meta property="og:url" content="https://ditjenpasbanten.com/survei">
+<meta property="og:image" content="https://ditjenpasbanten.com/images/logokementerian.png">
+<meta property="og:site_name" content="Kanwil Ditjenpas Banten">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Survei IKM — Kanwil Ditjenpas Banten">
+<meta name="twitter:description" content="Hasil Survei Kepuasan Masyarakat Kanwil Ditjenpas Banten.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://ditjenpasbanten.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Survei", "item": "https://ditjenpasbanten.com/survei"}
+  ]
+}
+</script>
+@endsection
+
 @section('content')
     @php
         $spkp1 = $survei?->SPKP1 ?? 3.98;

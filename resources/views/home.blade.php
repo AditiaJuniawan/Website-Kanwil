@@ -1,5 +1,63 @@
 @extends('master')
 
+@section('seo')
+<title>Kanwil Ditjenpas Banten — Portal Resmi Pemasyarakatan Provinsi Banten</title>
+<meta name="description" content="Website resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten. Layanan publik, informasi UPT, berita, dan data pemasyarakatan wilayah Banten.">
+<meta name="keywords" content="kanwil ditjenpas banten, pemasyarakatan banten, lapas banten, rutan banten, layanan publik pemasyarakatan, kantor wilayah kemenkumham banten">
+<meta name="author" content="Kanwil Ditjenpas Banten">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ditjenpasbanten.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kanwil Ditjenpas Banten — Portal Resmi Pemasyarakatan Provinsi Banten">
+<meta property="og:description" content="Website resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten. Layanan publik, informasi UPT, berita terkini pemasyarakatan wilayah Banten.">
+<meta property="og:url" content="https://ditjenpasbanten.com/">
+<meta property="og:image" content="https://ditjenpasbanten.com/images/gedung2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Kanwil Ditjenpas Banten">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kanwil Ditjenpas Banten — Portal Resmi Pemasyarakatan">
+<meta name="twitter:description" content="Website resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten.">
+<meta name="twitter:image" content="https://ditjenpasbanten.com/images/gedung2.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Kanwil Ditjenpas Banten",
+      "url": "https://ditjenpasbanten.com",
+      "description": "Portal resmi Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten",
+      "inLanguage": "id",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://ditjenpasbanten.com/berita?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ditjenpasbanten.com/#webpage",
+      "url": "https://ditjenpasbanten.com/",
+      "name": "Beranda — Kanwil Ditjenpas Banten",
+      "isPartOf": {"@id": "https://ditjenpasbanten.com/#website"},
+      "inLanguage": "id",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://ditjenpasbanten.com/"}
+        ]
+      }
+    }
+  ]
+}
+</script>
+@endsection
+
 @section('content')
     <!-- HERO SECTION: Elegant & Animated -->
      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -552,11 +610,9 @@
                     @else
                         <!-- News Card 1 -->
                         @foreach($posts as $post)
-                            <a href="{!! $post->slug ?? 'tanggal' !!}" class="group block" data-aos="fade-up" data-aos-delay="100">
+                            <a href="{{ route('berita.show', $post->slug) }}" class="group block" data-aos="fade-up" data-aos-delay="100">
                                 <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('images/kakanwil.png') }}"  alt="{{ $post->title }}" >
-                                    </div>
+                                    <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('images/kakanwil.png') }}" alt="{{ $post->title }}" class="w-full h-full object-cover absolute inset-0" loading="lazy" width="400" height="300">
                                     <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
                                         Kegiatan
                                     </div>

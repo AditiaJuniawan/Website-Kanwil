@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KanwilController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SitemapController;
 
 Route::get('/', [KanwilController::class, 'home']);
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 Route::get('/visi', [KanwilController::class, 'visi']);
 Route::get('/profil', [KanwilController::class, 'profil']);
 Route::get('/maskot', [KanwilController::class, 'maskot']);

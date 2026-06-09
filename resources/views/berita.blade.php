@@ -1,5 +1,46 @@
 @extends('master')
 
+@section('seo')
+<title>Berita & Informasi — Kanwil Ditjenpas Banten</title>
+<meta name="description" content="Kumpulan berita, kegiatan, dan informasi terkini dari Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten. Update terbaru kegiatan pemasyarakatan wilayah Banten.">
+<meta name="keywords" content="berita pemasyarakatan banten, informasi kanwil ditjenpas banten, kegiatan lapas rutan banten">
+<meta name="author" content="Kanwil Ditjenpas Banten">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ditjenpasbanten.com/berita">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Berita & Informasi — Kanwil Ditjenpas Banten">
+<meta property="og:description" content="Kumpulan berita, kegiatan, dan informasi terkini dari Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten.">
+<meta property="og:url" content="https://ditjenpasbanten.com/berita">
+<meta property="og:image" content="https://ditjenpasbanten.com/images/logokementerian.png">
+<meta property="og:site_name" content="Kanwil Ditjenpas Banten">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Berita & Informasi — Kanwil Ditjenpas Banten">
+<meta name="twitter:description" content="Kumpulan berita dan informasi terkini Kanwil Ditjenpas Banten.">
+<meta name="twitter:image" content="https://ditjenpasbanten.com/images/logokementerian.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "url": "https://ditjenpasbanten.com/berita",
+      "name": "Berita & Informasi — Kanwil Ditjenpas Banten",
+      "description": "Kumpulan berita dan informasi terkini pemasyarakatan wilayah Banten",
+      "inLanguage": "id"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://ditjenpasbanten.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Berita", "item": "https://ditjenpasbanten.com/berita"}
+      ]
+    }
+  ]
+}
+</script>
+@endsection
+
 @section('content')
     <section class="hero-sub">
         <div class="container hero-content-sub">
