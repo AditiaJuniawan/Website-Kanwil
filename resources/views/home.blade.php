@@ -205,26 +205,20 @@
         <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-800 opacity-20 transform skew-x-12"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 text-center divide-x divide-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center sm:divide-x sm:divide-white/10">
                 <div data-aos="zoom-in" data-aos-delay="100">
-                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
-                        {{ $totalStats['total_upt'] ?? 15 }}
-                    </div>
-                    <div class="text-brand-200 text-xs font-semibold uppercase tracking-widest">Unit Pelaksana Teknis</div>
-                </div>
-                <div data-aos="zoom-in" data-aos-delay="200">
                     <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
                         {{ number_format($totalStats['isi_penghuni'] ?? 5000, 0, ',', '.') }}
                     </div>
                     <div class="text-brand-200 text-xs font-semibold uppercase tracking-widest">Total WBP</div>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="300">
+                <div data-aos="zoom-in" data-aos-delay="200">
                     <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
                         {{ $totalStats['persen_overkapasitas'] ?? 98 }}<span class="text-gold-400">%</span>
                     </div>
                     <div class="text-brand-200 text-xs font-semibold uppercase tracking-widest">Overkapasitas</div>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="400">
+                <div data-aos="zoom-in" data-aos-delay="300">
                     <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">24<span class="text-gold-400">/</span>7</div>
                     <div class="text-brand-200 text-xs font-semibold uppercase tracking-widest">Layanan Digital</div>
                 </div>
