@@ -78,7 +78,7 @@
                     @else
 
                         @foreach($posts as $post)
-                            <a href="{!! $post->slug ?? 'tanggal' !!}" class="group block" data-aos="fade-up" data-aos-delay="100">
+                            <a href="{{ route('berita.show', $post->slug) }}" class="group block" data-aos="fade-up" data-aos-delay="100">
                                 <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
                                     <div class="absolute inset-0 flex items-center justify-center">
                                         <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('images/kakanwil.png') }}"  alt="{{ $post->title }}" >

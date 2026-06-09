@@ -55,4 +55,14 @@ class KanwilController extends Controller
         $posts = \App\Models\Post::orderBy('published_at', 'desc')->get();
         return view('berita', compact('posts'));
     }
+
+    public function show($slug)
+    {
+        $post = \App\Models\Post::where('slug', $slug)->firstOrFail();
+        $recentPosts = \App\Models\Post::where('slug', '!=', $slug)
+            ->orderBy('published_at', 'desc')
+            ->limit(3)
+            ->get();
+        return view('berita-detail', compact('post', 'recentPosts'));
+    }
 }

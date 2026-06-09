@@ -9,6 +9,7 @@ Route::get('/visi', [KanwilController::class, 'visi']);
 Route::get('/profil', [KanwilController::class, 'profil']);
 Route::get('/maskot', [KanwilController::class, 'maskot']);
 Route::get('/berita', [KanwilController::class, 'post']);
+Route::get('/berita/{slug}', [KanwilController::class, 'show'])->name('berita.show');
 Route::get('/survei', [KanwilController::class, 'survei']);
 
 route::get('/tentang',function(){
