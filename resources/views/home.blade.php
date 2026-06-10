@@ -639,13 +639,13 @@
                     <table class="w-full text-sm modern-table">
                         <thead>
                             <tr class="bg-slate-50 border-b border-slate-200">
-                                <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider w-16">No</th>
-                                <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Unit Pelaksana Teknis</th>
-                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">Kapasitas</th>
-                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">Tahanan</th>
-                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">Narapidana</th>
-                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">Total</th>
-                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">% Over</th>
+                                <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider w-16 whitespace-nowrap">No</th>
+                                <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Unit Pelaksana Teknis</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Kapasitas</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Tahanan</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Narapidana</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Total</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">% Over</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -699,20 +699,20 @@
                                     $status = $statusMap[$statusKey] ?? $statusMap['sangat_over'];
                                 @endphp
                                 <tr class="border-b border-slate-100">
-                                    <td class="px-6 py-4 font-bold text-slate-400">{{ $index + 1 }}</td>
+                                    <td class="px-6 py-4 font-bold text-slate-400 whitespace-nowrap">{{ $index + 1 }}</td>
                                     <td class="px-6 py-4">
-                                        <div class="font-semibold text-slate-800 text-sm hover:text-brand-600 transition">{{ $row['nama_upt'] ?? '' }}</div>
+                                        <div class="font-semibold text-slate-800 text-sm hover:text-brand-600 transition min-w-[200px]">{{ $row['nama_upt'] ?? '' }}</div>
                                         <div class="flex items-center gap-2 mt-2">
                                             <div class="progress-bar-container">
                                                 <div class="progress-bar-fill {{ $status['barClass'] }}" style="width: {{ min($occupancyPercent, 100) }}%"></div>
                                             </div>
-                                            <span class="text-[10px] text-slate-400 font-semibold">Hunian: {{ $occupancyPercent }}%</span>
+                                            <span class="text-[10px] text-slate-400 font-semibold whitespace-nowrap">Hunian: {{ $occupancyPercent }}%</span>
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4 text-center text-slate-700 font-medium">{{ number_format($row['kapasitas'] ?? 0, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-center text-slate-700">{{ number_format($row['tahanan'] ?? 0, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-center text-slate-700">{{ number_format($row['narapidana'] ?? 0, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-center font-extrabold text-slate-900">{{ number_format($total, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center text-slate-700 font-medium whitespace-nowrap">{{ number_format($row['kapasitas'] ?? 0, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center text-slate-700 whitespace-nowrap">{{ number_format($row['tahanan'] ?? 0, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center text-slate-700 whitespace-nowrap">{{ number_format($row['narapidana'] ?? 0, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center font-extrabold text-slate-900 whitespace-nowrap">{{ number_format($total, 0, ',', '.') }}</td>
                                     <td class="px-6 py-4 text-center">
                                         <span class="badge-modern {{ $status['class'] }}">
                                             <span class="badge-dot"></span>
