@@ -511,7 +511,7 @@
                 </div>
 
                 
-                <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                     <div class="bg-brand-50 p-4 rounded-2xl border border-brand-100">
                         <p class="text-[10px] text-brand-600 font-bold uppercase tracking-wider mb-1">Total Tahanan</p>
                         <p class="text-xl font-extrabold text-brand-900">{{ number_format($totalStats['tahanan'] ?? 0, 0, ',', '.') }}</p>
@@ -519,6 +519,10 @@
                     <div class="bg-gold-50 p-4 rounded-2xl border border-gold-100">
                         <p class="text-[10px] text-gold-600 font-bold uppercase tracking-wider mb-1">Total Narapidana</p>
                         <p class="text-xl font-extrabold text-gold-700">{{ number_format($totalStats['narapidana'] ?? 0, 0, ',', '.') }}</p>
+                    </div>
+                    <div class="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
+                        <p class="text-[10px] text-indigo-600 font-bold uppercase tracking-wider mb-1">Total Penghuni</p>
+                        <p class="text-xl font-extrabold text-indigo-900">{{ number_format($totalStats['isi_penghuni'] ?? 0, 0, ',', '.') }}</p>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
                         <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Kapasitas</p>
@@ -543,9 +547,96 @@
                 <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
             </div>
 
+            <style>
+                .modern-table tbody tr {
+                    transition: all 0.25s ease;
+                }
+                .modern-table tbody tr:hover {
+                    background-color: rgba(27, 61, 106, 0.03) !important;
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.08);
+                }
+                .badge-modern {
+                    display: inline-flex;
+                    align-items: center;
+                    padding: 0.35rem 0.75rem;
+                    border-radius: 9999px;
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                    border-width: 1px;
+                }
+                .badge-dot {
+                    width: 0.375rem;
+                    height: 0.375rem;
+                    border-radius: 50%;
+                    margin-right: 0.5rem;
+                    display: inline-block;
+                }
+                .progress-bar-container {
+                    width: 6rem;
+                    background-color: #f1f5f9;
+                    border-radius: 9999px;
+                    height: 0.375rem;
+                    overflow: hidden;
+                    display: inline-block;
+                }
+                .progress-bar-fill {
+                    height: 100%;
+                    border-radius: 9999px;
+                    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                
+                /* Status Specific Colors */
+                .status-longgar {
+                    background-color: #eff6ff !important;
+                    color: #1d4ed8 !important;
+                    border-color: rgba(191, 219, 254, 0.6) !important;
+                }
+                .status-longgar .badge-dot, .progress-longgar {
+                    background-color: #3b82f6 !important;
+                }
+                
+                .status-hampir_penuh {
+                    background-color: #ecfdf5 !important;
+                    color: #047857 !important;
+                    border-color: rgba(167, 243, 208, 0.6) !important;
+                }
+                .status-hampir_penuh .badge-dot, .progress-hampir_penuh {
+                    background-color: #10b981 !important;
+                }
+                
+                .status-sedikit_over {
+                    background-color: #fffbeb !important;
+                    color: #b45309 !important;
+                    border-color: rgba(253, 230, 138, 0.6) !important;
+                }
+                .status-sedikit_over .badge-dot, .progress-sedikit_over {
+                    background-color: #f59e0b !important;
+                }
+                
+                .status-over {
+                    background-color: #fff7ed !important;
+                    color: #c2410c !important;
+                    border-color: rgba(254, 215, 170, 0.6) !important;
+                }
+                .status-over .badge-dot, .progress-over {
+                    background-color: #f97316 !important;
+                }
+                
+                .status-sangat_over {
+                    background-color: #fef2f2 !important;
+                    color: #b91c1c !important;
+                    border-color: rgba(254, 226, 226, 0.6) !important;
+                }
+                .status-sangat_over .badge-dot, .progress-sangat_over {
+                    background-color: #ef4444 !important;
+                }
+            </style>
+
             <div class="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden" data-aos="fade-up">
                 <div class="overflow-x-auto">
-                    <table class="w-full text-sm">
+                    <table class="w-full text-sm modern-table">
                         <thead>
                             <tr class="bg-slate-50 border-b border-slate-200">
                                 <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider w-16">No</th>
@@ -560,38 +651,73 @@
                         <tbody>
                             @php
                                 $statusMap = [
-                                    'longgar' => ['color' => 'bg-emerald-500', 'bg' => 'bg-emerald-100', 'text' => 'text-emerald-700', 'label' => 'Longgar'],
-                                    'hampir_penuh' => ['color' => 'bg-cyan-500', 'bg' => 'bg-cyan-100', 'text' => 'text-cyan-700', 'label' => 'Hampir Penuh'],
-                                    'sedikit_over' => ['color' => 'bg-yellow-500', 'bg' => 'bg-yellow-100', 'text' => 'text-yellow-700', 'label' => 'Sedikit Over'],
-                                    'over' => ['color' => 'bg-red-500', 'bg' => 'bg-red-100', 'text' => 'text-red-700', 'label' => 'Over'],
-                                    'sangat_over' => ['color' => 'bg-rose-700', 'bg' => 'bg-rose-100', 'text' => 'text-rose-700', 'label' => 'Sangat Over'],
+                                    'longgar' => [
+                                        'class' => 'status-longgar',
+                                        'barClass' => 'progress-longgar',
+                                        'label' => 'Longgar'
+                                    ],
+                                    'hampir_penuh' => [
+                                        'class' => 'status-hampir_penuh',
+                                        'barClass' => 'progress-hampir_penuh',
+                                        'label' => 'Hampir Penuh'
+                                    ],
+                                    'sedikit_over' => [
+                                        'class' => 'status-sedikit_over',
+                                        'barClass' => 'progress-sedikit_over',
+                                        'label' => 'Sedikit Over'
+                                    ],
+                                    'over' => [
+                                        'class' => 'status-over',
+                                        'barClass' => 'progress-over',
+                                        'label' => 'Over Kapasitas'
+                                    ],
+                                    'sangat_over' => [
+                                        'class' => 'status-sangat_over',
+                                        'barClass' => 'progress-sangat_over',
+                                        'label' => 'Sangat Over'
+                                    ],
                                 ];
                             @endphp
                             @forelse($uptOverkapasitas ?? [] as $index => $row)
                                 @php
                                     $total = ($row['tahanan'] ?? 0) + ($row['narapidana'] ?? 0);
                                     $overPercent = $total > 0 && $row['kapasitas'] > 0 ? round((($total - $row['kapasitas']) / $row['kapasitas']) * 100, 1) : 0;
-                                    $statusKey = $row['status'] ?? 'sangat_over';
+                                    $occupancyPercent = $row['kapasitas'] > 0 ? round(($total / $row['kapasitas']) * 100) : 0;
+                                    
+                                    if ($overPercent > 100) {
+                                        $statusKey = 'sangat_over';
+                                    } elseif ($overPercent > 20) {
+                                        $statusKey = 'over';
+                                    } elseif ($overPercent > 0) {
+                                        $statusKey = 'sedikit_over';
+                                    } elseif ($overPercent > -25) {
+                                        $statusKey = 'hampir_penuh';
+                                    } else {
+                                        $statusKey = 'longgar';
+                                    }
+                                    
                                     $status = $statusMap[$statusKey] ?? $statusMap['sangat_over'];
-                                    $isOver = $total > $row['kapasitas'] && $row['kapasitas'] > 0;
                                 @endphp
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition">
+                                <tr class="border-b border-slate-100">
                                     <td class="px-6 py-4 font-bold text-slate-400">{{ $index + 1 }}</td>
-                                    <td class="px-6 py-4 font-semibold text-slate-800">{{ $row['nama'] ?? '' }}</td>
+                                    <td class="px-6 py-4">
+                                        <div class="font-semibold text-slate-800 text-sm hover:text-brand-600 transition">{{ $row['nama_upt'] ?? '' }}</div>
+                                        <div class="flex items-center gap-2 mt-2">
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar-fill {{ $status['barClass'] }}" style="width: {{ min($occupancyPercent, 100) }}%"></div>
+                                            </div>
+                                            <span class="text-[10px] text-slate-400 font-semibold">Hunian: {{ $occupancyPercent }}%</span>
+                                        </div>
+                                    </td>
                                     <td class="px-6 py-4 text-center text-slate-700 font-medium">{{ number_format($row['kapasitas'] ?? 0, 0, ',', '.') }}</td>
                                     <td class="px-6 py-4 text-center text-slate-700">{{ number_format($row['tahanan'] ?? 0, 0, ',', '.') }}</td>
                                     <td class="px-6 py-4 text-center text-slate-700">{{ number_format($row['narapidana'] ?? 0, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-center font-extrabold text-slate-900 text-base">{{ number_format($total, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center font-extrabold text-slate-900">{{ number_format($total, 0, ',', '.') }}</td>
                                     <td class="px-6 py-4 text-center">
-                                        @if($isOver)
-                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold {{ $status['bg'] }} {{ $status['text'] }}">
-                                                +{{ number_format($overPercent, 1, ',', '.') }}%
-                                            </span>
-                                        @else
-                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-600">
-                                                -{{ number_format(abs($overPercent), 1, ',', '.') }}%
-                                            </span>
-                                        @endif
+                                        <span class="badge-modern {{ $status['class'] }}">
+                                            <span class="badge-dot"></span>
+                                            {{ $overPercent > 0 ? '+' : '' }}{{ number_format($overPercent, 1, ',', '.') }}%
+                                        </span>
                                     </td>
                                 </tr>
                             @empty
@@ -602,43 +728,65 @@
                                     </td>
                                 </tr>
                             @endforelse
-                            @php
-                                $grandKapasitas = 0; $grandTahanan = 0; $grandNarapidana = 0; $grandTotal = 0;
-                                $grandOverPercent = 0; $grandStatus = 'sangat_over';
-                                foreach(($uptOverkapasitas ?? []) as $r) {
-                                    $grandKapasitas += $r['kapasitas'] ?? 0;
-                                    $grandTahanan += $r['tahanan'] ?? 0;
-                                    $grandNarapidana += $r['narapidana'] ?? 0;
-                                }
-                                $grandTotal = $grandTahanan + $grandNarapidana;
-                                if ($grandTotal > $grandKapasitas && $grandKapasitas > 0) {
-                                    $grandOverPercent = round((($grandTotal - $grandKapasitas) / $grandKapasitas) * 100, 1);
-                                }
-                            @endphp
                             @if(count($uptOverkapasitas ?? []) > 0)
-                            <tfoot>
-                                <tr class="bg-slate-50 border-t-2 border-slate-200 font-bold">
-                                    <td colspan="2" class="px-6 py-4 text-right text-sm uppercase tracking-wider text-slate-700">Total</td>
-                                    <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandKapasitas, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandTahanan, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandNarapidana, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-center text-base">{{ number_format($grandTotal, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-center">
-                                        @php $gStatus = $statusMap[$grandStatus] ?? $statusMap['sangat_over']; @endphp
-                                        @if($grandTotal > $grandKapasitas && $grandKapasitas > 0)
-                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold {{ $gStatus['bg'] }} {{ $gStatus['text'] }}">
-                                                +{{ number_format($grandOverPercent, 1, ',', '.') }}%
-                                            </span>
-                                        @else
-                                            <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-600">
-                                                -{{ number_format(abs($grandOverPercent), 1, ',', '.') }}%
-                                            </span>
-                                        @endif
-                                    </td>
-                                </tr>
-                            </tfoot>
-                            @endif
+                                @php
+                                    $grandKapasitas = 0; $grandTahanan = 0; $grandNarapidana = 0; $grandTotal = 0;
+                                    $grandOverPercent = 0;
+                                    foreach(($uptOverkapasitas ?? []) as $r) {
+                                        $grandKapasitas += $r['kapasitas'] ?? 0;
+                                        $grandTahanan += $r['tahanan'] ?? 0;
+                                        $grandNarapidana += $r['narapidana'] ?? 0;
+                                    }
+                                    $grandTotal = $grandTahanan + $grandNarapidana;
+                                    $grandOccupancyPercent = $grandKapasitas > 0 ? round(($grandTotal / $grandKapasitas) * 100) : 0;
+                                    
+                                    if ($grandTotal > $grandKapasitas && $grandKapasitas > 0) {
+                                        $grandOverPercent = round((($grandTotal - $grandKapasitas) / $grandKapasitas) * 100, 1);
+                                    } else {
+                                        $grandOverPercent = $grandKapasitas > 0 ? round((($grandTotal - $grandKapasitas) / $grandKapasitas) * 100, 1) : 0;
+                                    }
+                                    
+                                    if ($grandOverPercent > 100) {
+                                        $grandStatus = 'sangat_over';
+                                    } elseif ($grandOverPercent > 20) {
+                                        $grandStatus = 'over';
+                                    } elseif ($grandOverPercent > 0) {
+                                        $grandStatus = 'sedikit_over';
+                                    } elseif ($grandOverPercent > -25) {
+                                        $grandStatus = 'hampir_penuh';
+                                    } else {
+                                        $grandStatus = 'longgar';
+                                    }
+                                    
+                                    $gStatus = $statusMap[$grandStatus] ?? $statusMap['sangat_over'];
+                                @endphp
                         </tbody>
+                        <tfoot>
+                            <tr class="bg-slate-50 border-t-2 border-slate-200 font-bold">
+                                <td colspan="2" class="px-6 py-4">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm uppercase tracking-wider text-slate-700 font-extrabold">Total Wilayah</span>
+                                        <div class="flex items-center gap-2 mr-4">
+                                            <div class="progress-bar-container" style="background-color: #e2e8f0;">
+                                                <div class="progress-bar-fill {{ $gStatus['barClass'] }}" style="width: {{ min($grandOccupancyPercent, 100) }}%"></div>
+                                            </div>
+                                            <span class="text-[10px] text-slate-500 font-semibold">Hunian: {{ $grandOccupancyPercent }}%</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandKapasitas, 0, ',', '.') }}</td>
+                                <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandTahanan, 0, ',', '.') }}</td>
+                                <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandNarapidana, 0, ',', '.') }}</td>
+                                <td class="px-6 py-4 text-center text-base text-slate-900 font-extrabold">{{ number_format($grandTotal, 0, ',', '.') }}</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="badge-modern {{ $gStatus['class'] }}">
+                                        <span class="badge-dot"></span>
+                                        {{ $grandOverPercent > 0 ? '+' : '' }}{{ number_format($grandOverPercent, 1, ',', '.') }}%
+                                    </span>
+                                </td>
+                            </tr>
+                        </tfoot>
+                            @endif
                     </table>
                 </div>
             </div>
@@ -646,24 +794,24 @@
             <!-- Legend -->
             <div class="flex flex-wrap items-center justify-center gap-4 mt-8" data-aos="fade-up">
                 <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full" style="background-color: #3b82f6;"></span>
+                    <span class="text-xs text-slate-500 font-medium">Longgar (<= 75% terisi)</span>
+                </div>
+                <div class="flex items-center gap-2">
                     <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                    <span class="text-xs text-slate-500 font-medium">Longgar</span>
+                    <span class="text-xs text-slate-500 font-medium">Hampir Penuh (75% - 100%)</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-cyan-500"></span>
-                    <span class="text-xs text-slate-500 font-medium">Hampir Penuh</span>
+                    <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                    <span class="text-xs text-slate-500 font-medium">Sedikit Over (100% - 120%)</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                    <span class="text-xs text-slate-500 font-medium">Sedikit Over</span>
+                    <span class="w-3 h-3 rounded-full bg-orange-500"></span>
+                    <span class="text-xs text-slate-500 font-medium">Over Kapasitas (120% - 200%)</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                    <span class="text-xs text-slate-500 font-medium">Over</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-rose-700"></span>
-                    <span class="text-xs text-slate-500 font-medium">Sangat Over</span>
+                    <span class="text-xs text-slate-500 font-medium">Sangat Over (> 200%)</span>
                 </div>
             </div>
         </div>

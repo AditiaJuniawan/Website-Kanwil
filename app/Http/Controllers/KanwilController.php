@@ -29,13 +29,13 @@ class KanwilController extends Controller
             $kapasitas = $totalStats['kapasitas'] ?? 0;
             $isiPenghuni = $totalStats['isi_penghuni'] ?? 0;
             if ($kapasitas > 0) {
-                $totalStats['persen_overkapasitas'] = round(($isiPenghuni / $kapasitas) * 100, 0);
+                $totalStats['persen_overkapasitas'] = round((($isiPenghuni - $kapasitas) / $kapasitas) * 100, 1);
             } else {
                 $totalStats['persen_overkapasitas'] = 0;
             }
         }
 
-        return view('home', compact('uptData', 'totalStats', 'kanwil','posts'));
+        return view('home', compact('uptData', 'totalStats', 'kanwil','posts'))->with('uptOverkapasitas', $uptData);
     }
 
     public function visi()

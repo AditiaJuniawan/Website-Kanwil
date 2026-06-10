@@ -105,9 +105,9 @@ class SultanBantenService
                     'u.kapasitas',
                     'u.latitude',
                     'u.longitude',
-                    DB::raw("COALESCE(SUM(CASE WHEN dp.klasifikasi_pidana NOT IN ('WNA', 'Sakit Berkepanjangan', 'Lansia >70 tahun') THEN dp.tahanan_dewasa_laki + dp.tahanan_dewasa_perempuan + dp.tahanan_anak_laki + dp.tahanan_anak_perempuan ELSE 0 END), 0) as tahanan"),
-                    DB::raw("COALESCE(SUM(CASE WHEN dp.klasifikasi_pidana NOT IN ('WNA', 'Sakit Berkepanjangan', 'Lansia >70 tahun') THEN dp.narapidana_dewasa_laki + dp.narapidana_dewasa_perempuan + dp.narapidana_anak_laki + dp.narapidana_anak_perempuan ELSE 0 END), 0) as narapidana"),
-                    DB::raw("COALESCE(SUM(CASE WHEN dp.klasifikasi_pidana NOT IN ('WNA', 'Sakit Berkepanjangan', 'Lansia >70 tahun') THEN dp.tahanan_dewasa_laki + dp.tahanan_dewasa_perempuan + dp.tahanan_anak_laki + dp.tahanan_anak_perempuan + dp.narapidana_dewasa_laki + dp.narapidana_dewasa_perempuan + dp.narapidana_anak_laki + dp.narapidana_anak_perempuan ELSE 0 END), 0) as isi_penghuni")
+                    DB::raw("COALESCE(SUM(dp.tahanan_dewasa_laki + dp.tahanan_dewasa_perempuan + dp.tahanan_anak_laki + dp.tahanan_anak_perempuan), 0) as tahanan"),
+                    DB::raw("COALESCE(SUM(dp.narapidana_dewasa_laki + dp.narapidana_dewasa_perempuan + dp.narapidana_anak_laki + dp.narapidana_anak_perempuan), 0) as narapidana"),
+                    DB::raw("COALESCE(SUM(dp.tahanan_dewasa_laki + dp.tahanan_dewasa_perempuan + dp.tahanan_anak_laki + dp.tahanan_anak_perempuan + dp.narapidana_dewasa_laki + dp.narapidana_dewasa_perempuan + dp.narapidana_anak_laki + dp.narapidana_anak_perempuan), 0) as isi_penghuni")
                 ])
                 ->groupBy('u.id', 'u.nama_upt', 'u.alamat', 'u.kapasitas', 'u.latitude', 'u.longitude')
                 ->orderBy('u.nama_upt')
