@@ -1,15 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /admin
-Disallow: /filament
-Disallow: /sesi
-Disallow: /sesi/login
-Disallow: /storage/
-Disallow: /*.env$
-Disallow: /api/
-
-# Sitemap
-Sitemap: https://ditjenpasbanten.com/sitemap.xml
-
-# Crawl delay (be kind to server)
-Crawl-delay: 1
+Disallow: /

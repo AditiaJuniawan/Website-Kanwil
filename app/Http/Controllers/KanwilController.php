@@ -24,6 +24,17 @@ class KanwilController extends Controller
             ? $statsData['data']['statistics']
             : null;
 
+        // Calculate persen_overkapasitas if totalStats is available
+        if ($totalStats) {
+            $kapasitas = $totalStats['kapasitas'] ?? 0;
+            $isiPenghuni = $totalStats['isi_penghuni'] ?? 0;
+            if ($kapasitas > 0) {
+                $totalStats['persen_overkapasitas'] = round(($isiPenghuni / $kapasitas) * 100, 0);
+            } else {
+                $totalStats['persen_overkapasitas'] = 0;
+            }
+        }
+
         return view('home', compact('uptData', 'totalStats', 'kanwil','posts'));
     }
 
