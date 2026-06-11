@@ -96,7 +96,8 @@ class SultanBantenService
                 ->table('upt as u')
                 ->leftJoin('data_penghuni as dp', function ($join) use ($targetDate) {
                     $join->on('u.id', '=', 'dp.upt_id')
-                         ->on('dp.tanggal', '=', DB::raw("'$targetDate'"));
+                         ->on('dp.tanggal', '=', DB::raw("'$targetDate'"))
+                         ->whereNotIn('dp.klasifikasi_pidana', ['WNA', 'Sakit Berkepanjangan', 'Lansia >70 tahun']);
                 })
                 ->select([
                     'u.id',
