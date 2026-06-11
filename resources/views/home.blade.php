@@ -903,7 +903,9 @@
                 <a href="{{ url('/berita') }}" class="hidden md:flex items-center text-brand-600 font-semibold hover:text-brand-800 transition group">
                     Semua Berita <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                 </a>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @if($posts->isEmpty())
                     {{-- Fallback content if database is empty --}}
                         <!-- News Card 1 -->
@@ -978,7 +980,7 @@
                         </a>
                     @endforeach
                 @endif
-            </div>  </div>
+            </div>
         </div>
     </section>
 
