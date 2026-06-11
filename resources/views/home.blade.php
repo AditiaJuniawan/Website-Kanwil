@@ -511,26 +511,26 @@
                 </div>
 
                 
-                <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4">
-                    <div class="bg-brand-50 p-4 rounded-2xl border border-brand-100">
-                        <p class="text-[10px] text-brand-600 font-bold uppercase tracking-wider mb-1">Total Tahanan</p>
-                        <p class="text-xl font-extrabold text-brand-900">{{ number_format($totalStats['tahanan'] ?? 0, 0, ',', '.') }}</p>
+                <div class="mt-8 flex gap-3 overflow-x-auto pb-3 md:pb-0 md:grid md:grid-cols-5 snap-x custom-scrollbar">
+                    <div class="bg-brand-50 p-3 rounded-2xl border border-brand-100 flex-shrink-0 w-[140px] md:w-auto snap-start">
+                        <p class="text-[9px] text-brand-600 font-bold uppercase tracking-wider mb-1">Total Tahanan</p>
+                        <p class="text-lg font-extrabold text-brand-900">{{ number_format($totalStats['tahanan'] ?? 0, 0, ',', '.') }}</p>
                     </div>
-                    <div class="bg-gold-50 p-4 rounded-2xl border border-gold-100">
-                        <p class="text-[10px] text-gold-600 font-bold uppercase tracking-wider mb-1">Total Narapidana</p>
-                        <p class="text-xl font-extrabold text-gold-700">{{ number_format($totalStats['narapidana'] ?? 0, 0, ',', '.') }}</p>
+                    <div class="bg-gold-50 p-3 rounded-2xl border border-gold-100 flex-shrink-0 w-[140px] md:w-auto snap-start">
+                        <p class="text-[9px] text-gold-600 font-bold uppercase tracking-wider mb-1">Total Narapidana</p>
+                        <p class="text-lg font-extrabold text-gold-700">{{ number_format($totalStats['narapidana'] ?? 0, 0, ',', '.') }}</p>
                     </div>
-                    <div class="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
-                        <p class="text-[10px] text-indigo-600 font-bold uppercase tracking-wider mb-1">Total Penghuni</p>
-                        <p class="text-xl font-extrabold text-indigo-900">{{ number_format($totalStats['isi_penghuni'] ?? 0, 0, ',', '.') }}</p>
+                    <div class="bg-indigo-50 p-3 rounded-2xl border border-indigo-100 flex-shrink-0 w-[140px] md:w-auto snap-start">
+                        <p class="text-[9px] text-indigo-600 font-bold uppercase tracking-wider mb-1">Total Penghuni</p>
+                        <p class="text-lg font-extrabold text-indigo-900">{{ number_format($totalStats['isi_penghuni'] ?? 0, 0, ',', '.') }}</p>
                     </div>
-                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Kapasitas</p>
-                        <p class="text-xl font-extrabold text-slate-800">{{ number_format($totalStats['kapasitas'] ?? 0, 0, ',', '.') }}</p>
+                    <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 flex-shrink-0 w-[140px] md:w-auto snap-start">
+                        <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-1">Kapasitas</p>
+                        <p class="text-lg font-extrabold text-slate-800">{{ number_format($totalStats['kapasitas'] ?? 0, 0, ',', '.') }}</p>
                     </div>
-                    <div class="bg-red-50 p-4 rounded-2xl border border-red-100">
-                        <p class="text-[10px] text-red-600 font-bold uppercase tracking-wider mb-1">Overkapasitas</p>
-                        <p class="text-xl font-extrabold text-red-700">{{ $totalStats['persen_overkapasitas'] ?? 0 }}%</p>
+                    <div class="bg-red-50 p-3 rounded-2xl border border-red-100 flex-shrink-0 w-[140px] md:w-auto snap-start">
+                        <p class="text-[9px] text-red-600 font-bold uppercase tracking-wider mb-1">Overkapasitas</p>
+                        <p class="text-lg font-extrabold text-red-700">{{ $totalStats['persen_overkapasitas'] ?? 0 }}%</p>
                     </div>
                 </div>
             </div>
