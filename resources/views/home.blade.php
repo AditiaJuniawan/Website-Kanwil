@@ -173,58 +173,10 @@
         </div>
     </div>
 
-    <!-- AKSES LAYANAN -->
-    <section id="layanan" class="py-20 md:py-28 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center mb-16" data-aos="fade-up">
-                <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Inovasi Layanan</p>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Layanan Publik Utama</h2>
-                <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Layanan 1 -->
-                <a href="https://sites.google.com/view/starpasbanten/" class="bg-white rounded-[2rem] p-8 service-card service-card-blue border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon-wrap w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white">
-                        <i class="fa-solid fa-bullhorn"></i>
-                    </div>
-                    <h4 class="font-bold text-slate-800 text-lg mb-3">STARPAS Banten</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Merupakan Layanan untuk Pengajuan Pengaduan, Pengajuan Informasi serta Pengajuan Perizinan Baik Penelitian, Magang ataupun Kunjungan</p>
-                    <div class="text-blue-600 text-sm font-semibold flex items-center group-hover:text-blue-700">
-                        Kunjungi Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
-                    </div>
-                </a>
-
-                <!-- Layanan 2 -->
-                <a href="https://sipas.ditjenpasbanten.com/" class="bg-white rounded-[2rem] p-8 service-card service-card-amber border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon-wrap w-16 h-16 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-amber-500 group-hover:text-white">
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h4 class="font-bold text-slate-800 text-lg mb-3">SIPAS Banten</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Merupakan Layanan Sharing Inovasi Milik Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten</p>
-                    <div class="text-amber-600 text-sm font-semibold flex items-center group-hover:text-amber-700">
-                        Kunjungi Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
-                    </div>
-                </a>
-
-                <!-- Layanan 3 -->
-                <a href="https://sultan.ditjenpasbanten.com/dashboard.php" class="bg-white rounded-[2rem] p-8 service-card service-card-green border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon-wrap w-16 h-16 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-500 group-hover:text-white">
-                        <i class="fa-solid fa-file-signature"></i>
-                    </div>
-                    <h4 class="font-bold text-slate-800 text-lg mb-3">Sultan Banten</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Sistem Update Laporan Terpadu Harian Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten</p>
-                    <div class="text-emerald-600 text-sm font-semibold flex items-center group-hover:text-emerald-700">
-                        Kunjungi Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- PORTAL LAYANAN TERPADU (WO-002) -->
-    <section id="portal-terpadu" class="py-20 bg-slate-50 relative overflow-hidden">
+    <section id="portal-terpadu" class="py-20 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
         <!-- Radial background glows for a premium aesthetic -->
         <div class="absolute w-[400px] h-[400px] rounded-full bg-brand-400/5 blur-[100px] top-[10%] left-[5%] pointer-events-none"></div>
         <div class="absolute w-[400px] h-[400px] rounded-full bg-gold-400/5 blur-[100px] bottom-[10%] right-[5%] pointer-events-none"></div>
@@ -240,7 +192,8 @@
             <!-- Grid 8 Categories -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- 1. Profil Kanwil -->
-                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-1.5 w-full bg-gradient-to-r from-brand-700 to-gold-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-blue-50 text-brand-900 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-brand-900 group-hover:text-white">
                             <i class="fa-solid fa-building-user"></i>
@@ -250,16 +203,16 @@
                     </div>
                     <div class="border-t border-slate-100 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/profil') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/profil') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Profil Instansi
                             </a>
-                            <a href="{{ url('/visi') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/visi') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Visi & Misi
                             </a>
-                            <a href="{{ url('/maskot') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/maskot') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Maskot Si Benteng
                             </a>
-                            <a href="{{ url('/tentang') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/tentang') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Tentang Aplikasi
                             </a>
                         </div>
@@ -267,7 +220,8 @@
                 </div>
 
                 <!-- 2. Layanan Publik -->
-                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="150">
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+                    <div class="h-1.5 w-full bg-gradient-to-r from-brand-700 to-gold-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-amber-50 text-gold-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-gold-500 group-hover:text-white">
                             <i class="fa-solid fa-handshake-angle"></i>
@@ -277,16 +231,16 @@
                     </div>
                     <div class="border-t border-slate-100 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="https://sites.google.com/view/starpasbanten/" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="https://sites.google.com/view/starpasbanten/" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> STARPAS Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="{{ url('/LayananPengaduan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/LayananPengaduan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Pengaduan
                             </a>
-                            <a href="{{ url('/LayananPerizinan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/LayananPerizinan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Perizinan
                             </a>
-                            <a href="{{ url('/LayananInformasi') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/LayananInformasi') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Informasi
                             </a>
                         </div>
@@ -294,7 +248,8 @@
                 </div>
 
                 <!-- 3. Informasi Publik -->
-                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-1.5 w-full bg-gradient-to-r from-brand-700 to-gold-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white">
                             <i class="fa-solid fa-circle-info"></i>
@@ -304,13 +259,13 @@
                     </div>
                     <div class="border-t border-slate-100 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/survei') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/survei') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Survei Kepuasan
                             </a>
-                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Berita & Kegiatan
                             </a>
-                            <a href="{{ url('/tentang') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/tentang') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Profil Aplikasi
                             </a>
                         </div>
@@ -318,7 +273,8 @@
                 </div>
 
                 <!-- 4. Dashboard Data -->
-                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="250">
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="250">
+                    <div class="h-1.5 w-full bg-gradient-to-r from-brand-700 to-gold-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-cyan-50 text-cyan-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-cyan-500 group-hover:text-white">
                             <i class="fa-solid fa-chart-line"></i>
@@ -328,13 +284,13 @@
                     </div>
                     <div class="border-t border-slate-100 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="https://sultan.ditjenpasbanten.com/dashboard.php" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="https://sultan.ditjenpasbanten.com/dashboard.php" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Sultan Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="#map" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="#map" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Peta Lokasi UPT
                             </a>
-                            <a href="#statistik-upt" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="#statistik-upt" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Statistik Hunian
                             </a>
                         </div>
@@ -342,7 +298,8 @@
                 </div>
 
                 <!-- 5. Berita & Pengumuman -->
-                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-1.5 w-full bg-gradient-to-r from-brand-700 to-gold-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-rose-50 text-rose-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-rose-500 group-hover:text-white">
                             <i class="fa-solid fa-newspaper"></i>
@@ -352,10 +309,10 @@
                     </div>
                     <div class="border-t border-slate-100 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-rose-500"></i> Berita Utama
                             </a>
-                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-rose-500"></i> Galeri Kegiatan
                             </a>
                         </div>
@@ -363,7 +320,8 @@
                 </div>
 
                 <!-- 6. Aplikasi Internal -->
-                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="350">
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="350">
+                    <div class="h-1.5 w-full bg-gradient-to-r from-brand-700 to-gold-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-indigo-600 group-hover:text-white">
                             <i class="fa-solid fa-laptop-code"></i>
@@ -373,10 +331,10 @@
                     </div>
                     <div class="border-t border-slate-100 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="https://sipas.ditjenpasbanten.com/" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="https://sipas.ditjenpasbanten.com/" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> SIPAS Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="{{ url('/login') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/login') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> Login Admin Portal
                             </a>
                         </div>
@@ -384,7 +342,8 @@
                 </div>
 
                 <!-- 7. Kontak & Pengaduan -->
-                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-1.5 w-full bg-gradient-to-r from-brand-700 to-gold-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-purple-600 group-hover:text-white">
                             <i class="fa-solid fa-comments"></i>
@@ -394,13 +353,13 @@
                     </div>
                     <div class="border-t border-slate-100 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/formpengaduan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="{{ url('/formpengaduan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> Form Pengaduan
                             </a>
-                            <a href="https://wa.me/6282266662055" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="https://wa.me/6282266662055" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> WhatsApp Chat <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
                             </a>
-                            <a href="#kontakkanwil" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="#kontakkanwil" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> Alamat & Lokasi
                             </a>
                         </div>
@@ -408,7 +367,8 @@
                 </div>
 
                 <!-- 8. Tautan Penting -->
-                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="450">
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="450">
+                    <div class="h-1.5 w-full bg-gradient-to-r from-brand-700 to-gold-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-slate-50 text-slate-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-slate-700 group-hover:text-white">
                             <i class="fa-solid fa-link"></i>
@@ -418,16 +378,16 @@
                     </div>
                     <div class="border-t border-slate-100 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="https://ditjenpas.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="https://ditjenpas.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Ditjen Pemasyarakatan <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="https://kemenkumham.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="https://kemenkumham.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Kemenkumham RI <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="https://banten.kemenkumham.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="https://banten.kemenkumham.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Kanwil Kemenkumham Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="https://www.lapor.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                            <a href="https://www.lapor.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Portal E-Lapor <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
                         </div>
@@ -437,49 +397,6 @@
         </div>
     </section>
 
-    <!-- STATISTIK (Elegant Dark Section with Glow Effects) -->
-    <section class="py-24 bg-brand-900 relative overflow-hidden">
-        <!-- Background Decorative Elements -->
-        <div class="absolute w-[500px] h-[500px] rounded-full bg-brand-500/10 blur-[120px] top-[-50%] left-[-10%] pointer-events-none"></div>
-        <div class="absolute w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[120px] bottom-[-50%] right-[-10%] pointer-events-none"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Stat 1 -->
-                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 text-center backdrop-blur-sm hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white text-xl mx-auto mb-4">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
-                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
-                        {{ number_format($totalStats['isi_penghuni'] ?? 5000, 0, ',', '.') }}
-                    </div>
-                    <div class="text-brand-300 text-xs font-semibold uppercase tracking-widest">Total WBP</div>
-                </div>
-
-                <!-- Stat 2 -->
-                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 text-center backdrop-blur-sm hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-rose-400 text-xl mx-auto mb-4">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                    </div>
-                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
-                        {{ $totalStats['persen_overkapasitas'] ?? 98 }}<span class="text-rose-400">%</span>
-                    </div>
-                    <div class="text-brand-300 text-xs font-semibold uppercase tracking-widest">Overkapasitas</div>
-                </div>
-
-                <!-- Stat 3 -->
-                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 text-center backdrop-blur-sm hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-amber-400 text-xl mx-auto mb-4">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </div>
-                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
-                        24<span class="text-amber-400">/</span>7
-                    </div>
-                    <div class="text-brand-300 text-xs font-semibold uppercase tracking-widest">Layanan Digital</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- WILAYAH KERJA MAP & INFOGRAPHICS -->
     <section class="py-24 bg-slate-50 relative overflow-hidden">
