@@ -223,6 +223,220 @@
         </div>
     </section>
 
+    <!-- PORTAL LAYANAN TERPADU (WO-002) -->
+    <section id="portal-terpadu" class="py-20 bg-slate-50 relative overflow-hidden">
+        <!-- Radial background glows for a premium aesthetic -->
+        <div class="absolute w-[400px] h-[400px] rounded-full bg-brand-400/5 blur-[100px] top-[10%] left-[5%] pointer-events-none"></div>
+        <div class="absolute w-[400px] h-[400px] rounded-full bg-gold-400/5 blur-[100px] bottom-[10%] right-[5%] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Portal Layanan Terpadu</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Quick Access & Layanan Terintegrasi</h2>
+                <p class="text-slate-500 mt-4 max-w-xl mx-auto text-sm font-light">Akses cepat ke seluruh layanan, informasi publik, aplikasi internal, serta informasi Kantor Wilayah dalam satu pintu.</p>
+                <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <!-- Grid 8 Categories -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 1. Profil Kanwil -->
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-14 h-14 bg-blue-50 text-brand-900 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-brand-900 group-hover:text-white">
+                            <i class="fa-solid fa-building-user"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Profil Kanwil</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Informasi kelembagaan, visi misi, maskot resmi, dan deskripsi Kantor Wilayah.</p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                        <div class="flex flex-col gap-2">
+                            <a href="{{ url('/profil') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Profil Instansi
+                            </a>
+                            <a href="{{ url('/visi') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Visi & Misi
+                            </a>
+                            <a href="{{ url('/maskot') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Maskot Si Benteng
+                            </a>
+                            <a href="{{ url('/tentang') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Tentang Aplikasi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Layanan Publik -->
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="150">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-50 text-gold-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-gold-500 group-hover:text-white">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Layanan Publik</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Akses layanan perizinan, pengaduan online, serta informasi terpadu.</p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                        <div class="flex flex-col gap-2">
+                            <a href="https://sites.google.com/view/starpasbanten/" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> STARPAS Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                            </a>
+                            <a href="{{ url('/LayananPengaduan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Pengaduan
+                            </a>
+                            <a href="{{ url('/LayananPerizinan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Perizinan
+                            </a>
+                            <a href="{{ url('/LayananInformasi') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Informasi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Informasi Publik -->
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Informasi Publik</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Keterbukaan informasi publik, hasil survei kepuasan, dan berita terbaru.</p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                        <div class="flex flex-col gap-2">
+                            <a href="{{ url('/survei') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Survei Kepuasan
+                            </a>
+                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Berita & Kegiatan
+                            </a>
+                            <a href="{{ url('/tentang') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Profil Aplikasi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Dashboard Data -->
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="250">
+                    <div>
+                        <div class="w-14 h-14 bg-cyan-50 text-cyan-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-cyan-500 group-hover:text-white">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Dashboard Data</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Visualisasi data hunian, peta lokasi UPT, dan statistik overkapasitas wilayah.</p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                        <div class="flex flex-col gap-2">
+                            <a href="https://sultan.ditjenpasbanten.com/dashboard.php" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Sultan Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                            </a>
+                            <a href="#map" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Peta Lokasi UPT
+                            </a>
+                            <a href="#statistik-upt" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Statistik Hunian
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Berita & Pengumuman -->
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="w-14 h-14 bg-rose-50 text-rose-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-rose-500 group-hover:text-white">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Berita & Kabar</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Kumpulan berita terkini, pers release, dan siaran pers resmi dari wilayah Banten.</p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                        <div class="flex flex-col gap-2">
+                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-rose-500"></i> Berita Utama
+                            </a>
+                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-rose-500"></i> Galeri Kegiatan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Aplikasi Internal -->
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="350">
+                    <div>
+                        <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-indigo-600 group-hover:text-white">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Aplikasi Internal</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Inovasi SIPAS, sistem update laporan Sultan, dan portal pengelolaan administrasi.</p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                        <div class="flex flex-col gap-2">
+                            <a href="https://sipas.ditjenpasbanten.com/" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> SIPAS Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                            </a>
+                            <a href="{{ url('/login') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> Login Admin Portal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Kontak & Pengaduan -->
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="400">
+                    <div>
+                        <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-purple-600 group-hover:text-white">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Kontak & Aduan</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Hubungi call center, layanan pengaduan integritas, atau kirim surel ke redaksi.</p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                        <div class="flex flex-col gap-2">
+                            <a href="{{ url('/formpengaduan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> Form Pengaduan
+                            </a>
+                            <a href="https://wa.me/6282266662055" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> WhatsApp Chat <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
+                            </a>
+                            <a href="#kontakkanwil" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> Alamat & Lokasi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Tautan Penting -->
+                <div class="bg-white rounded-[2rem] p-6 border border-slate-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-200/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="450">
+                    <div>
+                        <div class="w-14 h-14 bg-slate-50 text-slate-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-slate-700 group-hover:text-white">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Tautan Penting</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Tautan langsung ke portal instansi vertikal Kemenkumham RI dan Ditjenpas.</p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                        <div class="flex flex-col gap-2">
+                            <a href="https://ditjenpas.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Ditjen Pemasyarakatan <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                            </a>
+                            <a href="https://kemenkumham.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Kemenkumham RI <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                            </a>
+                            <a href="https://banten.kemenkumham.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Kanwil Kemenkumham Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                            </a>
+                            <a href="https://www.lapor.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Portal E-Lapor <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- STATISTIK (Elegant Dark Section with Glow Effects) -->
     <section class="py-24 bg-brand-900 relative overflow-hidden">
         <!-- Background Decorative Elements -->
@@ -614,7 +828,7 @@
     </section>
 
     <!-- TABEL PENGHUNI & OVERKAPASITAS PER UPT -->
-    <section class="py-16 bg-white">
+    <section id="statistik-upt" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12" data-aos="fade-up">
                 <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Data Real-Time</p>
