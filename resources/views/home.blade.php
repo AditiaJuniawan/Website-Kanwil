@@ -183,7 +183,10 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
-                <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Portal Layanan Terpadu</p>
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-600 font-bold tracking-widest uppercase text-[10px] mb-4">
+                    <i class="fa-solid fa-gateway"></i>
+                    Portal Layanan Terpadu
+                </div>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Quick Access & Layanan Terintegrasi</h2>
                 <p class="text-slate-500 mt-4 max-w-xl mx-auto text-sm font-light">Akses cepat ke seluruh layanan, informasi publik, aplikasi internal, serta informasi Kantor Wilayah dalam satu pintu.</p>
                 <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
@@ -402,8 +405,12 @@
     <section class="py-24 bg-slate-50 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Peta Digital Sultan Banten</p>
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-600 font-bold tracking-widest uppercase text-[10px] mb-4">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    Peta Digital Sultan Banten
+                </div>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-gradient-brand tracking-tight">Infografis Unit Pelaksana Teknis</h2>
+                <p class="text-slate-500 mt-3 max-w-lg mx-auto text-sm font-light">Data kapasitas dan status hunian seluruh UPT wilayah Provinsi Banten</p>
                 <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
             </div>
             
@@ -665,6 +672,11 @@
                                             </div>
                                         </div>
                                     `);
+                                marker.uptData = {
+                                    persen: persen,
+                                    tahanan: parseInt(upt.tahanan) || 0,
+                                    narapidana: parseInt(upt.narapidana) || 0
+                                };
                                 markers.push(marker);
                             });
 
@@ -678,6 +690,169 @@
                             setTimeout(() => {
                                 map.invalidateSize();
                             }, 500);
+
+                            // Banten safe bounds fallback
+                            const bantenCenter = [-6.4409, 106.1385];
+                            const bantenDefaultZoom = 9;
+
+                            // Helper: show toast notification
+                            function showMapToast(message, color) {
+                                let toast = document.getElementById('map-filter-toast');
+                                if (!toast) {
+                                    toast = document.createElement('div');
+                                    toast.id = 'map-filter-toast';
+                                    toast.style.cssText = 'position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:9999;pointer-events:none;transition:opacity 0.3s ease;';
+                                    document.getElementById('map').parentNode.style.position = 'relative';
+                                    document.getElementById('map').parentNode.appendChild(toast);
+                                }
+                                toast.innerHTML = `<span style="display:inline-flex;align-items:center;gap:6px;background:${color};color:#fff;font-size:11px;font-weight:700;padding:6px 14px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,0.18);letter-spacing:0.03em;">${message}</span>`;
+                                toast.style.opacity = '1';
+                                clearTimeout(toast._t);
+                                toast._t = setTimeout(() => { toast.style.opacity = '0'; }, 3000);
+                            }
+
+                            // Interactive filter markers
+                            let activeFilter = 'all';
+                            window.filterMapMarkers = function(filterType, cardEl) {
+                                // Toggle off if same card clicked again
+                                if (activeFilter === filterType && filterType !== 'all') {
+                                    filterType = 'all';
+                                }
+                                activeFilter = filterType;
+
+                                // Reset styling of all stat cards
+                                document.querySelectorAll('.stat-card').forEach(card => {
+                                    card.classList.remove('ring-4', 'ring-brand-500/30', 'scale-[1.02]', 'shadow-xl');
+                                });
+
+                                // Highlight clicked card if not resetting
+                                if (cardEl && filterType !== 'all') {
+                                    cardEl.classList.add('ring-4', 'ring-brand-500/30', 'scale-[1.02]', 'shadow-xl');
+                                }
+
+                                // Filter markers based on type
+                                markers.forEach(m => {
+                                    let show = true;
+                                    if (filterType === 'over') {
+                                        show = m.uptData.persen > 0;
+                                    } else if (filterType === 'tahanan') {
+                                        show = m.uptData.tahanan > 0;
+                                    } else if (filterType === 'narapidana') {
+                                        show = m.uptData.narapidana > 0;
+                                    }
+
+                                    if (show) {
+                                        if (!map.hasLayer(m)) m.addTo(map);
+                                    } else {
+                                        if (map.hasLayer(m)) map.removeLayer(m);
+                                    }
+                                });
+
+                                const activeMarkers = markers.filter(m => map.hasLayer(m));
+
+                                if (activeMarkers.length > 0) {
+                                    try {
+                                        const group = L.featureGroup(activeMarkers);
+                                        const bounds = group.getBounds();
+
+                                        // Validate bounds are within Banten region (prevent zooming to Indonesia)
+                                        const sw = bounds.getSouthWest();
+                                        const ne = bounds.getNorthEast();
+                                        const isValidBanten = (
+                                            sw.lat > -8 && sw.lat < -5 &&
+                                            sw.lng > 104 && sw.lng < 108 &&
+                                            ne.lat > -8 && ne.lat < -5 &&
+                                            ne.lng > 104 && ne.lng < 108
+                                        );
+
+                                        if (isValidBanten) {
+                                            map.fitBounds(bounds.pad(0.15), { maxZoom: 13, animate: true });
+                                        } else {
+                                            // Fallback: zoom to Banten center
+                                            map.setView(bantenCenter, bantenDefaultZoom, { animate: true });
+                                        }
+                                    } catch(e) {
+                                        map.setView(bantenCenter, bantenDefaultZoom, { animate: true });
+                                    }
+
+                                    // Show toast notification about active filter
+                                    const filterLabels = {
+                                        'all': '🗺️ Menampilkan Semua UPT',
+                                        'over': '🔴 Filter: UPT Overkapasitas',
+                                        'tahanan': '🔵 Filter: UPT dengan Tahanan',
+                                        'narapidana': '🟡 Filter: UPT dengan Narapidana'
+                                    };
+                                    const toastColors = {
+                                        'all': '#1b3d6a',
+                                        'over': '#dc2626',
+                                        'tahanan': '#2563eb',
+                                        'narapidana': '#d97706'
+                                    };
+                                    showMapToast(
+                                        (filterLabels[filterType] || '🗺️ Filter Aktif') + ' (' + activeMarkers.length + ' UPT)',
+                                        toastColors[filterType] || '#1b3d6a'
+                                    );
+                                } else {
+                                    // No markers visible - reset to Banten
+                                    map.setView(bantenCenter, bantenDefaultZoom, { animate: true });
+                                    showMapToast('⚠️ Tidak ada UPT yang sesuai filter', '#6b7280');
+                                }
+                            };
+
+                            // Client-side HTML polling auto-refresh
+                            let refreshTimer = null;
+                            let refreshCountdown = 300;
+
+                            function scheduleRefresh() {
+                                refreshCountdown = 300;
+                                refreshTimer = setInterval(() => {
+                                    refreshCountdown--;
+                                    if (refreshCountdown <= 0) {
+                                        clearInterval(refreshTimer);
+                                        doRefresh();
+                                    }
+                                }, 1000);
+                            }
+
+                            function doRefresh() {
+                                fetch(window.location.href, { cache: 'no-cache' })
+                                    .then(response => {
+                                        if (!response.ok) throw new Error('Network error');
+                                        return response.text();
+                                    })
+                                    .then(html => {
+                                        const parser = new DOMParser();
+                                        const doc = parser.parseFromString(html, 'text/html');
+
+                                        // Update stat cards
+                                        const cardIds = ['card-tahanan', 'card-narapidana', 'card-penghuni', 'card-kapasitas', 'card-over'];
+                                        cardIds.forEach(id => {
+                                            const oldEl = document.getElementById(id);
+                                            const newEl = doc.getElementById(id);
+                                            if (oldEl && newEl) {
+                                                oldEl.innerHTML = newEl.innerHTML;
+                                            }
+                                        });
+
+                                        // Update stats table
+                                        const oldTable = document.querySelector('.modern-table tbody');
+                                        const newTable = doc.querySelector('.modern-table tbody');
+                                        if (oldTable && newTable) {
+                                            oldTable.innerHTML = newTable.innerHTML;
+                                        }
+
+                                        showMapToast('✅ Data diperbarui otomatis', '#059669');
+                                        console.log('[Auto-Refresh] Dashboard stats updated at', new Date().toLocaleTimeString('id-ID'));
+                                        scheduleRefresh();
+                                    })
+                                    .catch(err => {
+                                        console.warn('[Auto-Refresh] Failed:', err);
+                                        scheduleRefresh(); // retry after next interval
+                                    });
+                            }
+
+                            // Start the refresh schedule after 5 minutes
+                            scheduleRefresh();
                         });
                     </script>
                 </div>
@@ -711,43 +886,53 @@
                     @endphp
                     
                     <!-- Total Tahanan -->
-                    <div class="bg-gradient-to-br from-blue-50/70 to-indigo-50/50 p-5 rounded-2xl border border-blue-200/80 hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px]">
+                    <div id="card-tahanan" class="stat-card cursor-pointer bg-gradient-to-br from-blue-50/70 to-indigo-50/50 p-5 rounded-2xl border border-blue-200/80 hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px] active:scale-95" onclick="filterMapMarkers('tahanan', this)">
                         <div class="flex justify-between items-start">
                             <p class="text-[10px] text-brand-650 font-bold uppercase tracking-wider">Total Tahanan</p>
-                            <span class="p-2 bg-blue-100 text-brand-900 rounded-xl">
-                                <i class="fa-solid fa-lock text-base"></i>
+                            <span class="icon-wrap p-2 bg-blue-100 text-brand-900 rounded-xl shadow-sm">
+                                <i class="fa-solid fa-handcuffs text-base"></i>
                             </span>
                         </div>
                         <div>
-                            <p class="text-3xl md:text-4xl font-extrabold text-brand-950 tracking-tight mt-2">{{ number_format($tahananCount, 0, ',', '.') }}</p>
-                            <p class="text-[9px] text-slate-500 mt-1 font-semibold">{{ $tahananPercent }}% dari total hunian</p>
+                            <p class="text-3xl md:text-4xl font-extrabold text-brand-950 tracking-tight mt-2 stat-number">{{ number_format($tahananCount, 0, ',', '.') }}</p>
+                            <div class="flex items-center gap-2 mt-1">
+                                <p class="text-[9px] text-slate-500 font-semibold">{{ $tahananPercent }}% dari total hunian</p>
+                                @if($tahananCount > 0)
+                                <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[8px] font-bold bg-blue-100 text-blue-700 border border-blue-200">Aktif</span>
+                                @endif
+                            </div>
                         </div>
                     </div>
 
                     <!-- Total Narapidana -->
-                    <div class="bg-gradient-to-br from-amber-50/70 to-orange-50/50 p-5 rounded-2xl border border-amber-200/80 hover:border-amber-400/60 hover:shadow-lg hover:shadow-amber-500/5 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px]">
+                    <div id="card-narapidana" class="stat-card cursor-pointer bg-gradient-to-br from-amber-50/70 to-orange-50/50 p-5 rounded-2xl border border-amber-200/80 hover:border-amber-400/60 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px] active:scale-95" onclick="filterMapMarkers('narapidana', this)">
                         <div class="flex justify-between items-start">
                             <p class="text-[10px] text-amber-700 font-bold uppercase tracking-wider">Total Narapidana</p>
-                            <span class="p-2 bg-amber-100 text-amber-700 rounded-xl">
+                            <span class="icon-wrap p-2 bg-amber-100 text-amber-700 rounded-xl shadow-sm">
                                 <i class="fa-solid fa-user-lock text-base"></i>
                             </span>
                         </div>
                         <div>
-                            <p class="text-3xl md:text-4xl font-extrabold text-amber-950 tracking-tight mt-2">{{ number_format($napiCount, 0, ',', '.') }}</p>
-                            <p class="text-[9px] text-slate-500 mt-1 font-semibold">{{ $napiPercent }}% dari total hunian</p>
+                            <p class="text-3xl md:text-4xl font-extrabold text-amber-950 tracking-tight mt-2 stat-number">{{ number_format($napiCount, 0, ',', '.') }}</p>
+                            <div class="flex items-center gap-2 mt-1">
+                                <p class="text-[9px] text-slate-500 font-semibold">{{ $napiPercent }}% dari total hunian</p>
+                                @if($napiCount > 0)
+                                <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[8px] font-bold bg-amber-100 text-amber-700 border border-amber-200">Hukum Berjalan</span>
+                                @endif
+                            </div>
                         </div>
                     </div>
 
                     <!-- Total Penghuni -->
-                    <div class="bg-gradient-to-br from-indigo-50/70 to-violet-50/50 p-5 rounded-2xl border border-indigo-200/80 hover:border-indigo-400/60 hover:shadow-lg hover:shadow-indigo-500/5 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px]">
+                    <div id="card-penghuni" class="stat-card cursor-pointer bg-gradient-to-br from-indigo-50/70 to-violet-50/50 p-5 rounded-2xl border border-indigo-200/80 hover:border-indigo-400/60 hover:shadow-lg hover:shadow-indigo-500/10 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px] active:scale-95" onclick="filterMapMarkers('all', this)">
                         <div class="flex justify-between items-start">
                             <p class="text-[10px] text-indigo-650 font-bold uppercase tracking-wider">Total Penghuni</p>
-                            <span class="p-2 bg-indigo-100 text-indigo-700 rounded-xl">
+                            <span class="icon-wrap p-2 bg-indigo-100 text-indigo-700 rounded-xl shadow-sm">
                                 <i class="fa-solid fa-users text-base"></i>
                             </span>
                         </div>
                         <div class="mt-2">
-                            <p class="text-3xl md:text-4xl font-extrabold text-indigo-950 tracking-tight">{{ number_format($totalStats['isi_penghuni'] ?? 0, 0, ',', '.') }}</p>
+                            <p class="text-3xl md:text-4xl font-extrabold text-indigo-950 tracking-tight stat-number">{{ number_format($totalStats['isi_penghuni'] ?? 0, 0, ',', '.') }}</p>
                             <div class="mt-2">
                                 <div class="flex justify-between items-center text-[9px] text-slate-500 font-bold uppercase mb-1">
                                     <span>Rasio Hunian</span>
@@ -761,32 +946,32 @@
                     </div>
 
                     <!-- Kapasitas -->
-                    <div class="bg-gradient-to-br from-slate-100/80 to-slate-50/50 p-5 rounded-2xl border border-slate-300/70 hover:border-slate-400/60 hover:shadow-lg hover:shadow-slate-500/5 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px]">
+                    <div id="card-kapasitas" class="stat-card cursor-pointer bg-gradient-to-br from-slate-100/80 to-slate-50/50 p-5 rounded-2xl border border-slate-300/70 hover:border-slate-400/60 hover:shadow-lg hover:shadow-slate-500/10 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px] active:scale-95" onclick="filterMapMarkers('all', this)">
                         <div class="flex justify-between items-start">
                             <p class="text-[10px] text-slate-600 font-bold uppercase tracking-wider">Kapasitas</p>
-                            <span class="p-2 bg-slate-200 text-slate-700 rounded-xl">
+                            <span class="icon-wrap p-2 bg-slate-200 text-slate-700 rounded-xl shadow-sm">
                                 <i class="fa-solid fa-bed text-base"></i>
                             </span>
                         </div>
                         <div>
-                            <p class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-2">{{ number_format($kapasitasCount, 0, ',', '.') }}</p>
+                            <p class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-2 stat-number">{{ number_format($kapasitasCount, 0, ',', '.') }}</p>
                             <p class="text-[9px] text-slate-500 mt-1 font-semibold">Kapasitas tempat tidur UPT</p>
                         </div>
                     </div>
 
                     <!-- Overkapasitas -->
-                    <div class="bg-gradient-to-br from-rose-50/80 to-pink-50/50 p-5 rounded-2xl border border-rose-200/80 hover:border-rose-400/60 hover:shadow-lg hover:shadow-rose-500/5 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px]">
+                    <div id="card-over" class="stat-card cursor-pointer bg-gradient-to-br from-rose-50/80 to-pink-50/50 p-5 rounded-2xl border border-rose-200/80 hover:border-rose-400/60 hover:shadow-lg hover:shadow-rose-500/10 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px] active:scale-95" onclick="filterMapMarkers('over', this)">
                         <div class="flex justify-between items-start">
                             <p class="text-[10px] text-rose-650 font-bold uppercase tracking-wider">Overkapasitas</p>
-                            <span class="p-2 bg-rose-100 text-rose-600 rounded-xl">
+                            <span class="icon-wrap p-2 bg-rose-100 text-rose-600 rounded-xl shadow-sm">
                                 <i class="fa-solid fa-triangle-exclamation text-base"></i>
                             </span>
                         </div>
                         <div>
-                            <p class="text-3xl md:text-4xl font-extrabold text-rose-950 tracking-tight mt-2">{{ $overPercent }}%</p>
-                            <div class="mt-1 flex items-center">
+                            <p class="text-3xl md:text-4xl font-extrabold text-rose-950 tracking-tight mt-2 stat-number">{{ $overPercent }}%</p>
+                            <div class="mt-1 flex items-center gap-2">
                                 <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase border {{ $overStatusClass }}">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-current mr-1"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-current mr-1.5 animate-pulse"></span>
                                     {{ $overStatusLabel }}
                                 </span>
                             </div>
@@ -802,8 +987,15 @@
     <section id="statistik-upt" class="py-16 bg-gradient-to-b from-slate-50 to-blue-50/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12" data-aos="fade-up">
-                <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Data Real-Time</p>
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-bold tracking-widest uppercase text-[10px] mb-4">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    Data Real-Time
+                </div>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-gradient-brand tracking-tight">Data Penghuni &amp; Overkapasitas per UPT</h2>
+                <p class="text-slate-500 mt-3 max-w-lg mx-auto text-sm font-light">Monitor distribusi penghuni dan tingkat hunian setiap unit pelaksana teknis</p>
                 <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
             </div>
 
@@ -846,7 +1038,7 @@
                     border-radius: 9999px;
                     transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
                 }
-                
+
                 /* Status Specific Colors */
                 .status-longgar {
                     background-color: #eff6ff !important;
@@ -856,7 +1048,7 @@
                 .status-longgar .badge-dot, .progress-longgar {
                     background-color: #3b82f6 !important;
                 }
-                
+
                 .status-hampir_penuh {
                     background-color: #ecfdf5 !important;
                     color: #047857 !important;
@@ -865,7 +1057,7 @@
                 .status-hampir_penuh .badge-dot, .progress-hampir_penuh {
                     background-color: #10b981 !important;
                 }
-                
+
                 .status-sedikit_over {
                     background-color: #fffbeb !important;
                     color: #b45309 !important;
@@ -874,7 +1066,7 @@
                 .status-sedikit_over .badge-dot, .progress-sedikit_over {
                     background-color: #f59e0b !important;
                 }
-                
+
                 .status-over {
                     background-color: #fff7ed !important;
                     color: #c2410c !important;
@@ -883,7 +1075,7 @@
                 .status-over .badge-dot, .progress-over {
                     background-color: #f97316 !important;
                 }
-                
+
                 .status-sangat_over {
                     background-color: #fef2f2 !important;
                     color: #b91c1c !important;
@@ -891,6 +1083,38 @@
                 }
                 .status-sangat_over .badge-dot, .progress-sangat_over {
                     background-color: #ef4444 !important;
+                }
+
+                /* ===== WO-003: Enhanced Stat Card Animations ===== */
+                .stat-card {
+                    position: relative;
+                    overflow: hidden;
+                }
+                .stat-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+                    transition: left 0.6s ease;
+                    pointer-events: none;
+                }
+                .stat-card:hover::before {
+                    left: 100%;
+                }
+                .stat-card .icon-wrap {
+                    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                }
+                .stat-card:hover .icon-wrap {
+                    transform: scale(1.15) rotate(-5deg);
+                }
+                .stat-card .stat-number {
+                    transition: all 0.3s ease;
+                }
+                .stat-card:hover .stat-number {
+                    transform: scale(1.03);
                 }
             </style>
 
@@ -1052,26 +1276,26 @@
             </div>
 
             <!-- Legend -->
-            <div class="flex flex-wrap items-center justify-center gap-4 mt-8" data-aos="fade-up">
-                <div class="flex items-center gap-2">
+            <div class="flex flex-wrap items-center justify-center gap-3 mt-8" data-aos="fade-up">
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-slate-100 shadow-sm">
                     <span class="w-3 h-3 rounded-full" style="background-color: #3b82f6;"></span>
-                    <span class="text-xs text-slate-500 font-medium">Longgar (<= 75% terisi)</span>
+                    <span class="text-xs text-slate-600 font-medium">Longgar (<= 75% terisi)</span>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-slate-100 shadow-sm">
                     <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                    <span class="text-xs text-slate-500 font-medium">Hampir Penuh (75% - 100%)</span>
+                    <span class="text-xs text-slate-600 font-medium">Hampir Penuh (75% - 100%)</span>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-slate-100 shadow-sm">
                     <span class="w-3 h-3 rounded-full bg-amber-500"></span>
-                    <span class="text-xs text-slate-500 font-medium">Sedikit Over (100% - 120%)</span>
+                    <span class="text-xs text-slate-600 font-medium">Sedikit Over (100% - 120%)</span>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-slate-100 shadow-sm">
                     <span class="w-3 h-3 rounded-full bg-orange-500"></span>
-                    <span class="text-xs text-slate-500 font-medium">Over Kapasitas (120% - 200%)</span>
+                    <span class="text-xs text-slate-600 font-medium">Over Kapasitas (120% - 200%)</span>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-slate-100 shadow-sm">
                     <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                    <span class="text-xs text-slate-500 font-medium">Sangat Over (> 200%)</span>
+                    <span class="text-xs text-slate-600 font-medium">Sangat Over (> 200%)</span>
                 </div>
             </div>
         </div>
