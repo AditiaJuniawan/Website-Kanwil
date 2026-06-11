@@ -511,7 +511,7 @@
                 </div>
 
                 
-                <div class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4">
                     <div class="bg-brand-50 p-4 rounded-2xl border border-brand-100">
                         <p class="text-[10px] text-brand-600 font-bold uppercase tracking-wider mb-1">Total Tahanan</p>
                         <p class="text-xl font-extrabold text-brand-900">{{ number_format($totalStats['tahanan'] ?? 0, 0, ',', '.') }}</p>
