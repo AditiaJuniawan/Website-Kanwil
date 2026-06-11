@@ -1026,7 +1026,7 @@
     <!-- BERITA TERBARU -->
     <section id="berita" class="py-24 bg-gradient-to-b from-slate-50 to-blue-50/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12" data-aos="fade-up">
                 <div>
                     <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Kabar Terkini</p>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-gradient-brand tracking-tight">Berita & Informasi</h2>
