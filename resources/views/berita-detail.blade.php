@@ -140,6 +140,20 @@ $jsonLd = [
                                     margin-top: 1rem;
                                     content: "";
                                 }
+                                .custom-scrollbar::-webkit-scrollbar {
+                                    width: 6px;
+                                }
+                                .custom-scrollbar::-webkit-scrollbar-track {
+                                    background: #f1f5f9;
+                                    border-radius: 10px;
+                                }
+                                .custom-scrollbar::-webkit-scrollbar-thumb {
+                                    background: #cbd5e1;
+                                    border-radius: 10px;
+                                }
+                                .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                                    background: #94a3b8;
+                                }
                             </style>
 
                             {{-- Divider --}}
@@ -151,6 +165,112 @@ $jsonLd = [
                                 <i class="fa-solid fa-arrow-left mr-2"></i> Kembali ke Daftar Berita
                             </a>
                         </div>
+                    </div>
+
+                    {{-- Section Komentar --}}
+                    <div class="mt-8 bg-white rounded-3xl shadow-soft p-8 md:p-12">
+                        <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
+                            <span class="w-1.5 h-6 bg-brand-600 rounded-full mr-3 inline-block"></span>
+                            Komentar ({{ $comments->count() }})
+                        </h3>
+
+                        {{-- Alert Sukses --}}
+                        @if(session('success'))
+                            <div class="mb-6 p-4 bg-green-50 text-green-700 rounded-2xl flex items-start gap-3 border border-green-200" id="success-alert">
+                                <i class="fa-solid fa-circle-check text-lg mt-0.5"></i>
+                                <div>
+                                    <p class="font-semibold text-sm">{{ session('success') }}</p>
+                                </div>
+                            </div>
+                        @endif
+
+                        {{-- List Komentar --}}
+                        @if($comments->isEmpty())
+                            <div class="text-center py-10 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
+                                <i class="fa-regular fa-comments text-4xl text-slate-300 mb-3 block"></i>
+                                <p class="text-slate-500 font-medium text-sm">Belum ada komentar. Jadilah yang pertama memberikan komentar!</p>
+                            </div>
+                        @else
+                            <div class="space-y-6 mb-10 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+                                @foreach($comments as $comment)
+                                    <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 hover:bg-slate-100/70 transition">
+                                        {{-- Avatar dengan inisial nama --}}
+                                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center text-white font-bold text-sm shadow-sm flex-shrink-0">
+                                            {{ strtoupper(substr($comment->name, 0, 1)) }}
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-center justify-between gap-2 mb-1">
+                                                <h4 class="font-semibold text-slate-800 text-sm truncate">{{ $comment->name }}</h4>
+                                                <span class="text-xs text-slate-400 font-medium">
+                                                    {{ $comment->created_at->diffForHumans() }}
+                                                </span>
+                                            </div>
+                                            <p class="text-sm text-slate-600 leading-relaxed whitespace-pre-line">{{ $comment->comment }}</p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+
+                        {{-- Divider --}}
+                        <div class="h-px bg-slate-100 my-8"></div>
+
+                        {{-- Form Komentar --}}
+                        <h4 class="text-lg font-bold text-slate-800 mb-6 flex items-center">
+                            <i class="fa-regular fa-comment-dots mr-2.5 text-brand-600"></i>
+                            Tinggalkan Komentar
+                        </h4>
+
+                        <form action="{{ route('comments.store', $post->slug) }}" method="POST" class="space-y-5">
+                            @csrf
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Nama <span class="text-red-500">*</span></label>
+                                    <input type="text" 
+                                           id="name" 
+                                           name="name" 
+                                           value="{{ old('name') }}"
+                                           placeholder="Nama Anda"
+                                           class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-sm text-slate-800 @error('name') border-red-500 @enderror"
+                                           required>
+                                    @error('name')
+                                        <p class="text-red-500 text-xs mt-1.5 font-medium">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Email</label>
+                                    <input type="email" 
+                                           id="email" 
+                                           name="email" 
+                                           value="{{ old('email') }}"
+                                           placeholder="email@example.com (opsional)"
+                                           class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-sm text-slate-800 @error('email') border-red-500 @enderror">
+                                    <p class="text-[10px] text-slate-400 mt-1 font-medium">Email Anda tidak akan dipublikasikan.</p>
+                                    @error('email')
+                                        <p class="text-red-500 text-xs mt-1.5 font-medium">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="comment" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Komentar <span class="text-red-500">*</span></label>
+                                <textarea id="comment" 
+                                          name="comment" 
+                                          rows="4" 
+                                          placeholder="Tulis komentar Anda di sini..."
+                                          class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition text-sm text-slate-800 @error('comment') border-red-500 @enderror"
+                                          required>{{ old('comment') }}</textarea>
+                                @error('comment')
+                                    <p class="text-red-500 text-xs mt-1.5 font-medium">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <button type="submit" 
+                                    class="w-full md:w-auto px-8 py-3.5 bg-brand-700 hover:bg-brand-800 text-white font-semibold rounded-full shadow-lg shadow-brand-700/20 hover:shadow-brand-800/30 transition text-sm flex items-center justify-center gap-2 group">
+                                Kirim Komentar
+                                <i class="fa-solid fa-paper-plane text-xs transition-transform group-hover:translate-x-1"></i>
+                            </button>
+                        </form>
                     </div>
                 </article>
 

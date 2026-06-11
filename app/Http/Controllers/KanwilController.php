@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Services\SultanBantenService;
 
 class KanwilController extends Controller
@@ -70,10 +71,31 @@ class KanwilController extends Controller
     public function show($slug)
     {
         $post = \App\Models\Post::where('slug', $slug)->firstOrFail();
+        $comments = $post->comments()->where('is_approved', true)->latest()->get();
         $recentPosts = \App\Models\Post::where('slug', '!=', $slug)
             ->orderBy('published_at', 'desc')
             ->limit(3)
             ->get();
-        return view('berita-detail', compact('post', 'recentPosts'));
+        return view('berita-detail', compact('post', 'recentPosts', 'comments'));
+    }
+
+    public function storeComment(Request $request, $slug)
+    {
+        $post = \App\Models\Post::where('slug', $slug)->firstOrFail();
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'nullable|email|max:255',
+            'comment' => 'required|string|max:1000',
+        ]);
+
+        $post->comments()->create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'comment' => $validated['comment'],
+            'is_approved' => true,
+        ]);
+
+        return back()->with('success', 'Komentar Anda berhasil ditambahkan.');
     }
 }

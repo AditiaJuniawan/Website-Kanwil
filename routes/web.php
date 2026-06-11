@@ -12,6 +12,7 @@ Route::get('/profil', [KanwilController::class, 'profil']);
 Route::get('/maskot', [KanwilController::class, 'maskot']);
 Route::get('/berita', [KanwilController::class, 'post']);
 Route::get('/berita/{slug}', [KanwilController::class, 'show'])->name('berita.show');
+Route::post('/berita/{slug}/comments', [KanwilController::class, 'storeComment'])->name('comments.store');
 Route::get('/survei', [KanwilController::class, 'survei']);
 
 route::get('/tentang',function(){
