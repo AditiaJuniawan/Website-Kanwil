@@ -210,7 +210,7 @@
         @yield('content')
     </main>
 
-    <footer class="bg-slate-900 text-slate-300 pt-20 pb-10 border-t-4 border-brand-500 mt-20">
+    <footer class="bg-gradient-to-b from-slate-900 to-slate-950 text-slate-300 pt-20 pb-10 border-t border-slate-800 mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
                 
@@ -237,10 +237,10 @@
                 <div class="lg:col-span-3 lg:col-start-6">
                     <h3 class="text-white font-bold mb-6 tracking-wide text-lg">Tautan Cepat</h3>
                     <ul class="space-y-4 text-sm">
-                        <li><a href="{{ url('/profil') }}" class="hover:text-brand-400 transition flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Profil Instansi</a></li>
-                        <li><a href="{{ url('/visi') }}" class="hover:text-brand-400 transition flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Visi & Misi</a></li>
-                        <li><a href="{{ url('/LayananPengaduan') }}" class="hover:text-brand-400 transition flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Pengaduan Online</a></li>
-                        <li><a href="{{ url('/survei') }}" class="hover:text-brand-400 transition flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Survei Kepuasan</a></li>
+                        <li><a href="{{ url('/profil') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Profil Instansi</a></li>
+                        <li><a href="{{ url('/visi') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Visi & Misi</a></li>
+                        <li><a href="{{ url('/LayananPengaduan') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Pengaduan Online</a></li>
+                        <li><a href="{{ url('/survei') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Survei Kepuasan</a></li>
                     </ul>
                 </div>
 

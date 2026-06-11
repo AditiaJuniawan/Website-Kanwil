@@ -72,8 +72,7 @@
         <div class="hero-glow"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 flex flex-col md:flex-row items-center">
-            
-            <!-- Hero Text -->
+                 <!-- Hero Text -->
             <div class="md:w-3/5 pr-0 md:pr-12 text-center md:text-left" data-aos="fade-right">
                 <div class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold mb-6 shadow-sm">
                     <span class="w-2 h-2 rounded-full bg-gold-400 mr-2 animate-pulse"></span>
@@ -82,7 +81,7 @@
                 
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-6 tracking-tight">
                     Transformasi Digital <br class="hidden md:block">
-                    Kantor Wilayah Direktorat Jenderal Pemasyarakatan <span class="text-gold-400">Banten</span>
+                    Kantor Wilayah Direktorat Jenderal Pemasyarakatan <span class="text-gradient-gold">Banten</span>
                 </h2>
                 
                 <p class="text-lg text-brand-100 mb-8 max-w-2xl font-light leading-relaxed">
@@ -99,42 +98,69 @@
                 </div>
             </div>
             
-            <!-- Hero Illustration -->
+            <!-- Hero Illustration (Modern Animated Mockup) -->
             <div class="hidden md:block md:w-2/5 mt-16 md:mt-0 relative" data-aos="fade-left" data-aos-delay="200">
                 <div class="relative w-full max-w-md mx-auto aspect-square flex items-center justify-center">
-                    <!-- <div class="absolute inset-0 border border-white/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
-                    <div class="absolute inset-8 border border-brand-400/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div> -->
                     
-                    <!-- <div class="relative bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-2xl animate-float w-64 text-center z-10">
-                        <div class="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl mx-auto flex items-center justify-center mb-4 shadow-lg">
-                            <i class="fa-solid fa-shield-halved text-2xl text-white"></i>
+                    <!-- Decorative Radial Glow Background -->
+                    <div class="absolute w-72 h-72 rounded-full bg-brand-400/20 blur-[60px] animate-pulse-slow"></div>
+
+                    <!-- Main Glassmorphism Dashboard Box -->
+                    <div class="relative glass-panel p-6 rounded-3xl shadow-2xl animate-float w-72 text-left z-10">
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            </div>
+                            <span class="px-2 py-0.5 text-[9px] font-bold bg-green-500/20 text-green-400 rounded-md border border-green-500/35 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-ping"></span>
+                                System Live
+                            </span>
                         </div>
-                        <h3 class="font-bold text-xl text-white mb-1">E-Services</h3>
-                        <p class="text-brand-100 text-xs font-light">Profesional & Berintegritas</p>
                         
-                        <div class="mt-6 space-y-3">
-                            <div class="h-2 w-full bg-white/20 rounded-full"></div>
-                            <div class="h-2 w-3/4 bg-white/20 rounded-full mx-auto"></div>
+                        <div class="w-12 h-12 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
+                            <i class="fa-solid fa-shield-halved text-xl text-white"></i>
                         </div>
-                    </div> -->
+                        
+                        <h3 class="font-extrabold text-lg text-white mb-1">E-Services</h3>
+                        <p class="text-brand-200 text-xs font-light mb-4">Profesional & Berintegritas</p>
+                        
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-[10px] text-brand-200">
+                                <span>Konektivitas UPT</span>
+                                <span class="font-semibold text-white">100% Terhubung</span>
+                            </div>
+                            <div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full w-full bg-gradient-to-r from-brand-400 to-emerald-400 rounded-full"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] text-brand-200 pt-1">
+                                <span>Security Level</span>
+                                <span class="font-semibold text-emerald-400">High Secure</span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <!-- <div class="absolute top-10 -left-6 bg-white p-3 rounded-2xl shadow-xl animate-float-delayed z-20 flex items-center gap-3">
-                        <div class="bg-green-100 text-green-600 w-10 h-10 rounded-full flex items-center justify-center"><i class="fa-solid fa-check"></i></div>
+                    <!-- Floating Badge 1: Status Layanan -->
+                    <div class="absolute top-10 -left-6 glass-panel-light p-3.5 rounded-2xl shadow-xl animate-float-delayed z-20 flex items-center gap-3 border border-white/50">
+                        <div class="bg-green-100 text-green-600 w-10 h-10 rounded-xl flex items-center justify-center shadow-inner"><i class="fa-solid fa-cloud-arrow-up text-base"></i></div>
                         <div>
-                            <p class="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Status Layanan</p>
-                            <p class="text-sm font-bold text-slate-800">Aktif & Berjalan</p>
+                            <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">SULTAN BANTEN</p>
+                            <p class="text-xs font-extrabold text-slate-800">Real-Time Sync</p>
                         </div>
-                    </div> -->
+                    </div>
 
-                    <!-- <div class="absolute bottom-12 -right-8 bg-white p-3 rounded-2xl shadow-xl animate-float z-20 flex items-center gap-3" style="animation-delay: 1s;">
-                        <div class="bg-gold-100 text-gold-500 w-10 h-10 rounded-full flex items-center justify-center"><i class="fa-solid fa-star"></i></div>
+                    <!-- Floating Badge 2: Indeks Kepuasan -->
+                    <div class="absolute bottom-12 -right-8 glass-panel-light p-3.5 rounded-2xl shadow-xl animate-float z-20 flex items-center gap-3 border border-white/50" style="animation-delay: 1.5s;">
+                        <div class="bg-amber-100 text-amber-500 w-10 h-10 rounded-xl flex items-center justify-center shadow-inner"><i class="fa-solid fa-star text-base"></i></div>
                         <div>
-                            <p class="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Indeks Kepuasan</p>
-                            <p class="text-sm font-bold text-slate-800">Sangat Baik</p>
+                            <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">INDEKS KEPUASAN</p>
+                            <p class="text-xs font-extrabold text-slate-800">98.2% Sangat Baik</p>
                         </div>
-                    </div> -->
+                    </div>
+                    
                 </div>
-            </div>
+            </div>  </div>
         </div>
     </section>
 
@@ -157,39 +183,39 @@
                 <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Layanan 1 -->
-                <a href="https://sites.google.com/view/starpasbanten/" class="bg-white rounded-[2rem] p-8 service-card border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon-wrap w-16 h-16 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                <a href="https://sites.google.com/view/starpasbanten/" class="bg-white rounded-[2rem] p-8 service-card service-card-blue border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon-wrap w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white">
                         <i class="fa-solid fa-bullhorn"></i>
                     </div>
                     <h4 class="font-bold text-slate-800 text-lg mb-3">STARPAS Banten</h4>
                     <p class="text-sm text-slate-500 leading-relaxed mb-6">Merupakan Layanan untuk Pengajuan Pengaduan, Pengajuan Informasi serta Pengajuan Perizinan Baik Penelitian, Magang ataupun Kunjungan</p>
-                    <div class="text-brand-600 text-sm font-semibold flex items-center group-hover:text-brand-700">
+                    <div class="text-blue-600 text-sm font-semibold flex items-center group-hover:text-blue-700">
                         Kunjungi Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                     </div>
                 </a>
 
                 <!-- Layanan 2 -->
-                <a href="https://sipas.ditjenpasbanten.com/" class="bg-white rounded-[2rem] p-8 service-card border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon-wrap w-16 h-16 bg-gold-50 text-gold-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-white">
+                <a href="https://sipas.ditjenpasbanten.com/" class="bg-white rounded-[2rem] p-8 service-card service-card-amber border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon-wrap w-16 h-16 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-amber-500 group-hover:text-white">
                         <i class="fa-solid fa-star"></i>
                     </div>
                     <h4 class="font-bold text-slate-800 text-lg mb-3">SIPAS Banten</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Merupakan Layanan Sharin Inovasi Milik Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten</p>
-                    <div class="text-brand-600 text-sm font-semibold flex items-center group-hover:text-brand-700">
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Merupakan Layanan Sharing Inovasi Milik Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten</p>
+                    <div class="text-amber-600 text-sm font-semibold flex items-center group-hover:text-amber-700">
                         Kunjungi Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                     </div>
                 </a>
 
                 <!-- Layanan 3 -->
-                <a href="https://sultan.ditjenpasbanten.com/dashboard.php" class="bg-white rounded-[2rem] p-8 service-card border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon-wrap w-16 h-16 bg-green-50 text-green-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-green-500 group-hover:text-white">
+                <a href="https://sultan.ditjenpasbanten.com/dashboard.php" class="bg-white rounded-[2rem] p-8 service-card service-card-green border border-slate-100 shadow-soft group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon-wrap w-16 h-16 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-500 group-hover:text-white">
                         <i class="fa-solid fa-file-signature"></i>
                     </div>
                     <h4 class="font-bold text-slate-800 text-lg mb-3">Sultan Banten</h4>
                     <p class="text-sm text-slate-500 leading-relaxed mb-6">Sistem Update Laporan Terpadu Harian Kantor Wilayah Direktorat Jenderal Pemasyarakatan Banten</p>
-                    <div class="text-brand-600 text-sm font-semibold flex items-center group-hover:text-brand-700">
+                    <div class="text-emerald-600 text-sm font-semibold flex items-center group-hover:text-emerald-700">
                         Kunjungi Sekarang <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                     </div>
                 </a>
@@ -197,27 +223,45 @@
         </div>
     </section>
 
-    <!-- STATISTIK (Elegant Dark Section) -->
-    <section class="py-20 bg-brand-900 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-800 opacity-20 transform skew-x-12"></div>
+    <!-- STATISTIK (Elegant Dark Section with Glow Effects) -->
+    <section class="py-24 bg-brand-900 relative overflow-hidden">
+        <!-- Background Decorative Elements -->
+        <div class="absolute w-[500px] h-[500px] rounded-full bg-brand-500/10 blur-[120px] top-[-50%] left-[-10%] pointer-events-none"></div>
+        <div class="absolute w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[120px] bottom-[-50%] right-[-10%] pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center sm:divide-x sm:divide-white/10">
-                <div data-aos="zoom-in" data-aos-delay="100">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Stat 1 -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 text-center backdrop-blur-sm hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white text-xl mx-auto mb-4">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
                     <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
                         {{ number_format($totalStats['isi_penghuni'] ?? 5000, 0, ',', '.') }}
                     </div>
-                    <div class="text-brand-200 text-xs font-semibold uppercase tracking-widest">Total WBP</div>
+                    <div class="text-brand-300 text-xs font-semibold uppercase tracking-widest">Total WBP</div>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="200">
-                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
-                        {{ $totalStats['persen_overkapasitas'] ?? 98 }}<span class="text-gold-400">%</span>
+
+                <!-- Stat 2 -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 text-center backdrop-blur-sm hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-rose-400 text-xl mx-auto mb-4">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
                     </div>
-                    <div class="text-brand-200 text-xs font-semibold uppercase tracking-widest">Overkapasitas</div>
+                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
+                        {{ $totalStats['persen_overkapasitas'] ?? 98 }}<span class="text-rose-400">%</span>
+                    </div>
+                    <div class="text-brand-300 text-xs font-semibold uppercase tracking-widest">Overkapasitas</div>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="300">
-                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">24<span class="text-gold-400">/</span>7</div>
-                    <div class="text-brand-200 text-xs font-semibold uppercase tracking-widest">Layanan Digital</div>
+
+                <!-- Stat 3 -->
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 text-center backdrop-blur-sm hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-amber-400 text-xl mx-auto mb-4">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
+                        24<span class="text-amber-400">/</span>7
+                    </div>
+                    <div class="text-brand-300 text-xs font-semibold uppercase tracking-widest">Layanan Digital</div>
                 </div>
             </div>
         </div>
@@ -859,84 +903,82 @@
                 <a href="{{ url('/berita') }}" class="hidden md:flex items-center text-brand-600 font-semibold hover:text-brand-800 transition group">
                     Semua Berita <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                 </a>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @if($posts->isEmpty())
                     {{-- Fallback content if database is empty --}}
                         <!-- News Card 1 -->
-                            <a href="#" class="group block" data-aos="fade-up" data-aos-delay="100">
-                                <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <i class="fa-solid fa-image text-4xl text-slate-300"></i>
-                                    </div>
-                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
-                                        Siaran Pers
-                                    </div>
+                        <a href="#" class="group block" data-aos="fade-up" data-aos-delay="100">
+                            <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
+                                <div class="absolute inset-0 flex items-center justify-center bg-slate-100 group-hover:scale-105 transition-transform duration-500">
+                                    <i class="fa-solid fa-image text-4xl text-slate-300"></i>
                                 </div>
-                                <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
-                                    <i class="fa-regular fa-calendar mr-2"></i> 26 Februari 2026
-                                </div>
-                                <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
+                                <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
                                     Siaran Pers
-                                </h3>
-                            </a>
+                                </div>
+                            </div>
+                            <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
+                                <i class="fa-regular fa-calendar mr-2"></i> 26 Februari 2026
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
+                                Siaran Pers
+                            </h3>
+                        </a>
 
-                            <!-- News Card 2 -->
-                            <a href="#" class="group block" data-aos="fade-up" data-aos-delay="200">
-                                <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <i class="fa-solid fa-image text-4xl text-slate-300"></i>
-                                    </div>
-                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
-                                        Kegiatan
-                                    </div>
+                        <!-- News Card 2 -->
+                        <a href="#" class="group block" data-aos="fade-up" data-aos-delay="200">
+                            <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
+                                <div class="absolute inset-0 flex items-center justify-center bg-slate-100 group-hover:scale-105 transition-transform duration-500">
+                                    <i class="fa-solid fa-image text-4xl text-slate-300"></i>
                                 </div>
-                                <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
-                                    <i class="fa-regular fa-calendar mr-2"></i> 3 Maret 2026
+                                <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
+                                    Kegiatan
                                 </div>
-                                <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
-                                    Persembahyangan Purnama, Momentum Penguatan Nilai Spiritual
-                                </h3>
-                            </a>
+                            </div>
+                            <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
+                                <i class="fa-regular fa-calendar mr-2"></i> 3 Maret 2026
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
+                                Persembahyangan Purnama, Momentum Penguatan Nilai Spiritual
+                            </h3>
+                        </a>
 
-                            <!-- News Card 3 -->
-                            <a href="#" class="group block" data-aos="fade-up" data-aos-delay="300">
-                                <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <i class="fa-solid fa-image text-4xl text-slate-300"></i>
-                                    </div>
-                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
-                                        Informasi
-                                    </div>
+                        <!-- News Card 3 -->
+                        <a href="#" class="group block" data-aos="fade-up" data-aos-delay="300">
+                            <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
+                                <div class="absolute inset-0 flex items-center justify-center bg-slate-100 group-hover:scale-105 transition-transform duration-500">
+                                    <i class="fa-solid fa-image text-4xl text-slate-300"></i>
                                 </div>
-                                <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
-                                    <i class="fa-regular fa-calendar mr-2"></i> 28 Februari 2026
+                                <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
+                                    Informasi
                                 </div>
-                                <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
-                                    Perkuat Layanan Kesehatan, Tinjau Akreditasi Klinik Rutan
-                                </h3>
-                            </a>
-                    @else
-                        <!-- News Card 1 -->
-                        @foreach($posts as $post)
-                            <a href="{{ route('berita.show', $post->slug) }}" class="group block" data-aos="fade-up" data-aos-delay="100">
-                                <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                                    <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('images/kakanwil.png') }}" alt="{{ $post->title }}" class="w-full h-full object-cover absolute inset-0" loading="lazy" width="400" height="300">
-                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
-                                        Kegiatan
-                                    </div>
+                            </div>
+                            <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
+                                <i class="fa-regular fa-calendar mr-2"></i> 28 Februari 2026
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
+                                Perkuat Layanan Kesehatan, Tinjau Akreditasi Klinik Rutan
+                            </h3>
+                        </a>
+                @else
+                    <!-- News Card Loop -->
+                    @foreach($posts as $post)
+                        <a href="{{ route('berita.show', $post->slug) }}" class="group block" data-aos="fade-up" data-aos-delay="100">
+                            <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
+                                <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('images/kakanwil.png') }}" alt="{{ $post->title }}" class="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="300">
+                                <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
+                                    Kegiatan
                                 </div>
-                                <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
-                                    <i class="fa-regular fa-calendar mr-2"></i> {!! $post->published_at ?? 'tanggal' !!}
-                                </div>
-                                <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
-                                    {!! nl2br(e($post->title ?? 'isi nya')) !!}
-                                </h3>
-                            </a>
-                        @endforeach
-                    @endif
-            </div>
+                            </div>
+                            <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
+                                <i class="fa-regular fa-calendar mr-2"></i> {!! $post->published_at ?? 'tanggal' !!}
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
+                                {!! nl2br(e($post->title ?? 'isi nya')) !!}
+                            </h3>
+                        </a>
+                    @endforeach
+                @endif
+            </div>  </div>
         </div>
     </section>
 

@@ -83,6 +83,7 @@
     overflow: hidden;
 }
 
+/* Animations */
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-15px); }
@@ -95,6 +96,11 @@
     100% { transform: translateY(0px); }
 }
 
+@keyframes pulse-slow {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.1); }
+}
+
 .animate-float {
     animation: float 6s ease-in-out infinite;
 }
@@ -103,31 +109,68 @@
     animation: float-delayed 5s ease-in-out infinite 2s;
 }
 
+.animate-pulse-slow {
+    animation: pulse-slow 8s ease-in-out infinite;
+}
+
+/* Card Improvements */
 .service-card {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-card:hover {
+.service-card-blue:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px -10px rgba(3, 105, 161, 0.1);
-    border-color: rgba(14, 165, 233, 0.3);
+    box-shadow: 0 20px 45px -10px rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+.service-card-amber:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px -10px rgba(245, 158, 11, 0.25);
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+.service-card-green:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px -10px rgba(16, 185, 129, 0.25);
+    border-color: rgba(16, 185, 129, 0.4);
 }
 
 .service-icon-wrap {
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .service-card:hover .service-icon-wrap {
-    background-color: #0369a1;
-    color: white;
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
 }
 
-.text-gradient {
-    background: linear-gradient(to right, #ffffff, #e0f2fe);
+.text-gradient-gold {
+    background: linear-gradient(135deg, #ffffff 30%, #fbbf24 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-brand {
+    background: linear-gradient(135deg, #1b3d6a 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism elements */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-panel-light {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
