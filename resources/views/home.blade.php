@@ -192,27 +192,27 @@
             <!-- Grid 8 Categories -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- 1. Profil Kanwil -->
-                <div class="bg-gradient-to-br from-white to-blue-50/30 rounded-[2rem] p-6 border border-blue-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-300/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-gradient-to-br from-blue-50/60 to-indigo-50/30 rounded-[2rem] p-6 border border-blue-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-blue-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-1.5 w-full bg-gradient-to-r from-blue-600 to-brand-900 -mt-6 -mx-6 mb-6"></div>
                     <div>
-                        <div class="w-14 h-14 bg-blue-50 text-brand-900 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-brand-900 group-hover:text-white">
+                        <div class="w-14 h-14 bg-blue-100/80 text-brand-900 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-brand-900 group-hover:text-white">
                             <i class="fa-solid fa-building-user"></i>
                         </div>
-                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Profil Kanwil</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Informasi kelembagaan, visi misi, maskot resmi, dan deskripsi Kantor Wilayah.</p>
+                        <h3 class="font-extrabold text-brand-900 text-lg mb-2">Profil Kanwil</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-6 font-light">Informasi kelembagaan, visi misi, maskot resmi, dan deskripsi Kantor Wilayah.</p>
                     </div>
-                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                    <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/profil') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/profil') }}" class="text-xs font-bold text-slate-700 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Profil Instansi
                             </a>
-                            <a href="{{ url('/visi') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/visi') }}" class="text-xs font-bold text-slate-700 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Visi & Misi
                             </a>
-                            <a href="{{ url('/maskot') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/maskot') }}" class="text-xs font-bold text-slate-700 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Maskot Si Benteng
                             </a>
-                            <a href="{{ url('/tentang') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/tentang') }}" class="text-xs font-bold text-slate-700 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Tentang Aplikasi
                             </a>
                         </div>
@@ -220,27 +220,27 @@
                 </div>
 
                 <!-- 2. Layanan Publik -->
-                <div class="bg-gradient-to-br from-white to-amber-50/30 rounded-[2rem] p-6 border border-amber-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-amber-300/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+                <div class="bg-gradient-to-br from-amber-50/60 to-orange-50/30 rounded-[2rem] p-6 border border-amber-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="150">
                     <div class="h-1.5 w-full bg-gradient-to-r from-amber-500 to-gold-400 -mt-6 -mx-6 mb-6"></div>
                     <div>
-                        <div class="w-14 h-14 bg-amber-50 text-gold-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-gold-500 group-hover:text-white">
+                        <div class="w-14 h-14 bg-amber-100/80 text-gold-650 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-gold-500 group-hover:text-white">
                             <i class="fa-solid fa-handshake-angle"></i>
                         </div>
-                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Layanan Publik</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Akses layanan perizinan, pengaduan online, serta informasi terpadu.</p>
+                        <h3 class="font-extrabold text-amber-900 text-lg mb-2">Layanan Publik</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-6 font-light">Akses layanan perizinan, pengaduan online, serta informasi terpadu.</p>
                     </div>
-                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                    <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="https://sites.google.com/view/starpasbanten/" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="https://sites.google.com/view/starpasbanten/" target="_blank" class="text-xs font-bold text-slate-700 hover:text-amber-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> STARPAS Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="{{ url('/LayananPengaduan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/LayananPengaduan') }}" class="text-xs font-bold text-slate-700 hover:text-amber-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Pengaduan
                             </a>
-                            <a href="{{ url('/LayananPerizinan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/LayananPerizinan') }}" class="text-xs font-bold text-slate-700 hover:text-amber-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Perizinan
                             </a>
-                            <a href="{{ url('/LayananInformasi') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/LayananInformasi') }}" class="text-xs font-bold text-slate-700 hover:text-amber-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Informasi
                             </a>
                         </div>
@@ -248,24 +248,24 @@
                 </div>
 
                 <!-- 3. Informasi Publik -->
-                <div class="bg-gradient-to-br from-white to-emerald-50/30 rounded-[2rem] p-6 border border-emerald-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-emerald-300/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-gradient-to-br from-emerald-50/60 to-teal-50/30 rounded-[2rem] p-6 border border-emerald-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-emerald-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="200">
                     <div class="h-1.5 w-full bg-gradient-to-r from-emerald-500 to-teal-400 -mt-6 -mx-6 mb-6"></div>
                     <div>
-                        <div class="w-14 h-14 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white">
+                        <div class="w-14 h-14 bg-emerald-100/80 text-emerald-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white">
                             <i class="fa-solid fa-circle-info"></i>
                         </div>
-                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Informasi Publik</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Keterbukaan informasi publik, hasil survei kepuasan, dan berita terbaru.</p>
+                        <h3 class="font-extrabold text-emerald-900 text-lg mb-2">Informasi Publik</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-6 font-light">Keterbukaan informasi publik, hasil survei kepuasan, dan berita terbaru.</p>
                     </div>
-                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                    <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/survei') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/survei') }}" class="text-xs font-bold text-slate-700 hover:text-emerald-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Survei Kepuasan
                             </a>
-                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/berita') }}" class="text-xs font-bold text-slate-700 hover:text-emerald-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Berita & Kegiatan
                             </a>
-                            <a href="{{ url('/tentang') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/tentang') }}" class="text-xs font-bold text-slate-700 hover:text-emerald-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Profil Aplikasi
                             </a>
                         </div>
@@ -273,24 +273,24 @@
                 </div>
 
                 <!-- 4. Dashboard Data -->
-                <div class="bg-gradient-to-br from-white to-cyan-50/30 rounded-[2rem] p-6 border border-cyan-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-cyan-300/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="250">
+                <div class="bg-gradient-to-br from-cyan-50/60 to-blue-50/30 rounded-[2rem] p-6 border border-cyan-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-cyan-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="250">
                     <div class="h-1.5 w-full bg-gradient-to-r from-cyan-500 to-blue-400 -mt-6 -mx-6 mb-6"></div>
                     <div>
-                        <div class="w-14 h-14 bg-cyan-50 text-cyan-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-cyan-500 group-hover:text-white">
+                        <div class="w-14 h-14 bg-cyan-100/80 text-cyan-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-cyan-500 group-hover:text-white">
                             <i class="fa-solid fa-chart-line"></i>
                         </div>
-                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Dashboard Data</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Visualisasi data hunian, peta lokasi UPT, dan statistik overkapasitas wilayah.</p>
+                        <h3 class="font-extrabold text-cyan-900 text-lg mb-2">Dashboard Data</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-6 font-light">Visualisasi data hunian, peta lokasi UPT, dan statistik overkapasitas wilayah.</p>
                     </div>
-                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                    <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="https://sultan.ditjenpasbanten.com/dashboard.php" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="https://sultan.ditjenpasbanten.com/dashboard.php" target="_blank" class="text-xs font-bold text-slate-700 hover:text-cyan-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Sultan Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="#map" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="#map" class="text-xs font-bold text-slate-700 hover:text-cyan-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Peta Lokasi UPT
                             </a>
-                            <a href="#statistik-upt" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="#statistik-upt" class="text-xs font-bold text-slate-700 hover:text-cyan-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Statistik Hunian
                             </a>
                         </div>
@@ -298,21 +298,21 @@
                 </div>
 
                 <!-- 5. Berita & Pengumuman -->
-                <div class="bg-gradient-to-br from-white to-rose-50/30 rounded-[2rem] p-6 border border-rose-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-rose-300/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-gradient-to-br from-rose-50/60 to-pink-50/30 rounded-[2rem] p-6 border border-rose-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-rose-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="300">
                     <div class="h-1.5 w-full bg-gradient-to-r from-rose-500 to-red-400 -mt-6 -mx-6 mb-6"></div>
                     <div>
-                        <div class="w-14 h-14 bg-rose-50 text-rose-500 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-rose-500 group-hover:text-white">
+                        <div class="w-14 h-14 bg-rose-100/80 text-rose-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-rose-500 group-hover:text-white">
                             <i class="fa-solid fa-newspaper"></i>
                         </div>
-                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Berita & Kabar</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Kumpulan berita terkini, pers release, dan siaran pers resmi dari wilayah Banten.</p>
+                        <h3 class="font-extrabold text-rose-900 text-lg mb-2">Berita & Kabar</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-6 font-light">Kumpulan berita terkini, pers release, dan siaran pers resmi dari wilayah Banten.</p>
                     </div>
-                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                    <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/berita') }}" class="text-xs font-bold text-slate-700 hover:text-rose-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-rose-500"></i> Berita Utama
                             </a>
-                            <a href="{{ url('/berita') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/berita') }}" class="text-xs font-bold text-slate-700 hover:text-rose-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-rose-500"></i> Galeri Kegiatan
                             </a>
                         </div>
@@ -320,21 +320,21 @@
                 </div>
 
                 <!-- 6. Aplikasi Internal -->
-                <div class="bg-gradient-to-br from-white to-indigo-50/30 rounded-[2rem] p-6 border border-indigo-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-indigo-300/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="350">
+                <div class="bg-gradient-to-br from-indigo-50/60 to-violet-50/30 rounded-[2rem] p-6 border border-indigo-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-indigo-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="350">
                     <div class="h-1.5 w-full bg-gradient-to-r from-indigo-600 to-purple-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
-                        <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-indigo-600 group-hover:text-white">
+                        <div class="w-14 h-14 bg-indigo-100/80 text-indigo-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-indigo-600 group-hover:text-white">
                             <i class="fa-solid fa-laptop-code"></i>
                         </div>
-                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Aplikasi Internal</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Inovasi SIPAS, sistem update laporan Sultan, dan portal pengelolaan administrasi.</p>
+                        <h3 class="font-extrabold text-indigo-900 text-lg mb-2">Aplikasi Internal</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-6 font-light">Inovasi SIPAS, sistem update laporan Sultan, dan portal pengelolaan administrasi.</p>
                     </div>
-                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                    <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="https://sipas.ditjenpasbanten.com/" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="https://sipas.ditjenpasbanten.com/" target="_blank" class="text-xs font-bold text-slate-700 hover:text-indigo-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> SIPAS Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="{{ url('/login') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/login') }}" class="text-xs font-bold text-slate-700 hover:text-indigo-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> Login Admin Portal
                             </a>
                         </div>
@@ -342,24 +342,24 @@
                 </div>
 
                 <!-- 7. Kontak & Pengaduan -->
-                <div class="bg-gradient-to-br from-white to-purple-50/30 rounded-[2rem] p-6 border border-purple-100 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-purple-300/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-gradient-to-br from-purple-50/60 to-fuchsia-50/30 rounded-[2rem] p-6 border border-purple-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-purple-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="400">
                     <div class="h-1.5 w-full bg-gradient-to-r from-purple-600 to-pink-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
-                        <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-purple-600 group-hover:text-white">
+                        <div class="w-14 h-14 bg-purple-100/80 text-purple-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-purple-600 group-hover:text-white">
                             <i class="fa-solid fa-comments"></i>
                         </div>
-                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Kontak & Aduan</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Hubungi call center, layanan pengaduan integritas, atau kirim surel ke redaksi.</p>
+                        <h3 class="font-extrabold text-purple-900 text-lg mb-2">Kontak & Aduan</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-6 font-light">Hubungi call center, layanan pengaduan integritas, atau kirim surel ke redaksi.</p>
                     </div>
-                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                    <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/formpengaduan') }}" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="{{ url('/formpengaduan') }}" class="text-xs font-bold text-slate-700 hover:text-purple-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> Form Pengaduan
                             </a>
-                            <a href="https://wa.me/6282266662055" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="https://wa.me/6282266662055" target="_blank" class="text-xs font-bold text-slate-700 hover:text-purple-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> WhatsApp Chat <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
                             </a>
-                            <a href="#kontakkanwil" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="#kontakkanwil" class="text-xs font-bold text-slate-700 hover:text-purple-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> Alamat & Lokasi
                             </a>
                         </div>
@@ -367,27 +367,27 @@
                 </div>
 
                 <!-- 8. Tautan Penting -->
-                <div class="bg-gradient-to-br from-white to-slate-100/50 rounded-[2rem] p-6 border border-slate-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-slate-300/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="450">
+                <div class="bg-gradient-to-br from-slate-150 to-slate-50 rounded-[2rem] p-6 border border-slate-300/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-slate-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="450">
                     <div class="h-1.5 w-full bg-gradient-to-r from-slate-600 to-slate-400 -mt-6 -mx-6 mb-6"></div>
                     <div>
-                        <div class="w-14 h-14 bg-slate-50 text-slate-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-slate-700 group-hover:text-white">
+                        <div class="w-14 h-14 bg-slate-200 text-slate-700 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-slate-700 group-hover:text-white">
                             <i class="fa-solid fa-link"></i>
                         </div>
-                        <h3 class="font-extrabold text-slate-800 text-lg mb-2">Tautan Penting</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-light">Tautan langsung ke portal instansi vertikal Kemenkumham RI dan Ditjenpas.</p>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Tautan Penting</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-6 font-light">Tautan langsung ke portal instansi vertikal Kemenkumham RI dan Ditjenpas.</p>
                     </div>
-                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                    <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="https://ditjenpas.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="https://ditjenpas.go.id" target="_blank" class="text-xs font-bold text-slate-700 hover:text-slate-900 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Ditjen Pemasyarakatan <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="https://kemenkumham.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="https://kemenkumham.go.id" target="_blank" class="text-xs font-bold text-slate-700 hover:text-slate-900 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Kemenkumham RI <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="https://banten.kemenkumham.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="https://banten.kemenkumham.go.id" target="_blank" class="text-xs font-bold text-slate-700 hover:text-slate-900 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Kanwil Kemenkumham Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
-                            <a href="https://www.lapor.go.id" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                            <a href="https://www.lapor.go.id" target="_blank" class="text-xs font-bold text-slate-700 hover:text-slate-900 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Portal E-Lapor <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
                         </div>
@@ -403,11 +403,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
                 <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Peta Digital Sultan Banten</p>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Infografis Unit Pelaksana Teknis</h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gradient-brand tracking-tight">Infografis Unit Pelaksana Teknis</h2>
                 <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
             </div>
             
-            <div class="w-full bg-white rounded-[3rem] p-6 md:p-10 shadow-soft border border-slate-100 overflow-hidden relative" data-aos="zoom-in">
+            <div class="w-full bg-gradient-to-br from-white to-blue-50/10 rounded-[3rem] p-6 md:p-10 shadow-soft border border-blue-100/80 overflow-hidden relative" data-aos="zoom-in">
                 <style>
                     .custom-marker {
                         background: transparent !important;
@@ -745,11 +745,11 @@
     </section>
 
     <!-- TABEL PENGHUNI & OVERKAPASITAS PER UPT -->
-    <section id="statistik-upt" class="py-16 bg-white">
+    <section id="statistik-upt" class="py-16 bg-gradient-to-b from-slate-50 to-blue-50/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12" data-aos="fade-up">
                 <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Data Real-Time</p>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Data Penghuni &amp; Overkapasitas per UPT</h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gradient-brand tracking-tight">Data Penghuni &amp; Overkapasitas per UPT</h2>
                 <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
             </div>
 
@@ -840,18 +840,18 @@
                 }
             </style>
 
-            <div class="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden" data-aos="fade-up">
+            <div class="bg-gradient-to-br from-white to-blue-50/10 rounded-3xl shadow-lg border border-blue-100/80 overflow-hidden" data-aos="fade-up">
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm modern-table">
                         <thead>
-                            <tr class="bg-slate-50 border-b border-slate-200">
-                                <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider w-16 whitespace-nowrap">No</th>
-                                <th class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Unit Pelaksana Teknis</th>
-                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Kapasitas</th>
-                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Tahanan</th>
-                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Narapidana</th>
-                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">Total</th>
-                                <th class="px-6 py-4 text-center text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">% Over</th>
+                            <tr class="bg-brand-900 text-white border-b border-brand-800">
+                                <th class="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider w-16 whitespace-nowrap text-blue-100">No</th>
+                                <th class="px-6 py-4 text-left text-xs font-bold uppercase tracking-wider whitespace-nowrap text-white">Unit Pelaksana Teknis</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold uppercase tracking-wider whitespace-nowrap text-blue-100">Kapasitas</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold uppercase tracking-wider whitespace-nowrap text-blue-100">Tahanan</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold uppercase tracking-wider whitespace-nowrap text-blue-100">Narapidana</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold uppercase tracking-wider whitespace-nowrap text-white">Total</th>
+                                <th class="px-6 py-4 text-center text-xs font-bold uppercase tracking-wider whitespace-nowrap text-white">% Over</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -904,21 +904,21 @@
                                     
                                     $status = $statusMap[$statusKey] ?? $statusMap['sangat_over'];
                                 @endphp
-                                <tr class="border-b border-slate-100">
-                                    <td class="px-6 py-4 font-bold text-slate-400 whitespace-nowrap">{{ $index + 1 }}</td>
+                                <tr class="border-b border-blue-100/40 odd:bg-white/60 even:bg-blue-50/40 hover:bg-blue-100/30 transition-colors duration-200">
+                                    <td class="px-6 py-4 font-bold text-blue-600/70 whitespace-nowrap">{{ $index + 1 }}</td>
                                     <td class="px-6 py-4">
-                                        <div class="font-semibold text-slate-800 text-sm hover:text-brand-600 transition min-w-[200px]">{{ $row['nama_upt'] ?? '' }}</div>
+                                        <div class="font-bold text-brand-950 text-sm hover:text-brand-600 transition min-w-[200px]">{{ $row['nama_upt'] ?? '' }}</div>
                                         <div class="flex items-center gap-2 mt-2">
-                                            <div class="progress-bar-container">
+                                            <div class="progress-bar-container bg-slate-200/80">
                                                 <div class="progress-bar-fill {{ $status['barClass'] }}" style="width: {{ min($occupancyPercent, 100) }}%"></div>
                                             </div>
-                                            <span class="text-[10px] text-slate-400 font-semibold whitespace-nowrap">Hunian: {{ $occupancyPercent }}%</span>
+                                            <span class="text-[10px] text-slate-500 font-semibold whitespace-nowrap">Hunian: {{ $occupancyPercent }}%</span>
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4 text-center text-slate-700 font-medium whitespace-nowrap">{{ number_format($row['kapasitas'] ?? 0, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-center text-slate-700 whitespace-nowrap">{{ number_format($row['tahanan'] ?? 0, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-center text-slate-700 whitespace-nowrap">{{ number_format($row['narapidana'] ?? 0, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4 text-center font-extrabold text-slate-900 whitespace-nowrap">{{ number_format($total, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center text-slate-800 font-semibold whitespace-nowrap">{{ number_format($row['kapasitas'] ?? 0, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center text-slate-800 whitespace-nowrap">{{ number_format($row['tahanan'] ?? 0, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center text-slate-800 whitespace-nowrap">{{ number_format($row['narapidana'] ?? 0, 0, ',', '.') }}</td>
+                                    <td class="px-6 py-4 text-center font-extrabold text-brand-900 whitespace-nowrap">{{ number_format($total, 0, ',', '.') }}</td>
                                     <td class="px-6 py-4 text-center">
                                         <span class="badge-modern {{ $status['class'] }}">
                                             <span class="badge-dot"></span>
@@ -968,22 +968,22 @@
                                 @endphp
                         </tbody>
                         <tfoot>
-                            <tr class="bg-slate-50 border-t-2 border-slate-200 font-bold">
+                            <tr class="bg-brand-900/5 border-t-2 border-brand-300 font-bold text-slate-800">
                                 <td colspan="2" class="px-6 py-4">
                                     <div class="flex items-center justify-between">
-                                        <span class="text-sm uppercase tracking-wider text-slate-700 font-extrabold">Total Wilayah</span>
+                                        <span class="text-sm uppercase tracking-wider text-brand-950 font-extrabold">Total Wilayah</span>
                                         <div class="flex items-center gap-2 mr-4">
-                                            <div class="progress-bar-container" style="background-color: #e2e8f0;">
+                                            <div class="progress-bar-container" style="background-color: #cbd5e1;">
                                                 <div class="progress-bar-fill {{ $gStatus['barClass'] }}" style="width: {{ min($grandOccupancyPercent, 100) }}%"></div>
                                             </div>
-                                            <span class="text-[10px] text-slate-500 font-semibold">Hunian: {{ $grandOccupancyPercent }}%</span>
+                                            <span class="text-[10px] text-slate-600 font-semibold">Hunian: {{ $grandOccupancyPercent }}%</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandKapasitas, 0, ',', '.') }}</td>
-                                <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandTahanan, 0, ',', '.') }}</td>
-                                <td class="px-6 py-4 text-center text-slate-800">{{ number_format($grandNarapidana, 0, ',', '.') }}</td>
-                                <td class="px-6 py-4 text-center text-base text-slate-900 font-extrabold">{{ number_format($grandTotal, 0, ',', '.') }}</td>
+                                <td class="px-6 py-4 text-center text-brand-900 font-bold">{{ number_format($grandKapasitas, 0, ',', '.') }}</td>
+                                <td class="px-6 py-4 text-center text-brand-900">{{ number_format($grandTahanan, 0, ',', '.') }}</td>
+                                <td class="px-6 py-4 text-center text-brand-900">{{ number_format($grandNarapidana, 0, ',', '.') }}</td>
+                                <td class="px-6 py-4 text-center text-lg text-brand-950 font-extrabold">{{ number_format($grandTotal, 0, ',', '.') }}</td>
                                 <td class="px-6 py-4 text-center">
                                     <span class="badge-modern {{ $gStatus['class'] }}">
                                         <span class="badge-dot"></span>
@@ -1024,14 +1024,14 @@
     </section>
 
     <!-- BERITA TERBARU -->
-    <section id="berita" class="py-24 bg-white">
+    <section id="berita" class="py-24 bg-gradient-to-b from-slate-50 to-blue-50/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
                 <div>
                     <p class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-2">Kabar Terkini</p>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Berita & Informasi</h2>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gradient-brand tracking-tight">Berita & Informasi</h2>
                 </div>
-                <a href="{{ url('/berita') }}" class="hidden md:flex items-center text-brand-600 font-semibold hover:text-brand-800 transition group">
+                <a href="{{ url('/berita') }}" class="hidden md:flex items-center text-brand-600 font-bold hover:text-brand-850 transition group">
                     Semua Berita <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                 </a>
             </div>
@@ -1040,74 +1040,82 @@
                 @if($posts->isEmpty())
                     {{-- Fallback content if database is empty --}}
                         <!-- News Card 1 -->
-                        <a href="#" class="group block" data-aos="fade-up" data-aos-delay="100">
-                            <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                                <div class="absolute inset-0 flex items-center justify-center bg-slate-100 group-hover:scale-105 transition-transform duration-500">
-                                    <i class="fa-solid fa-image text-4xl text-slate-300"></i>
+                        <a href="#" class="bg-gradient-to-br from-white to-blue-50/30 rounded-[2rem] p-5 border border-blue-100/50 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-300/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="100">
+                            <div>
+                                <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/3] bg-slate-100">
+                                    <div class="absolute inset-0 flex items-center justify-center bg-slate-200/50 group-hover:scale-105 transition-transform duration-500">
+                                        <i class="fa-solid fa-image text-4xl text-slate-350"></i>
+                                    </div>
+                                    <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
+                                        Siaran Pers
+                                    </div>
                                 </div>
-                                <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
+                                <div class="flex items-center text-xs text-slate-400 mb-2 font-medium">
+                                    <i class="fa-regular fa-calendar mr-2"></i> 26 Februari 2026
+                                </div>
+                                <h3 class="text-lg font-extrabold text-brand-950 leading-snug group-hover:text-brand-600 transition duration-300">
                                     Siaran Pers
-                                </div>
+                                </h3>
                             </div>
-                            <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
-                                <i class="fa-regular fa-calendar mr-2"></i> 26 Februari 2026
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
-                                Siaran Pers
-                            </h3>
                         </a>
 
                         <!-- News Card 2 -->
-                        <a href="#" class="group block" data-aos="fade-up" data-aos-delay="200">
-                            <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                                <div class="absolute inset-0 flex items-center justify-center bg-slate-100 group-hover:scale-105 transition-transform duration-500">
-                                    <i class="fa-solid fa-image text-4xl text-slate-300"></i>
+                        <a href="#" class="bg-gradient-to-br from-white to-blue-50/30 rounded-[2rem] p-5 border border-blue-100/50 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-300/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="200">
+                            <div>
+                                <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/3] bg-slate-100">
+                                    <div class="absolute inset-0 flex items-center justify-center bg-slate-200/50 group-hover:scale-105 transition-transform duration-500">
+                                        <i class="fa-solid fa-image text-4xl text-slate-350"></i>
+                                    </div>
+                                    <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
+                                        Kegiatan
+                                    </div>
                                 </div>
-                                <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
-                                    Kegiatan
+                                <div class="flex items-center text-xs text-slate-400 mb-2 font-medium">
+                                    <i class="fa-regular fa-calendar mr-2"></i> 3 Maret 2026
                                 </div>
+                                <h3 class="text-lg font-extrabold text-brand-950 leading-snug group-hover:text-brand-600 transition duration-300">
+                                    Persembahyangan Purnama, Momentum Penguatan Nilai Spiritual
+                                </h3>
                             </div>
-                            <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
-                                <i class="fa-regular fa-calendar mr-2"></i> 3 Maret 2026
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
-                                Persembahyangan Purnama, Momentum Penguatan Nilai Spiritual
-                            </h3>
                         </a>
 
                         <!-- News Card 3 -->
-                        <a href="#" class="group block" data-aos="fade-up" data-aos-delay="300">
-                            <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                                <div class="absolute inset-0 flex items-center justify-center bg-slate-100 group-hover:scale-105 transition-transform duration-500">
-                                    <i class="fa-solid fa-image text-4xl text-slate-300"></i>
+                        <a href="#" class="bg-gradient-to-br from-white to-blue-50/30 rounded-[2rem] p-5 border border-blue-100/50 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-300/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="300">
+                            <div>
+                                <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/3] bg-slate-100">
+                                    <div class="absolute inset-0 flex items-center justify-center bg-slate-200/50 group-hover:scale-105 transition-transform duration-500">
+                                        <i class="fa-solid fa-image text-4xl text-slate-350"></i>
+                                    </div>
+                                    <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
+                                        Informasi
+                                    </div>
                                 </div>
-                                <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
-                                    Informasi
+                                <div class="flex items-center text-xs text-slate-400 mb-2 font-medium">
+                                    <i class="fa-regular fa-calendar mr-2"></i> 28 Februari 2026
                                 </div>
+                                <h3 class="text-lg font-extrabold text-brand-950 leading-snug group-hover:text-brand-600 transition duration-300">
+                                    Perkuat Layanan Kesehatan, Tinjau Akreditasi Klinik Rutan
+                                </h3>
                             </div>
-                            <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
-                                <i class="fa-regular fa-calendar mr-2"></i> 28 Februari 2026
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
-                                Perkuat Layanan Kesehatan, Tinjau Akreditasi Klinik Rutan
-                            </h3>
                         </a>
                 @else
                     <!-- News Card Loop -->
                     @foreach($posts as $post)
-                        <a href="{{ route('berita.show', $post->slug) }}" class="group block" data-aos="fade-up" data-aos-delay="100">
-                            <div class="relative overflow-hidden rounded-3xl mb-5 aspect-[4/3] shadow-soft bg-slate-100">
-                                <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('images/kakanwil.png') }}" alt="{{ $post->title }}" class="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="300">
-                                <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
-                                    Kegiatan
+                        <a href="{{ route('berita.show', $post->slug) }}" class="bg-gradient-to-br from-white to-blue-50/30 rounded-[2rem] p-5 border border-blue-100/50 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-brand-300/50 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="100">
+                            <div>
+                                <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/3] bg-slate-100">
+                                    <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('images/kakanwil.png') }}" alt="{{ $post->title }}" class="w-full h-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="300">
+                                    <div class="absolute top-4 left-4 glass-panel-light text-brand-700 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm z-10">
+                                        Kegiatan
+                                    </div>
                                 </div>
+                                <div class="flex items-center text-xs text-slate-400 mb-2 font-medium">
+                                    <i class="fa-regular fa-calendar mr-2"></i> {!! $post->published_at ?? 'tanggal' !!}
+                                </div>
+                                <h3 class="text-lg font-extrabold text-brand-950 leading-snug group-hover:text-brand-600 transition duration-300 line-clamp-2">
+                                    {!! nl2br(e($post->title ?? 'isi nya')) !!}
+                                </h3>
                             </div>
-                            <div class="flex items-center text-xs text-slate-400 mb-3 font-medium">
-                                <i class="fa-regular fa-calendar mr-2"></i> {!! $post->published_at ?? 'tanggal' !!}
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-800 leading-snug group-hover:text-brand-600 transition duration-300">
-                                {!! nl2br(e($post->title ?? 'isi nya')) !!}
-                            </h3>
                         </a>
                     @endforeach
                 @endif
