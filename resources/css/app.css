@@ -51,28 +51,28 @@
     padding: 3rem 1rem;
 }
 
-@utility hero-content-sub{
+@utility hero-content-sub {
     max-width: 80rem;
     margin: 0 auto;
     padding: 0 1rem;
     color: white;
-}
 
-@utility hero-content-sub h1{
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.75rem;
-}
+    & h1 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.75rem;
+    }
 
-@utility hero-content-sub a{
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    font-size: 0.875rem;
-}
+    & a {
+        color: rgba(255,255,255,0.6);
+        text-decoration: none;
+        font-size: 0.875rem;
 
-@utility hero-content-sub a:hover{
-    color: white;
+        &:hover {
+            color: white;
+        }
+    }
 }
 
 .line-clamp-3 {
