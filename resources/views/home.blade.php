@@ -508,26 +508,60 @@
                 </div>
 
                 
-                <div class="mt-8 flex gap-3 overflow-x-auto pb-3 md:pb-0 md:grid md:grid-cols-5 snap-x custom-scrollbar">
-                    <div class="bg-brand-50 p-3 rounded-2xl border border-brand-100 flex-shrink-0 w-[140px] md:w-auto snap-start">
-                        <p class="text-[9px] text-brand-600 font-bold uppercase tracking-wider mb-1">Total Tahanan</p>
-                        <p class="text-lg font-extrabold text-brand-900">{{ number_format($totalStats['tahanan'] ?? 0, 0, ',', '.') }}</p>
+                <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <!-- Total Tahanan -->
+                    <div class="bg-gradient-to-br from-brand-50/40 to-white p-5 rounded-2xl border border-brand-100 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-50/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between min-h-[120px]">
+                        <div class="flex justify-between items-start">
+                            <p class="text-[10px] text-brand-600 font-bold uppercase tracking-wider">Total Tahanan</p>
+                            <span class="p-2 bg-brand-50 rounded-xl text-brand-600">
+                                <i class="fa-solid fa-lock text-base"></i>
+                            </span>
+                        </div>
+                        <p class="text-3xl font-extrabold text-brand-900 mt-2">{{ number_format($totalStats['tahanan'] ?? 0, 0, ',', '.') }}</p>
                     </div>
-                    <div class="bg-gold-50 p-3 rounded-2xl border border-gold-100 flex-shrink-0 w-[140px] md:w-auto snap-start">
-                        <p class="text-[9px] text-gold-600 font-bold uppercase tracking-wider mb-1">Total Narapidana</p>
-                        <p class="text-lg font-extrabold text-gold-700">{{ number_format($totalStats['narapidana'] ?? 0, 0, ',', '.') }}</p>
+
+                    <!-- Total Narapidana -->
+                    <div class="bg-gradient-to-br from-amber-50/40 to-white p-5 rounded-2xl border border-amber-100 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-50/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between min-h-[120px]">
+                        <div class="flex justify-between items-start">
+                            <p class="text-[10px] text-amber-600 font-bold uppercase tracking-wider">Total Narapidana</p>
+                            <span class="p-2 bg-amber-50 rounded-xl text-amber-600">
+                                <i class="fa-solid fa-user-lock text-base"></i>
+                            </span>
+                        </div>
+                        <p class="text-3xl font-extrabold text-amber-800 mt-2">{{ number_format($totalStats['narapidana'] ?? 0, 0, ',', '.') }}</p>
                     </div>
-                    <div class="bg-indigo-50 p-3 rounded-2xl border border-indigo-100 flex-shrink-0 w-[140px] md:w-auto snap-start">
-                        <p class="text-[9px] text-indigo-600 font-bold uppercase tracking-wider mb-1">Total Penghuni</p>
-                        <p class="text-lg font-extrabold text-indigo-900">{{ number_format($totalStats['isi_penghuni'] ?? 0, 0, ',', '.') }}</p>
+
+                    <!-- Total Penghuni -->
+                    <div class="bg-gradient-to-br from-indigo-50/40 to-white p-5 rounded-2xl border border-indigo-100 hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-50/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between min-h-[120px]">
+                        <div class="flex justify-between items-start">
+                            <p class="text-[10px] text-indigo-600 font-bold uppercase tracking-wider">Total Penghuni</p>
+                            <span class="p-2 bg-indigo-50 rounded-xl text-indigo-600">
+                                <i class="fa-solid fa-users text-base"></i>
+                            </span>
+                        </div>
+                        <p class="text-3xl font-extrabold text-indigo-900 mt-2">{{ number_format($totalStats['isi_penghuni'] ?? 0, 0, ',', '.') }}</p>
                     </div>
-                    <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 flex-shrink-0 w-[140px] md:w-auto snap-start">
-                        <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-1">Kapasitas</p>
-                        <p class="text-lg font-extrabold text-slate-800">{{ number_format($totalStats['kapasitas'] ?? 0, 0, ',', '.') }}</p>
+
+                    <!-- Kapasitas -->
+                    <div class="bg-gradient-to-br from-slate-50/40 to-white p-5 rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-100/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between min-h-[120px]">
+                        <div class="flex justify-between items-start">
+                            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Kapasitas</p>
+                            <span class="p-2 bg-slate-100 rounded-xl text-slate-600">
+                                <i class="fa-solid fa-bed text-base"></i>
+                            </span>
+                        </div>
+                        <p class="text-3xl font-extrabold text-slate-800 mt-2">{{ number_format($totalStats['kapasitas'] ?? 0, 0, ',', '.') }}</p>
                     </div>
-                    <div class="bg-red-50 p-3 rounded-2xl border border-red-100 flex-shrink-0 w-[140px] md:w-auto snap-start">
-                        <p class="text-[9px] text-red-600 font-bold uppercase tracking-wider mb-1">Overkapasitas</p>
-                        <p class="text-lg font-extrabold text-red-700">{{ $totalStats['persen_overkapasitas'] ?? 0 }}%</p>
+
+                    <!-- Overkapasitas -->
+                    <div class="bg-gradient-to-br from-rose-50/40 to-white p-5 rounded-2xl border border-rose-100 hover:border-rose-300 hover:shadow-lg hover:shadow-rose-50/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between min-h-[120px]">
+                        <div class="flex justify-between items-start">
+                            <p class="text-[10px] text-rose-600 font-bold uppercase tracking-wider">Overkapasitas</p>
+                            <span class="p-2 bg-rose-50 rounded-xl text-rose-600">
+                                <i class="fa-solid fa-triangle-exclamation text-base"></i>
+                            </span>
+                        </div>
+                        <p class="text-3xl font-extrabold text-rose-700 mt-2">{{ $totalStats['persen_overkapasitas'] ?? 0 }}%</p>
                     </div>
                 </div>
             </div>
