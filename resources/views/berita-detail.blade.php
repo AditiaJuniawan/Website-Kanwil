@@ -266,7 +266,7 @@ $jsonLd = [
                             </div>
 
                             <button type="submit" 
-                                    class="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 bg-brand-700 hover:bg-brand-800 text-white font-semibold rounded-xl shadow-md shadow-brand-700/10 hover:shadow-brand-800/20 transition text-xs group">
+                                    class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-brand-700 hover:bg-brand-800 text-white font-semibold rounded-lg shadow-md shadow-brand-700/10 hover:shadow-brand-800/20 transition text-xs group">
                                 Kirim Komentar
                                 <i class="fa-solid fa-paper-plane text-[10px] transition-transform group-hover:translate-x-0.5"></i>
                             </button>
