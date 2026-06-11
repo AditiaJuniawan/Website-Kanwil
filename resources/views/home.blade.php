@@ -684,59 +684,113 @@
 
                 
                 <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    @php
+                        $tahananCount = $totalStats['tahanan'] ?? 0;
+                        $napiCount = $totalStats['narapidana'] ?? 0;
+                        $penghuniCount = $totalStats['isi_penghuni'] ?? 1;
+                        $kapasitasCount = $totalStats['kapasitas'] ?? 1;
+                        
+                        $tahananPercent = round(($tahananCount / max($penghuniCount, 1)) * 100, 1);
+                        $napiPercent = round(($napiCount / max($penghuniCount, 1)) * 100, 1);
+                        $occupancyRate = round(($penghuniCount / max($kapasitasCount, 1)) * 100, 1);
+                        
+                        $overPercent = $totalStats['persen_overkapasitas'] ?? 0;
+                        if ($overPercent > 100) {
+                            $overStatusClass = 'bg-red-100/80 text-red-800 border-red-200/50';
+                            $overStatusLabel = 'Sangat Padat';
+                        } elseif ($overPercent > 20) {
+                            $overStatusClass = 'bg-orange-100/80 text-orange-850 border-orange-200/50';
+                            $overStatusLabel = 'Over Kapasitas';
+                        } elseif ($overPercent > 0) {
+                            $overStatusClass = 'bg-amber-100/80 text-amber-850 border-amber-200/50';
+                            $overStatusLabel = 'Cukup Padat';
+                        } else {
+                            $overStatusClass = 'bg-green-100/80 text-green-800 border-green-200/50';
+                            $overStatusLabel = 'Normal';
+                        }
+                    @endphp
+                    
                     <!-- Total Tahanan -->
-                    <div class="bg-gradient-to-br from-brand-50/40 to-white p-5 rounded-2xl border border-brand-100 hover:border-brand-300 hover:shadow-lg hover:shadow-brand-50/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between min-h-[120px]">
+                    <div class="bg-gradient-to-br from-blue-50/70 to-indigo-50/50 p-5 rounded-2xl border border-blue-200/80 hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px]">
                         <div class="flex justify-between items-start">
-                            <p class="text-[10px] text-brand-600 font-bold uppercase tracking-wider">Total Tahanan</p>
-                            <span class="p-2 bg-brand-50 rounded-xl text-brand-600">
+                            <p class="text-[10px] text-brand-650 font-bold uppercase tracking-wider">Total Tahanan</p>
+                            <span class="p-2 bg-blue-100 text-brand-900 rounded-xl">
                                 <i class="fa-solid fa-lock text-base"></i>
                             </span>
                         </div>
-                        <p class="text-3xl font-extrabold text-brand-900 mt-2">{{ number_format($totalStats['tahanan'] ?? 0, 0, ',', '.') }}</p>
+                        <div>
+                            <p class="text-3xl md:text-4xl font-extrabold text-brand-950 tracking-tight mt-2">{{ number_format($tahananCount, 0, ',', '.') }}</p>
+                            <p class="text-[9px] text-slate-500 mt-1 font-semibold">{{ $tahananPercent }}% dari total hunian</p>
+                        </div>
                     </div>
 
                     <!-- Total Narapidana -->
-                    <div class="bg-gradient-to-br from-amber-50/40 to-white p-5 rounded-2xl border border-amber-100 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-50/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between min-h-[120px]">
+                    <div class="bg-gradient-to-br from-amber-50/70 to-orange-50/50 p-5 rounded-2xl border border-amber-200/80 hover:border-amber-400/60 hover:shadow-lg hover:shadow-amber-500/5 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px]">
                         <div class="flex justify-between items-start">
-                            <p class="text-[10px] text-amber-600 font-bold uppercase tracking-wider">Total Narapidana</p>
-                            <span class="p-2 bg-amber-50 rounded-xl text-amber-600">
+                            <p class="text-[10px] text-amber-700 font-bold uppercase tracking-wider">Total Narapidana</p>
+                            <span class="p-2 bg-amber-100 text-amber-700 rounded-xl">
                                 <i class="fa-solid fa-user-lock text-base"></i>
                             </span>
                         </div>
-                        <p class="text-3xl font-extrabold text-amber-800 mt-2">{{ number_format($totalStats['narapidana'] ?? 0, 0, ',', '.') }}</p>
+                        <div>
+                            <p class="text-3xl md:text-4xl font-extrabold text-amber-950 tracking-tight mt-2">{{ number_format($napiCount, 0, ',', '.') }}</p>
+                            <p class="text-[9px] text-slate-500 mt-1 font-semibold">{{ $napiPercent }}% dari total hunian</p>
+                        </div>
                     </div>
 
                     <!-- Total Penghuni -->
-                    <div class="bg-gradient-to-br from-indigo-50/40 to-white p-5 rounded-2xl border border-indigo-100 hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-50/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between min-h-[120px]">
+                    <div class="bg-gradient-to-br from-indigo-50/70 to-violet-50/50 p-5 rounded-2xl border border-indigo-200/80 hover:border-indigo-400/60 hover:shadow-lg hover:shadow-indigo-500/5 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px]">
                         <div class="flex justify-between items-start">
-                            <p class="text-[10px] text-indigo-600 font-bold uppercase tracking-wider">Total Penghuni</p>
-                            <span class="p-2 bg-indigo-50 rounded-xl text-indigo-600">
+                            <p class="text-[10px] text-indigo-650 font-bold uppercase tracking-wider">Total Penghuni</p>
+                            <span class="p-2 bg-indigo-100 text-indigo-700 rounded-xl">
                                 <i class="fa-solid fa-users text-base"></i>
                             </span>
                         </div>
-                        <p class="text-3xl font-extrabold text-indigo-900 mt-2">{{ number_format($totalStats['isi_penghuni'] ?? 0, 0, ',', '.') }}</p>
+                        <div class="mt-2">
+                            <p class="text-3xl md:text-4xl font-extrabold text-indigo-950 tracking-tight">{{ number_format($totalStats['isi_penghuni'] ?? 0, 0, ',', '.') }}</p>
+                            <div class="mt-2">
+                                <div class="flex justify-between items-center text-[9px] text-slate-500 font-bold uppercase mb-1">
+                                    <span>Rasio Hunian</span>
+                                    <span>{{ $occupancyRate }}%</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-indigo-600 h-full rounded-full transition-all duration-500" style="width: {{ min($occupancyRate, 100) }}%"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Kapasitas -->
-                    <div class="bg-gradient-to-br from-slate-50/40 to-white p-5 rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-100/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between min-h-[120px]">
+                    <div class="bg-gradient-to-br from-slate-100/80 to-slate-50/50 p-5 rounded-2xl border border-slate-300/70 hover:border-slate-400/60 hover:shadow-lg hover:shadow-slate-500/5 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px]">
                         <div class="flex justify-between items-start">
-                            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Kapasitas</p>
-                            <span class="p-2 bg-slate-100 rounded-xl text-slate-600">
+                            <p class="text-[10px] text-slate-600 font-bold uppercase tracking-wider">Kapasitas</p>
+                            <span class="p-2 bg-slate-200 text-slate-700 rounded-xl">
                                 <i class="fa-solid fa-bed text-base"></i>
                             </span>
                         </div>
-                        <p class="text-3xl font-extrabold text-slate-800 mt-2">{{ number_format($totalStats['kapasitas'] ?? 0, 0, ',', '.') }}</p>
+                        <div>
+                            <p class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-2">{{ number_format($kapasitasCount, 0, ',', '.') }}</p>
+                            <p class="text-[9px] text-slate-500 mt-1 font-semibold">Kapasitas tempat tidur UPT</p>
+                        </div>
                     </div>
 
                     <!-- Overkapasitas -->
-                    <div class="bg-gradient-to-br from-rose-50/40 to-white p-5 rounded-2xl border border-rose-100 hover:border-rose-300 hover:shadow-lg hover:shadow-rose-50/50 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between min-h-[120px]">
+                    <div class="bg-gradient-to-br from-rose-50/80 to-pink-50/50 p-5 rounded-2xl border border-rose-200/80 hover:border-rose-400/60 hover:shadow-lg hover:shadow-rose-500/5 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between min-h-[120px]">
                         <div class="flex justify-between items-start">
-                            <p class="text-[10px] text-rose-600 font-bold uppercase tracking-wider">Overkapasitas</p>
-                            <span class="p-2 bg-rose-50 rounded-xl text-rose-600">
+                            <p class="text-[10px] text-rose-650 font-bold uppercase tracking-wider">Overkapasitas</p>
+                            <span class="p-2 bg-rose-100 text-rose-600 rounded-xl">
                                 <i class="fa-solid fa-triangle-exclamation text-base"></i>
                             </span>
                         </div>
-                        <p class="text-3xl font-extrabold text-rose-700 mt-2">{{ $totalStats['persen_overkapasitas'] ?? 0 }}%</p>
+                        <div>
+                            <p class="text-3xl md:text-4xl font-extrabold text-rose-950 tracking-tight mt-2">{{ $overPercent }}%</p>
+                            <div class="mt-1 flex items-center">
+                                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase border {{ $overStatusClass }}">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-current mr-1"></span>
+                                    {{ $overStatusLabel }}
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
