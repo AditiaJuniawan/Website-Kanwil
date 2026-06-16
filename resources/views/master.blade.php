@@ -129,6 +129,7 @@
                 <!-- Desktop Menu -->
                 <nav class="hidden lg:flex space-x-1 items-center">
                     <a href="/" class="{{ Request::is('/') ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50 hover:text-brand-700' }} px-4 py-2 font-semibold rounded-lg transition">Beranda</a>
+                    <a href="{{ url('/portal') }}" class="{{ Request::is('portal') ? 'bg-brand-50 text-brand-700 font-semibold' : 'text-slate-600 hover:bg-slate-50 hover:text-brand-700' }} px-4 py-2 font-semibold rounded-lg transition">Portal Aplikasi</a>
                     <a href="{{ url('/berita') }}" class="px-4 py-2 text-slate-600 hover:text-brand-700 font-medium rounded-lg hover:bg-slate-50 transition">Berita</a>
                     <div class="relative group px-1">
                         <button class="px-4 py-2 text-slate-600 hover:text-brand-700 font-medium flex items-center rounded-lg hover:bg-slate-50 transition">
@@ -147,6 +148,8 @@
                             Layanan <i class="fa-solid fa-chevron-down ml-2 text-[10px] opacity-70"></i>
                         </button>
                         <div class="absolute left-0 mt-2 w-56 bg-white border border-slate-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 p-2">
+                            <a href="{{ url('/portal') }}" class="block px-4 py-2.5 text-sm font-semibold text-brand-700 hover:bg-brand-50 hover:text-brand-800 rounded-lg transition">Portal Aplikasi (Gateway)</a>
+                            <hr class="border-slate-100 my-1">
                             <a href="https://sites.google.com/view/starpasbanten/" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">STARPAS Banten</a>
                             <a href="https://sipas.ditjenpasbanten.com/" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">SIPAS Banten</a>
                             <a href="https://sultan.ditjenpasbanten.com/dashboard.php" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">Sultan Banten</a>
@@ -180,22 +183,33 @@
         <!-- Mobile Menu Panel -->
         <div id="mobile-panel" class="hidden lg:hidden bg-white border-t border-slate-100 shadow-xl p-4 space-y-2">
             <a href="/" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Beranda</a>
-            <a href="{{ url('/profil') }}" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Berita</a>
+            <a href="{{ url('/portal') }}" class="block px-4 py-3 {{ Request::is('portal') ? 'bg-brand-50 text-brand-700 font-bold' : 'text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700' }} rounded-xl transition">Portal Aplikasi</a>
+            <a href="{{ url('/berita') }}" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Berita</a>
 
             <div class="space-y-1">
-           
-                <p class="px-4 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Tentang</p>
-                <a href="{{ url('/profil') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Profil</a>
-                <a href="{{ url('/visi') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Visi & Misi</a>
-                <a href="{{ url('/maskot') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Maskot</a>
-                <a href="{{ url('/survei') }}" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition">Survei</a>
-  
+                <button class="w-full flex justify-between items-center px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition mobile-accordion-btn">
+                    <span>Tentang</span>
+                    <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
+                </button>
+                <div class="hidden flex-col pl-4 pr-2 py-1 space-y-1 border-l-2 border-brand-100 ml-4 mobile-accordion-content">
+                    <a href="{{ url('/profil') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Profil</a>
+                    <a href="{{ url('/visi') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Visi & Misi</a>
+                    <a href="{{ url('/maskot') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Maskot</a>
+                    <a href="{{ url('/survei') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Survei</a>
+                </div>
             </div>
+            
             <div class="space-y-1">
-                <p class="px-4 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Layanan</p>
-                <a href="https://sites.google.com/view/starpasbanten/" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition" target="_blank">STARPAS Banten</a>
-                <a href="https://sipas.ditjenpasbanten.com/" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition" target="_blank">SIPAS Banten</a>
-                <a href="https://sultan.ditjenpasbanten.com/dashboard.php" class="block px-6 py-2 text-slate-600 hover:text-brand-700 transition" target="_blank">Sultan Banten</a>
+                <button class="w-full flex justify-between items-center px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition mobile-accordion-btn">
+                    <span>Layanan</span>
+                    <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
+                </button>
+                <div class="hidden flex-col pl-4 pr-2 py-1 space-y-1 border-l-2 border-brand-100 ml-4 mobile-accordion-content">
+                    <a href="{{ url('/portal') }}" class="block px-4 py-2.5 text-sm font-semibold text-brand-700 hover:bg-brand-50 hover:text-brand-800 rounded-lg transition">Portal Aplikasi (Gateway)</a>
+                    <a href="https://sites.google.com/view/starpasbanten/" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium" target="_blank">STARPAS Banten</a>
+                    <a href="https://sipas.ditjenpasbanten.com/" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium" target="_blank">SIPAS Banten</a>
+                    <a href="https://sultan.ditjenpasbanten.com/dashboard.php" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium" target="_blank">Sultan Banten</a>
+                </div>
             </div>
             <a href="#kontakkanwil" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Kontak</a>
             <div class="pt-4">
@@ -275,6 +289,16 @@
         </div>
     </footer>
 
+    <!-- Back to top & FAB -->
+    <div class="flex flex-col gap-3 z-[60] items-end" style="position: fixed; bottom: 2rem; right: 2rem;">
+        <button id="back-to-top" class="w-12 h-12 bg-brand-700 hover:bg-brand-800 text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform scale-0 opacity-0" title="Kembali ke Atas">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+        <a href="https://wa.me/6282266662055" target="_blank" class="w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center shadow-xl transition-transform transform hover:scale-110" title="Hubungi Kami via WhatsApp">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -302,6 +326,45 @@
                 iconBars.style.display = 'block';
                 iconClose.style.display = 'none';
             }
+        });
+
+        // Mobile Menu Accordion
+        const accordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+        accordionBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.fa-chevron-down');
+                
+                // Toggle current
+                if(content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    content.classList.add('flex');
+                    icon.classList.add('rotate-180');
+                } else {
+                    content.classList.add('hidden');
+                    content.classList.remove('flex');
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        });
+
+        // Back to top functionality
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('scale-0', 'opacity-0');
+                backToTopBtn.classList.add('scale-100', 'opacity-100');
+            } else {
+                backToTopBtn.classList.add('scale-0', 'opacity-0');
+                backToTopBtn.classList.remove('scale-100', 'opacity-100');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
         // Sticky Nav Effect

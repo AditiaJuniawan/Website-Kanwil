@@ -38,10 +38,13 @@
     @endphp
     <script src="https://cdn.tailwindcss.com"></script>
     <section class="hero-sub">
-        <div class="container hero-content-sub">
-            <h1>SURVEI INDEKS KEPUASAN MASYARAKAT</h1>
-            <a href="{{ url('/') }}">Beranda</a> > <a href="{{ url('/survei') }}">Survei</a>
-          
+        <div class="container hero-content-sub flex flex-col items-center text-center">
+            <h1 class="text-3xl md:text-4xl font-extrabold tracking-wider mb-2">SURVEI INDEKS KEPUASAN MASYARAKAT</h1>
+            <div class="flex justify-center items-center gap-3 text-sm font-medium mt-4 bg-black/20 px-6 py-2 rounded-full backdrop-blur-sm inline-flex mx-auto">
+                <a href="{{ url('/') }}" class="hover:text-gold-400 transition flex items-center"><i class="fa-solid fa-house mr-1.5"></i> Beranda</a>
+                <i class="fa-solid fa-chevron-right text-[10px] opacity-70"></i>
+                <span class="font-bold text-white">Survei</span>
+            </div>
         </div>
     </section>
     <script>

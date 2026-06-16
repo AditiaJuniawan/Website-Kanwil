@@ -31,10 +31,13 @@
 
 @section('content')
     <section class="hero-sub">
-        <div class="container hero-content-sub">
-            <h1>VISI DAN MISI</h1>
-            <a href="{{ url('/') }}">Beranda</a> > <a href="{{ url('/visi') }}">Visi dan Misi</a>
-          
+        <div class="container hero-content-sub flex flex-col items-center">
+            <h1 class="text-3xl md:text-4xl font-extrabold tracking-wider mb-2">VISI DAN MISI</h1>
+            <div class="flex justify-center items-center gap-3 text-sm font-medium mt-4 bg-black/20 px-6 py-2 rounded-full backdrop-blur-sm">
+                <a href="{{ url('/') }}" class="hover:text-gold-400 transition flex items-center"><i class="fa-solid fa-house mr-1.5"></i> Beranda</a>
+                <i class="fa-solid fa-chevron-right text-[10px] opacity-70"></i>
+                <span class="font-bold text-white">Visi dan Misi</span>
+            </div>
         </div>
     </section>
 

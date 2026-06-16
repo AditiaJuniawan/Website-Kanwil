@@ -86,6 +86,18 @@ class SultanBantenService
                 ->map(fn($u) => (array)$u)
                 ->toArray();
 
+            // Fetch profiles from local database
+            $profiles = \App\Models\UptProfile::all()->keyBy('upt_id')->toArray();
+
+            // Merge profile data
+            foreach ($upts as &$upt) {
+                $profile = $profiles[$upt['id']] ?? null;
+                $upt['foto'] = !empty($profile['foto']) ? asset('storage/' . $profile['foto']) : null;
+                $upt['jenis_upt'] = $profile['jenis_upt'] ?? null;
+                $upt['informasi_singkat'] = $profile['informasi_singkat'] ?? null;
+                $upt['website_url'] = $profile['website_url'] ?? null;
+            }
+
             // Calculate aggregated statistics
             $totalUpt = count($upts);
             $totalTahanan = array_sum(array_column($upts, 'tahanan'));

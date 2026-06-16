@@ -89,10 +89,10 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#layanan" class="bg-gold-500 hover:bg-gold-400 text-brand-900 font-bold px-8 py-4 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-gold-500/30 text-center flex items-center justify-center">
+                    <a href="#portal-terpadu" class="bg-gold-500 hover:bg-gold-400 text-brand-900 font-bold px-8 py-4 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-xl shadow-lg shadow-gold-500/30 text-center flex items-center justify-center w-full sm:w-auto">
                         Mulai Layanan <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
                     </a>
-                    <a href="{{ url('/profil') }}" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-medium px-8 py-4 rounded-full transition text-center flex items-center justify-center">
+                    <a href="{{ url('/profil') }}" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-medium px-8 py-4 rounded-full transition-all transform hover:-translate-y-1 text-center flex items-center justify-center w-full sm:w-auto">
                         Tentang Kami
                     </a>
                 </div>
@@ -193,7 +193,7 @@
             </div>
 
             <!-- Grid 8 Categories -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                 <!-- 1. Profil Kanwil -->
                 <div class="bg-gradient-to-br from-blue-50/60 to-indigo-50/30 rounded-[2rem] p-6 border border-blue-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-blue-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-1.5 w-full bg-gradient-to-r from-blue-600 to-brand-900 -mt-6 -mx-6 mb-6"></div>
@@ -334,6 +334,9 @@
                     </div>
                     <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
+                            <a href="{{ url('/portal') }}" class="text-xs font-bold text-brand-700 hover:text-indigo-700 flex items-center transition-all duration-200 hover:translate-x-1">
+                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> Gateway Portal Aplikasi <span class="ml-1 px-1.5 py-0.5 bg-brand-100 text-brand-700 text-[8px] rounded font-extrabold">NEW</span>
+                            </a>
                             <a href="https://sipas.ditjenpasbanten.com/" target="_blank" class="text-xs font-bold text-slate-700 hover:text-indigo-700 flex items-center transition-all duration-200 hover:translate-x-1">
                                 <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> SIPAS Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
                             </a>
@@ -610,6 +613,16 @@
                                 }
                             };
 
+                            window.uptMapMarkers = {};
+                            window.openUptMap = function(id) {
+                                if (window.uptMapMarkers[id]) {
+                                    const marker = window.uptMapMarkers[id];
+                                    map.flyTo(marker.getLatLng(), 15, { duration: 1.5 });
+                                    marker.openPopup();
+                                    document.getElementById('peta').scrollIntoView({behavior: 'smooth', block: 'center'});
+                                }
+                            };
+
                             const markers = [];
 
                             function formatNumber(num) {
@@ -643,33 +656,38 @@
                                 const marker = L.marker([latitude, longitude], { icon: uptIcon })
                                     .addTo(map)
                                     .bindPopup(`
-                                        <div style="min-width: 220px; font-family: 'Plus Jakarta Sans', sans-serif;">
-                                            <h6 style="margin: 0 0 8px 0; color: #1b3d6a; font-weight: bold; font-size: 13px;">
-                                                <i class="fas fa-building"></i> ${upt.nama_upt}
+                                        <div style="min-width: 250px; font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px;">
+                                            <div style="height: 100px; background-color: #1e293b; border-radius: 12px; margin-bottom: 12px; overflow: hidden; position: relative;">
+                                                ${upt.foto ? '<img src="' + upt.foto + '" style="width: 100%; height: 100%; object-fit: cover;" alt="Foto">' : '<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-building" style="font-size: 2rem; color: rgba(255,255,255,0.2);"></i></div>'}
+                                                <div style="position: absolute; bottom: 8px; right: 8px; background: ${statusColor}; color: white; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                                                    ${persenText} (${statusText})
+                                                </div>
+                                            </div>
+                                            <div style="font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; color: #2563eb; font-weight: bold; margin-bottom: 2px;">
+                                                ${upt.jenis_upt || 'Unit Pelaksana Teknis'}
+                                            </div>
+                                            <h6 style="margin: 0 0 8px 0; color: #0f172a; font-weight: 800; font-size: 14px; line-height: 1.2;">
+                                                ${upt.nama_upt}
                                             </h6>
-                                            <p style="margin: 0 0 5px 0; font-size: 11px; line-height: 1.4;">
-                                                <a href="https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}" target="_blank" rel="noopener noreferrer" style="color: #64748b; text-decoration: none; display: inline-flex; align-items: flex-start; gap: 4px; transition: color 0.2s;" onmouseover="this.style.color='#2563eb'; this.style.textDecoration='underline';" onmouseout="this.style.color='#64748b'; this.style.textDecoration='none';">
-                                                    <i class="fas fa-map-marker-alt text-red-500" style="margin-top: 2px;"></i>
-                                                    <span>${alamat}</span>
-                                                </a>
+                                            <p style="margin: 0 0 12px 0; font-size: 11px; line-height: 1.4; color: #475569;">
+                                                <i class="fas fa-map-marker-alt" style="color: #ef4444; margin-right: 4px;"></i> ${alamat.substring(0, 60)}${alamat.length > 60 ? '...' : ''}
                                             </p>
-                                            <hr style="margin: 8px 0; border-color: #e2e8f0;">
-                                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                                <span style="font-size: 11px; color: #475569;"><i class="fas fa-bed text-sky-500"></i> Kapasitas:</span>
-                                                <strong style="font-size: 11px; color: #1e293b;">${formatNumber(kapasitas)}</strong>
+                                            
+                                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px;">
+                                                <div style="background: #f8fafc; padding: 6px 8px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                                                    <div style="font-size: 9px; color: #64748b; font-weight: 600; margin-bottom: 2px;">Kapasitas</div>
+                                                    <div style="font-size: 12px; color: #0f172a; font-weight: 800;">${formatNumber(kapasitas)}</div>
+                                                </div>
+                                                <div style="background: #f8fafc; padding: 6px 8px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                                                    <div style="font-size: 9px; color: #64748b; font-weight: 600; margin-bottom: 2px;">Penghuni</div>
+                                                    <div style="font-size: 12px; color: #0f172a; font-weight: 800;">${formatNumber(totalPenghuni)}</div>
+                                                </div>
                                             </div>
-                                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                                <span style="font-size: 11px; color: #475569;"><i class="fas fa-users text-indigo-500"></i> Penghuni:</span>
-                                                <strong style="font-size: 11px; color: #1e293b;">${formatNumber(totalPenghuni)}</strong>
-                                            </div>
-                                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                                <span style="font-size: 11px; color: #475569;"><i class="fas fa-user-lock text-emerald-500"></i> Tahanan / Napi:</span>
-                                                <strong style="font-size: 11px; color: #1e293b;">${formatNumber(upt.tahanan)} / ${formatNumber(upt.narapidana)}</strong>
-                                            </div>
-                                            <div style="display: flex; justify-content: space-between;">
-                                                <span style="font-size: 11px; color: #475569;"><i class="fas fa-percentage" style="color:${statusColor}"></i> Status:</span>
-                                                <strong style="font-size: 11px; color: ${statusColor};">${persenText} (${statusText})</strong>
-                                            </div>
+                                            
+                                            <a href="${upt.website_url ? upt.website_url : '#'}" target="${upt.website_url ? '_blank' : '_self'}" onclick="${upt.website_url ? '' : "alert('Link website resmi belum ditambahkan di admin panel.'); return false;"}" style="display: block; text-align: center; width: 100%; background: ${upt.website_url ? '#1b3d6a' : '#94a3b8'}; color: white; border: none; padding: 8px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: ${upt.website_url ? 'pointer' : 'not-allowed'}; text-decoration: none; margin-bottom: 6px; transition: all 0.2s;" onmouseover="this.style.background='${upt.website_url ? '#1e40af' : '#94a3b8'}'" onmouseout="this.style.background='${upt.website_url ? '#1b3d6a' : '#94a3b8'}'">Buka Web Resmi</a>
+                                            <a href="https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}" target="_blank" style="display: block; text-align: center; width: 100%; background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; padding: 8px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer; text-decoration: none; transition: all 0.2s;" onmouseover="this.style.background='#e2e8f0'" onmouseout="this.style.background='#f1f5f9'">
+                                                Navigasi / Buka Map
+                                            </a>
                                         </div>
                                     `);
                                 marker.uptData = {
@@ -677,6 +695,7 @@
                                     tahanan: parseInt(upt.tahanan) || 0,
                                     narapidana: parseInt(upt.narapidana) || 0
                                 };
+                                window.uptMapMarkers[upt.id] = marker;
                                 markers.push(marker);
                             });
 
@@ -994,7 +1013,7 @@
                     </span>
                     Data Real-Time
                 </div>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gradient-brand tracking-tight">Data Penghuni &amp; Overkapasitas per UPT</h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gradient-brand tracking-tight">Data Penghuni &amp; Overkapasitas UPT Lapas/Rutan</h2>
                 <p class="text-slate-500 mt-3 max-w-lg mx-auto text-sm font-light">Monitor distribusi penghuni dan tingkat hunian setiap unit pelaksana teknis</p>
                 <div class="w-12 h-1.5 bg-brand-500 mx-auto mt-6 rounded-full"></div>
             </div>
@@ -1185,7 +1204,9 @@
                                 <tr class="border-b border-blue-100/40 odd:bg-white/60 even:bg-blue-50/40 hover:bg-blue-100/30 transition-colors duration-200">
                                     <td class="px-6 py-4 font-bold text-blue-600/70 whitespace-nowrap">{{ $index + 1 }}</td>
                                     <td class="px-6 py-4">
-                                        <div class="font-bold text-brand-950 text-sm hover:text-brand-600 transition min-w-[200px]">{{ $row['nama_upt'] ?? '' }}</div>
+                                        <div class="font-bold text-brand-950 text-sm hover:text-brand-600 transition min-w-[200px] cursor-pointer hover:underline group/map flex items-center gap-1" title="Lihat lokasi di peta" onclick="window.openUptMap('{{ $row['id'] }}')">
+                                            <i class="fas fa-map-marker-alt text-red-400 group-hover/map:animate-bounce"></i> {{ $row['nama_upt'] ?? '' }}
+                                        </div>
                                         <div class="flex items-center gap-2 mt-2">
                                             <div class="progress-bar-container bg-slate-200/80">
                                                 <div class="progress-bar-fill {{ $status['barClass'] }}" style="width: {{ min($occupancyPercent, 100) }}%"></div>

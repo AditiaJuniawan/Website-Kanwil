@@ -40,9 +40,15 @@ route::get('/LayananPerizinan',function(){
 // route::get('/berita',function(){
 //     return view('berita');
 // });
+route::get('/portal', function() {
+    $apps = \App\Models\PortalApp::where('is_active', true)->orderBy('order')->get();
+    return view('portal', compact('apps'));
+});
+
 route::get('/login',function(){
     return view('/sesi/index');
 });
+
 
 
 // route::get('/sesi',function(){

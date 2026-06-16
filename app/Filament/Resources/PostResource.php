@@ -27,6 +27,59 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Section::make('Asisten AI Penulisan Berita')
+                    ->description('Tulis draf berita secara otomatis dengan AI (Gemini) dari URL sumber atau ringkasan materi.')
+                    ->schema([
+                        Forms\Components\Actions::make([
+                            Forms\Components\Actions\Action::make('generate_ai')
+                                ->label('Tulis Berita dengan AI')
+                                ->icon('heroicon-m-sparkles')
+                                ->color('success')
+                                ->form([
+                                    Forms\Components\TextInput::make('source_url')
+                                        ->label('URL Sumber / Berita UPT')
+                                        ->url()
+                                        ->placeholder('https://...')
+                                        ->helperText('Tempelkan URL berita referensi (misal: website UPT) atau kosongkan jika ingin menggunakan ringkasan teks.'),
+                                    Forms\Components\Textarea::make('raw_text')
+                                        ->label('Poin / Ringkasan Materi')
+                                        ->placeholder('Tuliskan poin-poin penting atau rangkuman materi di sini jika tidak menggunakan URL...')
+                                        ->rows(4),
+                                    Forms\Components\Textarea::make('instruction')
+                                        ->label('Instruksi Tambahan AI (Opsional)')
+                                        ->placeholder('Misal: Tonjolkan kehadiran Kepala Divisi Pemasyarakatan Banten, sebutkan tanggal kegiatan, dll...')
+                                        ->rows(2),
+                                ])
+                                ->action(function (Set $set, array $data) {
+                                    $aiService = app(\App\Services\AiService::class);
+                                    try {
+                                        $result = $aiService->generateNews(
+                                            $data['source_url'] ?? null,
+                                            $data['raw_text'] ?? null,
+                                            $data['instruction'] ?? null
+                                        );
+                                        
+                                        $set('title', $result['title']);
+                                        $set('slug', Str::slug($result['title']));
+                                        $set('content', $result['content']);
+                                        
+                                        \Filament\Notifications\Notification::make()
+                                            ->title('Draf Berita Berhasil Dibuat!')
+                                            ->body('Judul dan Isi Berita di bawah telah diisi secara otomatis oleh AI. Silakan tinjau kembali sebelum mempublikasikan.')
+                                            ->success()
+                                            ->send();
+                                    } catch (\Exception $e) {
+                                        \Filament\Notifications\Notification::make()
+                                            ->title('Gagal Menghasilkan Berita')
+                                            ->body($e->getMessage())
+                                            ->danger()
+                                            ->persistent()
+                                            ->send();
+                                    }
+                                })
+                        ])
+                    ]),
+
                 Forms\Components\Section::make('Konten Berita')
                     ->schema([
                         Forms\Components\TextInput::make('title')
