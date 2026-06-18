@@ -218,5 +218,42 @@ class DatabaseSeeder extends Seeder
                 \App\Models\PortalApp::create($appData);
             }
         }
+
+        // Seed default Quick Access settings if empty
+        if (\App\Models\Setting::where('key', 'quick_access')->doesntExist()) {
+            $quickAccessData = [
+                ["title" => "Profil Instansi", "url" => "/profil", "icon" => "fa-solid fa-building-user", "category" => "profil"],
+                ["title" => "Visi & Misi", "url" => "/visi", "icon" => "fa-solid fa-building-user", "category" => "profil"],
+                ["title" => "Maskot Si Benteng", "url" => "/maskot", "icon" => "fa-solid fa-building-user", "category" => "profil"],
+                ["title" => "Tentang Aplikasi", "url" => "/tentang", "icon" => "fa-solid fa-building-user", "category" => "profil"],
+                ["title" => "STARPAS Banten", "url" => "https://sites.google.com/view/starpasbanten/", "icon" => "fa-solid fa-handshake-angle", "category" => "layanan"],
+                ["title" => "Layanan Pengaduan", "url" => "/LayananPengaduan", "icon" => "fa-solid fa-handshake-angle", "category" => "layanan"],
+                ["title" => "Layanan Perizinan", "url" => "/LayananPerizinan", "icon" => "fa-solid fa-handshake-angle", "category" => "layanan"],
+                ["title" => "Layanan Informasi", "url" => "/LayananInformasi", "icon" => "fa-solid fa-handshake-angle", "category" => "layanan"],
+                ["title" => "Survei Kepuasan", "url" => "/survei", "icon" => "fa-solid fa-circle-info", "category" => "informasi"],
+                ["title" => "Berita & Kegiatan", "url" => "/berita", "icon" => "fa-solid fa-circle-info", "category" => "informasi"],
+                ["title" => "Profil Aplikasi", "url" => "/tentang", "icon" => "fa-solid fa-circle-info", "category" => "informasi"],
+                ["title" => "Sultan Banten", "url" => "https://sultan.ditjenpasbanten.com/dashboard.php", "icon" => "fa-solid fa-chart-line", "category" => "data"],
+                ["title" => "Peta Lokasi UPT", "url" => "#map", "icon" => "fa-solid fa-chart-line", "category" => "data"],
+                ["title" => "Statistik Hunian", "url" => "#statistik-upt", "icon" => "fa-solid fa-chart-line", "category" => "data"],
+                ["title" => "Berita Utama", "url" => "/berita", "icon" => "fa-solid fa-newspaper", "category" => "berita"],
+                ["title" => "Galeri Kegiatan", "url" => "/berita", "icon" => "fa-solid fa-newspaper", "category" => "berita"],
+                ["title" => "Gateway Portal Aplikasi", "url" => "/portal", "icon" => "fa-solid fa-laptop-code", "category" => "internal"],
+                ["title" => "SIPAS Banten", "url" => "https://sipas.ditjenpasbanten.com/", "icon" => "fa-solid fa-laptop-code", "category" => "internal"],
+                ["title" => "Login Admin Portal", "url" => "/login", "icon" => "fa-solid fa-laptop-code", "category" => "internal"],
+                ["title" => "Form Pengaduan", "url" => "/formpengaduan", "icon" => "fa-solid fa-comments", "category" => "kontak"],
+                ["title" => "WhatsApp Chat", "url" => "https://wa.me/6282266662055", "icon" => "fa-solid fa-comments", "category" => "kontak"],
+                ["title" => "Alamat & Lokasi", "url" => "#kontakkanwil", "icon" => "fa-solid fa-comments", "category" => "kontak"],
+                ["title" => "Ditjen Pemasyarakatan", "url" => "https://ditjenpas.go.id", "icon" => "fa-solid fa-link", "category" => "tautan"],
+                ["title" => "Kemenkumham RI", "url" => "https://kemenkumham.go.id", "icon" => "fa-solid fa-link", "category" => "tautan"],
+                ["title" => "Kanwil Kemenkumham Banten", "url" => "https://banten.kemenkumham.go.id", "icon" => "fa-solid fa-link", "category" => "tautan"],
+                ["title" => "Portal E-Lapor", "url" => "https://www.lapor.go.id", "icon" => "fa-solid fa-link", "category" => "tautan"]
+            ];
+            \App\Models\Setting::create([
+                'key' => 'quick_access',
+                'value' => json_encode($quickAccessData)
+            ]);
+        }
     }
 }
+
