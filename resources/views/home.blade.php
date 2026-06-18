@@ -61,6 +61,53 @@
 @endsection
 
 @section('content')
+@php
+$quickAccessSettings = \App\Models\Setting::where('key', 'quick_access')->first()?->value;
+$quickAccess = $quickAccessSettings ? json_decode($quickAccessSettings, true) : null;
+
+// Fallback to static items if not configured in settings
+if (!$quickAccess || empty($quickAccess)) {
+    $quickAccess = [
+        ['title' => 'Profil Instansi', 'url' => url('/profil'), 'icon' => 'fa-solid fa-building-user', 'category' => 'profil'],
+        ['title' => 'Visi & Misi', 'url' => url('/visi'), 'icon' => 'fa-solid fa-building-user', 'category' => 'profil'],
+        ['title' => 'Maskot Si Benteng', 'url' => url('/maskot'), 'icon' => 'fa-solid fa-building-user', 'category' => 'profil'],
+        ['title' => 'Tentang Aplikasi', 'url' => url('/tentang'), 'icon' => 'fa-solid fa-building-user', 'category' => 'profil'],
+
+        ['title' => 'STARPAS Banten', 'url' => 'https://sites.google.com/view/starpasbanten/', 'icon' => 'fa-solid fa-handshake-angle', 'category' => 'layanan'],
+        ['title' => 'Layanan Pengaduan', 'url' => url('/LayananPengaduan'), 'icon' => 'fa-solid fa-handshake-angle', 'category' => 'layanan'],
+        ['title' => 'Layanan Perizinan', 'url' => url('/LayananPerizinan'), 'icon' => 'fa-solid fa-handshake-angle', 'category' => 'layanan'],
+        ['title' => 'Layanan Informasi', 'url' => url('/LayananInformasi'), 'icon' => 'fa-solid fa-handshake-angle', 'category' => 'layanan'],
+
+        ['title' => 'Survei Kepuasan', 'url' => url('/survei'), 'icon' => 'fa-solid fa-circle-info', 'category' => 'informasi'],
+        ['title' => 'Berita & Kegiatan', 'url' => url('/berita'), 'icon' => 'fa-solid fa-circle-info', 'category' => 'informasi'],
+        ['title' => 'Profil Aplikasi', 'url' => url('/tentang'), 'icon' => 'fa-solid fa-circle-info', 'category' => 'informasi'],
+
+        ['title' => 'Sultan Banten', 'url' => 'https://sultan.ditjenpasbanten.com/dashboard.php', 'icon' => 'fa-solid fa-chart-line', 'category' => 'data'],
+        ['title' => 'Peta Lokasi UPT', 'url' => '#map', 'icon' => 'fa-solid fa-chart-line', 'category' => 'data'],
+        ['title' => 'Statistik Hunian', 'url' => '#statistik-upt', 'icon' => 'fa-solid fa-chart-line', 'category' => 'data'],
+
+        ['title' => 'Berita Utama', 'url' => url('/berita'), 'icon' => 'fa-solid fa-newspaper', 'category' => 'berita'],
+        ['title' => 'Galeri Kegiatan', 'url' => url('/berita'), 'icon' => 'fa-solid fa-newspaper', 'category' => 'berita'],
+
+        ['title' => 'Gateway Portal Aplikasi', 'url' => url('/portal'), 'icon' => 'fa-solid fa-laptop-code', 'category' => 'internal'],
+        ['title' => 'SIPAS Banten', 'url' => 'https://sipas.ditjenpasbanten.com/', 'icon' => 'fa-solid fa-laptop-code', 'category' => 'internal'],
+        ['title' => 'Login Admin Portal', 'url' => url('/login'), 'icon' => 'fa-solid fa-laptop-code', 'category' => 'internal'],
+
+        ['title' => 'Form Pengaduan', 'url' => url('/formpengaduan'), 'icon' => 'fa-solid fa-comments', 'category' => 'kontak'],
+        ['title' => 'WhatsApp Chat', 'url' => 'https://wa.me/6282266662055', 'icon' => 'fa-solid fa-comments', 'category' => 'kontak'],
+        ['title' => 'Alamat & Lokasi', 'url' => '#kontakkanwil', 'icon' => 'fa-solid fa-comments', 'category' => 'kontak'],
+
+        ['title' => 'Ditjen Pemasyarakatan', 'url' => 'https://ditjenpas.go.id', 'icon' => 'fa-solid fa-link', 'category' => 'tautan'],
+        ['title' => 'Kemenkumham RI', 'url' => 'https://kemenkumham.go.id', 'icon' => 'fa-solid fa-link', 'category' => 'tautan'],
+        ['title' => 'Kanwil Kemenkumham Banten', 'url' => 'https://banten.kemenkumham.go.id', 'icon' => 'fa-solid fa-link', 'category' => 'tautan'],
+        ['title' => 'Portal E-Lapor', 'url' => 'https://www.lapor.go.id', 'icon' => 'fa-solid fa-link', 'category' => 'tautan'],
+    ];
+}
+
+// Group links by category
+$groupedQuickAccess = collect($quickAccess)->groupBy('category');
+@endphp
+
     <!-- HERO SECTION: Elegant & Animated -->
      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -206,18 +253,27 @@
                     </div>
                     <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/profil') }}" class="text-xs font-bold text-slate-700 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Profil Instansi
-                            </a>
-                            <a href="{{ url('/visi') }}" class="text-xs font-bold text-slate-700 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Visi & Misi
-                            </a>
-                            <a href="{{ url('/maskot') }}" class="text-xs font-bold text-slate-700 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Maskot Si Benteng
-                            </a>
-                            <a href="{{ url('/tentang') }}" class="text-xs font-bold text-slate-700 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> Tentang Aplikasi
-                            </a>
+                            @foreach($groupedQuickAccess->get('profil', []) as $link)
+                                @php
+                                    $isExternal = str_starts_with($link['url'], 'http') && !str_contains($link['url'], request()->getHost());
+                                    $isWa = str_contains($link['url'], 'wa.me') || str_contains($link['url'], 'whatsapp.com');
+                                    $isNew = str_contains(strtolower($link['title']), 'gateway portal');
+                                @endphp
+                                <a href="{{ $link['url'] }}" 
+                                   @if($isExternal) target="_blank" @endif
+                                   class="text-xs font-bold text-slate-700 hover:text-brand-600 flex items-center transition-all duration-200 hover:translate-x-1">
+                                    <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-brand-500"></i> 
+                                    {{ $link['title'] }}
+                                    @if($isNew)
+                                        <span class="ml-1 px-1.5 py-0.5 bg-brand-100 text-brand-700 text-[8px] rounded font-extrabold">NEW</span>
+                                    @endif
+                                    @if($isWa)
+                                        <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
+                                    @elseif($isExternal)
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                                    @endif
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -234,18 +290,27 @@
                     </div>
                     <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="https://sites.google.com/view/starpasbanten/" target="_blank" class="text-xs font-bold text-slate-700 hover:text-amber-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> STARPAS Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
-                            </a>
-                            <a href="{{ url('/LayananPengaduan') }}" class="text-xs font-bold text-slate-700 hover:text-amber-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Pengaduan
-                            </a>
-                            <a href="{{ url('/LayananPerizinan') }}" class="text-xs font-bold text-slate-700 hover:text-amber-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Perizinan
-                            </a>
-                            <a href="{{ url('/LayananInformasi') }}" class="text-xs font-bold text-slate-700 hover:text-amber-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> Layanan Informasi
-                            </a>
+                            @foreach($groupedQuickAccess->get('layanan', []) as $link)
+                                @php
+                                    $isExternal = str_starts_with($link['url'], 'http') && !str_contains($link['url'], request()->getHost());
+                                    $isWa = str_contains($link['url'], 'wa.me') || str_contains($link['url'], 'whatsapp.com');
+                                    $isNew = str_contains(strtolower($link['title']), 'gateway portal');
+                                @endphp
+                                <a href="{{ $link['url'] }}" 
+                                   @if($isExternal) target="_blank" @endif
+                                   class="text-xs font-bold text-slate-700 hover:text-amber-700 flex items-center transition-all duration-200 hover:translate-x-1">
+                                    <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-gold-500"></i> 
+                                    {{ $link['title'] }}
+                                    @if($isNew)
+                                        <span class="ml-1 px-1.5 py-0.5 bg-brand-100 text-brand-700 text-[8px] rounded font-extrabold">NEW</span>
+                                    @endif
+                                    @if($isWa)
+                                        <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
+                                    @elseif($isExternal)
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                                    @endif
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -262,15 +327,27 @@
                     </div>
                     <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/survei') }}" class="text-xs font-bold text-slate-700 hover:text-emerald-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Survei Kepuasan
-                            </a>
-                            <a href="{{ url('/berita') }}" class="text-xs font-bold text-slate-700 hover:text-emerald-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Berita & Kegiatan
-                            </a>
-                            <a href="{{ url('/tentang') }}" class="text-xs font-bold text-slate-700 hover:text-emerald-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> Profil Aplikasi
-                            </a>
+                            @foreach($groupedQuickAccess->get('informasi', []) as $link)
+                                @php
+                                    $isExternal = str_starts_with($link['url'], 'http') && !str_contains($link['url'], request()->getHost());
+                                    $isWa = str_contains($link['url'], 'wa.me') || str_contains($link['url'], 'whatsapp.com');
+                                    $isNew = str_contains(strtolower($link['title']), 'gateway portal');
+                                @endphp
+                                <a href="{{ $link['url'] }}" 
+                                   @if($isExternal) target="_blank" @endif
+                                   class="text-xs font-bold text-slate-700 hover:text-emerald-700 flex items-center transition-all duration-200 hover:translate-x-1">
+                                    <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-emerald-500"></i> 
+                                    {{ $link['title'] }}
+                                    @if($isNew)
+                                        <span class="ml-1 px-1.5 py-0.5 bg-brand-100 text-brand-700 text-[8px] rounded font-extrabold">NEW</span>
+                                    @endif
+                                    @if($isWa)
+                                        <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
+                                    @elseif($isExternal)
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                                    @endif
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -287,15 +364,27 @@
                     </div>
                     <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="https://sultan.ditjenpasbanten.com/dashboard.php" target="_blank" class="text-xs font-bold text-slate-700 hover:text-cyan-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Sultan Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
-                            </a>
-                            <a href="#map" class="text-xs font-bold text-slate-700 hover:text-cyan-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Peta Lokasi UPT
-                            </a>
-                            <a href="#statistik-upt" class="text-xs font-bold text-slate-700 hover:text-cyan-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> Statistik Hunian
-                            </a>
+                            @foreach($groupedQuickAccess->get('data', []) as $link)
+                                @php
+                                    $isExternal = str_starts_with($link['url'], 'http') && !str_contains($link['url'], request()->getHost());
+                                    $isWa = str_contains($link['url'], 'wa.me') || str_contains($link['url'], 'whatsapp.com');
+                                    $isNew = str_contains(strtolower($link['title']), 'gateway portal');
+                                @endphp
+                                <a href="{{ $link['url'] }}" 
+                                   @if($isExternal) target="_blank" @endif
+                                   class="text-xs font-bold text-slate-700 hover:text-cyan-700 flex items-center transition-all duration-200 hover:translate-x-1">
+                                    <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-cyan-500"></i> 
+                                    {{ $link['title'] }}
+                                    @if($isNew)
+                                        <span class="ml-1 px-1.5 py-0.5 bg-brand-100 text-brand-700 text-[8px] rounded font-extrabold">NEW</span>
+                                    @endif
+                                    @if($isWa)
+                                        <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
+                                    @elseif($isExternal)
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                                    @endif
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -312,12 +401,27 @@
                     </div>
                     <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/berita') }}" class="text-xs font-bold text-slate-700 hover:text-rose-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-rose-500"></i> Berita Utama
-                            </a>
-                            <a href="{{ url('/berita') }}" class="text-xs font-bold text-slate-700 hover:text-rose-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-rose-500"></i> Galeri Kegiatan
-                            </a>
+                            @foreach($groupedQuickAccess->get('berita', []) as $link)
+                                @php
+                                    $isExternal = str_starts_with($link['url'], 'http') && !str_contains($link['url'], request()->getHost());
+                                    $isWa = str_contains($link['url'], 'wa.me') || str_contains($link['url'], 'whatsapp.com');
+                                    $isNew = str_contains(strtolower($link['title']), 'gateway portal');
+                                @endphp
+                                <a href="{{ $link['url'] }}" 
+                                   @if($isExternal) target="_blank" @endif
+                                   class="text-xs font-bold text-slate-700 hover:text-rose-700 flex items-center transition-all duration-200 hover:translate-x-1">
+                                    <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-rose-500"></i> 
+                                    {{ $link['title'] }}
+                                    @if($isNew)
+                                        <span class="ml-1 px-1.5 py-0.5 bg-brand-100 text-brand-700 text-[8px] rounded font-extrabold">NEW</span>
+                                    @endif
+                                    @if($isWa)
+                                        <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
+                                    @elseif($isExternal)
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                                    @endif
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -334,15 +438,27 @@
                     </div>
                     <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/portal') }}" class="text-xs font-bold text-brand-700 hover:text-indigo-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> Gateway Portal Aplikasi <span class="ml-1 px-1.5 py-0.5 bg-brand-100 text-brand-700 text-[8px] rounded font-extrabold">NEW</span>
-                            </a>
-                            <a href="https://sipas.ditjenpasbanten.com/" target="_blank" class="text-xs font-bold text-slate-700 hover:text-indigo-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> SIPAS Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
-                            </a>
-                            <a href="{{ url('/login') }}" class="text-xs font-bold text-slate-700 hover:text-indigo-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> Login Admin Portal
-                            </a>
+                            @foreach($groupedQuickAccess->get('internal', []) as $link)
+                                @php
+                                    $isExternal = str_starts_with($link['url'], 'http') && !str_contains($link['url'], request()->getHost());
+                                    $isWa = str_contains($link['url'], 'wa.me') || str_contains($link['url'], 'whatsapp.com');
+                                    $isNew = str_contains(strtolower($link['title']), 'gateway portal');
+                                @endphp
+                                <a href="{{ $link['url'] }}" 
+                                   @if($isExternal) target="_blank" @endif
+                                   class="text-xs font-bold text-brand-700 hover:text-indigo-700 flex items-center transition-all duration-200 hover:translate-x-1">
+                                    <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-indigo-500"></i> 
+                                    {{ $link['title'] }}
+                                    @if($isNew)
+                                        <span class="ml-1 px-1.5 py-0.5 bg-brand-100 text-brand-700 text-[8px] rounded font-extrabold">NEW</span>
+                                    @endif
+                                    @if($isWa)
+                                        <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
+                                    @elseif($isExternal)
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                                    @endif
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -359,15 +475,27 @@
                     </div>
                     <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="{{ url('/formpengaduan') }}" class="text-xs font-bold text-slate-700 hover:text-purple-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> Form Pengaduan
-                            </a>
-                            <a href="https://wa.me/6282266662055" target="_blank" class="text-xs font-bold text-slate-700 hover:text-purple-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> WhatsApp Chat <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
-                            </a>
-                            <a href="#kontakkanwil" class="text-xs font-bold text-slate-700 hover:text-purple-700 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> Alamat & Lokasi
-                            </a>
+                            @foreach($groupedQuickAccess->get('kontak', []) as $link)
+                                @php
+                                    $isExternal = str_starts_with($link['url'], 'http') && !str_contains($link['url'], request()->getHost());
+                                    $isWa = str_contains($link['url'], 'wa.me') || str_contains($link['url'], 'whatsapp.com');
+                                    $isNew = str_contains(strtolower($link['title']), 'gateway portal');
+                                @endphp
+                                <a href="{{ $link['url'] }}" 
+                                   @if($isExternal) target="_blank" @endif
+                                   class="text-xs font-bold text-slate-700 hover:text-purple-700 flex items-center transition-all duration-200 hover:translate-x-1">
+                                    <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-purple-500"></i> 
+                                    {{ $link['title'] }}
+                                    @if($isNew)
+                                        <span class="ml-1 px-1.5 py-0.5 bg-brand-100 text-brand-700 text-[8px] rounded font-extrabold">NEW</span>
+                                    @endif
+                                    @if($isWa)
+                                        <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
+                                    @elseif($isExternal)
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                                    @endif
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -384,18 +512,27 @@
                     </div>
                     <div class="border-t border-slate-200/60 pt-4 mt-auto">
                         <div class="flex flex-col gap-2">
-                            <a href="https://ditjenpas.go.id" target="_blank" class="text-xs font-bold text-slate-700 hover:text-slate-900 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Ditjen Pemasyarakatan <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
-                            </a>
-                            <a href="https://kemenkumham.go.id" target="_blank" class="text-xs font-bold text-slate-700 hover:text-slate-900 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Kemenkumham RI <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
-                            </a>
-                            <a href="https://banten.kemenkumham.go.id" target="_blank" class="text-xs font-bold text-slate-700 hover:text-slate-900 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Kanwil Kemenkumham Banten <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
-                            </a>
-                            <a href="https://www.lapor.go.id" target="_blank" class="text-xs font-bold text-slate-700 hover:text-slate-900 flex items-center transition-all duration-200 hover:translate-x-1">
-                                <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> Portal E-Lapor <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
-                            </a>
+                            @foreach($groupedQuickAccess->get('tautan', []) as $link)
+                                @php
+                                    $isExternal = str_starts_with($link['url'], 'http') && !str_contains($link['url'], request()->getHost());
+                                    $isWa = str_contains($link['url'], 'wa.me') || str_contains($link['url'], 'whatsapp.com');
+                                    $isNew = str_contains(strtolower($link['title']), 'gateway portal');
+                                @endphp
+                                <a href="{{ $link['url'] }}" 
+                                   @if($isExternal) target="_blank" @endif
+                                   class="text-xs font-bold text-slate-700 hover:text-slate-900 flex items-center transition-all duration-200 hover:translate-x-1">
+                                    <i class="fa-solid fa-chevron-right text-[8px] mr-2 text-slate-400"></i> 
+                                    {{ $link['title'] }}
+                                    @if($isNew)
+                                        <span class="ml-1 px-1.5 py-0.5 bg-brand-100 text-brand-700 text-[8px] rounded font-extrabold">NEW</span>
+                                    @endif
+                                    @if($isWa)
+                                        <i class="fa-brands fa-whatsapp ml-1 text-emerald-500"></i>
+                                    @elseif($isExternal)
+                                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px] ml-1 text-slate-400"></i>
+                                    @endif
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>

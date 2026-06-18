@@ -89,6 +89,7 @@ class ManageSettings extends Page implements HasForms
             'ai_base_url' => $settings['ai_base_url'] ?? '',
             'ai_api_key' => $settings['ai_api_key'] ?? '',
             'ai_model' => $settings['ai_model'] ?? 'gemini-2.5-flash',
+            'quick_access' => isset($settings['quick_access']) ? json_decode($settings['quick_access'], true) : [],
         ]);
     }
 
@@ -123,6 +124,44 @@ class ManageSettings extends Page implements HasForms
                             ->label('Model AI')
                             ->placeholder('Misal: gemini-2.5-flash / gpt-4o / llama-3')
                             ->helperText('Nama model spesifik yang akan digunakan.'),
+                    ]),
+
+                Section::make('Pengaturan Quick Access Beranda')
+                    ->description('Kelola tautan cepat (Quick Access) yang tampil di beranda utama.')
+                    ->schema([
+                        \Filament\Forms\Components\Repeater::make('quick_access')
+                            ->label('Daftar Tautan Akses Cepat')
+                            ->schema([
+                                TextInput::make('title')
+                                    ->label('Nama Tautan')
+                                    ->required()
+                                    ->maxLength(100),
+                                TextInput::make('url')
+                                    ->label('URL Tautan')
+                                    ->required()
+                                    ->maxLength(255),
+                                TextInput::make('icon')
+                                    ->label('Icon (FontAwesome Class)')
+                                    ->placeholder('Contoh: fa-solid fa-link')
+                                    ->maxLength(100),
+                                \Filament\Forms\Components\Select::make('category')
+                                    ->label('Kategori')
+                                    ->options([
+                                        'profil' => 'Profil Kanwil',
+                                        'layanan' => 'Layanan Publik',
+                                        'informasi' => 'Informasi Publik',
+                                        'data' => 'Dashboard Data',
+                                        'berita' => 'Berita & Kabar',
+                                        'internal' => 'Aplikasi Internal',
+                                        'kontak' => 'Kontak & Aduan',
+                                        'tautan' => 'Tautan Penting',
+                                    ])
+                                    ->required(),
+                            ])
+                            ->default([])
+                            ->columns(2)
+                            ->itemLabel(fn (array $state): ?string => $state['title'] ?? null)
+                            ->columnSpanFull(),
                     ])
             ])
             ->statePath('data');
@@ -135,7 +174,7 @@ class ManageSettings extends Page implements HasForms
         foreach ($state as $key => $value) {
             Setting::updateOrCreate(
                 ['key' => $key],
-                ['value' => $value]
+                ['value' => is_array($value) ? json_encode($value) : $value]
             );
         }
 
