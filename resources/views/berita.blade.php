@@ -74,114 +74,6 @@ if (!function_exists('classifyPost')) {
     }
 }
 
-// 2. CURATED STATIC FALLBACK DATA SPECIFIC TO BANTEN UPTs
-$staticItems = [
-    [
-        'id' => 'static-1',
-        'title' => 'Pendaftaran Bantuan Hukum Gratis Triwulan II Tahun 2026',
-        'slug' => 'pendaftaran-bantuan-hukum-gratis-triwulan-ii-2026',
-        'content' => "Kantor Wilayah Kementerian Hukum dan HAM Banten kembali membuka pendaftaran program Bantuan Hukum Gratis untuk masyarakat kurang mampu untuk Triwulan II Tahun Anggaran 2026.\n\nProgram ini bekerja sama dengan Organisasi Bantuan Hukum (OBH) terakreditasi di wilayah Banten untuk memberikan pendampingan hukum baik litigasi maupun non-litigasi secara cuma-cuma.\n\nMasyarakat yang membutuhkan cukup membawa Surat Keterangan Tidak Mampu (SKTM) dan Kartu Identitas ke Kantor Wilayah atau ke Lapas/Rutan terdekat di daerah Serang, Tangerang, Cilegon, Rangkasbitung, atau Pandeglang.",
-        'image' => null,
-        'category' => 'Pengumuman',
-        'category_slug' => 'pengumuman',
-        'published_at' => '10 Jun 2026',
-        'icon' => 'fa-solid fa-bullhorn',
-        'badge_color' => 'bg-red-50 text-red-700 border-red-200/50',
-        'badge_hover' => 'glow-pengumuman',
-    ],
-    [
-        'id' => 'static-2',
-        'title' => 'Himbauan Peningkatan Kewaspadaan Menjelang Hari Raya Keagamaan di Lapas & Rutan Banten',
-        'slug' => 'himbauan-peningkatan-kewaspadaan-hari-raya-keagamaan-2026',
-        'content' => "Kepala Kantor Wilayah Kementerian Hukum dan HAM Banten mengeluarkan instruksi resmi kepada seluruh Kepala Unit Pelaksana Teknis (UPT) Pemasyarakatan se-Banten untuk meningkatkan kewaspadaan dan pengamanan menjelang perayaan Hari Raya Keagamaan.\n\nInstruksi ini meliputi peningkatan intensitas razia insidental kamar hunian, pengawasan ketat barang titipan kunjungan keluarga, koordinasi dengan aparat penegak hukum (TNI/Polri), serta kesiapan personel pengamanan 24 jam guna mengantisipasi gangguan keamanan dan ketertiban di lingkungan Lapas dan Rutan.",
-        'image' => null,
-        'category' => 'Pengumuman',
-        'category_slug' => 'pengumuman',
-        'published_at' => '05 Jun 2026',
-        'icon' => 'fa-solid fa-triangle-exclamation',
-        'badge_color' => 'bg-red-50 text-red-700 border-red-200/50',
-        'badge_hover' => 'glow-pengumuman',
-    ],
-    [
-        'id' => 'static-3',
-        'title' => 'Sosialisasi Pencegahan Pungli & Gratifikasi Pelayanan di Lapas Kelas IIA Serang',
-        'slug' => 'sosialisasi-pencegahan-pungli-gratifikasi-lapas-serang',
-        'content' => "Kanwil Ditjenpas Banten mengadakan kegiatan Sosialisasi Pencegahan Pungutan Liar (Pungli) dan Gratifikasi bagi seluruh petugas pemasyarakatan di Lapas Kelas IIA Serang.\n\nKegiatan ini bertujuan memperkuat integritas petugas dalam memberikan pelayanan publik kepada warga binaan dan keluarganya, sekaligus sebagai langkah nyata mendukung pembangunan Zona Integritas menuju Wilayah Bebas dari Korupsi (WBK) dan Wilayah Birokrasi Bersih dan Melayani (WBBM) di lingkungan pemasyarakatan Banten.",
-        'image' => null,
-        'category' => 'Agenda',
-        'category_slug' => 'agenda',
-        'published_at' => '15 Jun 2026',
-        'icon' => 'fa-solid fa-calendar-days',
-        'badge_color' => 'bg-amber-50 text-amber-700 border-amber-200/50',
-        'badge_hover' => 'glow-agenda',
-    ],
-    [
-        'id' => 'static-4',
-        'title' => 'Rapat Koordinasi Evaluasi Capaian Kinerja UPT Pemasyarakatan Banten Semester I',
-        'slug' => 'rapat-koordinasi-evaluasi-capaian-kinerja-semester-i',
-        'content' => "Akan diselenggarakan Rapat Koordinasi Evaluasi Capaian Kinerja Semester I Tahun Anggaran 2026 UPT Pemasyarakatan se-Banten pada tanggal 18 Juni 2026 bertempat di Aula Lantai 3 Kantor Wilayah Kemenkumham Banten.\n\nRapat ini akan dihadiri oleh seluruh Kepala Lapas, Rutan, LPKA, Bapas, dan Rupbasan untuk memaparkan capaian target kinerja, evaluasi penyerapan anggaran, serta penyusunan strategi penyelesaian kendala operasional di lapangan.",
-        'image' => null,
-        'category' => 'Agenda',
-        'category_slug' => 'agenda',
-        'published_at' => '18 Jun 2026',
-        'icon' => 'fa-solid fa-calendar-check',
-        'badge_color' => 'bg-amber-50 text-amber-700 border-amber-200/50',
-        'badge_hover' => 'glow-agenda',
-    ],
-    [
-        'id' => 'static-5',
-        'title' => 'Kanwil Kemenkumham Banten Raih Penghargaan Pelayanan Publik Terbaik dari MenpanRB',
-        'slug' => 'kanwil-banten-raih-penghargaan-pelayanan-publik-terbaik-menpanrb',
-        'content' => "Kantor Wilayah Kementerian Hukum dan HAM Banten berhasil menyabet penghargaan Pelayanan Publik Terbaik Tahun 2026 dari Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi (MenpanRB).\n\nPenghargaan ini diberikan atas komitmen tinggi jajaran Kanwil Banten dalam mengimplementasikan transformasi pelayanan berbasis digital, transparansi, serta penyediaan fasilitas pelayanan ramah HAM di seluruh satuan kerja pemasyarakatan dan keimigrasian di wilayah Provinsi Banten.",
-        'image' => null,
-        'category' => 'Prestasi',
-        'category_slug' => 'prestasi',
-        'published_at' => '25 Mei 2026',
-        'icon' => 'fa-solid fa-trophy',
-        'badge_color' => 'bg-violet-50 text-violet-750 border-violet-200/50',
-        'badge_hover' => 'glow-prestasi',
-    ],
-    [
-        'id' => 'static-6',
-        'title' => 'Lapas Kelas IIA Tangerang Sabet Predikat Wilayah Bebas dari Korupsi (WBK)',
-        'slug' => 'lapas-tangerang-sabet-predikat-wilayah-bebas-korupsi-wbk',
-        'content' => "Lapas Kelas IIA Tangerang menorehkan prestasi gemilang dengan meraih predikat Wilayah Bebas dari Korupsi (WBK) dari KemenpanRB setelah melalui proses evaluasi yang ketat.\n\nKunci keberhasilan ini adalah inovasi layanan kunjungan online, keterbukaan informasi publik, penegakan integritas bebas pungli, serta pelayanan pemasyarakatan yang bersih dan berorientasi pada kepuasan warga binaan dan keluarganya.",
-        'image' => null,
-        'category' => 'Prestasi',
-        'category_slug' => 'prestasi',
-        'published_at' => '12 Mei 2026',
-        'icon' => 'fa-solid fa-medal',
-        'badge_color' => 'bg-violet-50 text-violet-750 border-violet-200/50',
-        'badge_hover' => 'glow-prestasi',
-    ],
-    [
-        'id' => 'static-7',
-        'title' => 'Laporan Keterbukaan Akses Informasi Publik (PPID) Triwulan I Tahun 2026',
-        'slug' => 'laporan-ppid-keterbukaan-informasi-publik-triwulan-i-2026',
-        'content' => "Pejabat Pengelola Informasi dan Dokumentasi (PPID) Kantor Wilayah Kemenkumham Banten mempublikasikan Laporan Akses Informasi Publik Triwulan I Tahun 2026.\n\nLaporan ini merinci jumlah permohonan informasi publik yang diterima, waktu rata-rata tanggapan (yang berhasil dipangkas menjadi hanya 2 hari kerja), serta tingkat kepuasan pemohon informasi yang mencapai 96.7%. Berkas laporan lengkap dapat diunduh di desk layanan informasi.",
-        'image' => null,
-        'category' => 'Informasi Publik',
-        'category_slug' => 'informasi',
-        'published_at' => '15 Mei 2026',
-        'icon' => 'fa-solid fa-circle-info',
-        'badge_color' => 'bg-teal-50 text-teal-700 border-teal-200/50',
-        'badge_hover' => 'glow-informasi',
-    ],
-    [
-        'id' => 'static-8',
-        'title' => 'Brosur Digital Layanan Pemasyarakatan Terpadu Kanwil Banten',
-        'slug' => 'brosur-digital-layanan-pemasyarakatan-terpadu-banten',
-        'content' => "PPID Kanwil Ditjenpas Banten merilis Brosur Digital Layanan Pemasyarakatan Terpadu edisi revisi terbaru 2026.\n\nBrosur ini memuat panduan komprehensif bagi keluarga warga binaan mengenai hak-hak integrasi (Cuti Bersyarat, Pembebasan Bersyarat, Cuti Menjelang Bebas), tata tertib kunjungan, alur pengaduan resmi, hingga pemanfaatan aplikasi STARPAS dan SULTAN Banten untuk transparansi layanan.",
-        'image' => null,
-        'category' => 'Informasi Publik',
-        'category_slug' => 'informasi',
-        'published_at' => '05 Mei 2026',
-        'icon' => 'fa-solid fa-file-pdf',
-        'badge_color' => 'bg-teal-50 text-teal-700 border-teal-200/50',
-        'badge_hover' => 'glow-informasi',
-    ],
-];
-
 // Determine Hero Highlight (the most recent DB post)
 $heroPost = $posts->first();
 @endphp
@@ -404,56 +296,7 @@ $heroPost = $posts->first();
                 {{-- If empty, JavaScript can still show static content, but keep layout clean --}}
             @endforelse
 
-            {{-- B. CURATED STATIC FALLBACK POSTS LOOP --}}
-            @foreach($staticItems as $item)
-                <div class="info-card {{ $item['badge_hover'] }} bg-white rounded-[2rem] p-5 border border-slate-150/70 shadow-soft" data-type="static" data-category="{{ $item['category_slug'] }}" data-aos="fade-up">
-                    <div class="flex-grow">
-                        {{-- Static decorative icon card placeholder --}}
-                        <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/3] bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 flex flex-col items-center justify-center shadow-inner group">
-                            <div class="w-16 h-16 rounded-2xl bg-white border border-slate-200/60 shadow-sm flex items-center justify-center text-brand-800 text-2xl mb-2 transition duration-300 group-hover:scale-110">
-                                <i class="{{ $item['icon'] }}"></i>
-                            </div>
-                            <span class="text-[10px] text-slate-400 font-semibold">Dokumen Resmi Banten</span>
-                            
-                            {{-- Category Badge overlay --}}
-                            <div class="absolute top-4 left-4">
-                                <span class="inline-flex items-center px-2.5 py-1 rounded-xl text-[10px] font-bold uppercase tracking-wider shadow {{ $item['badge_color'] }}">
-                                    <i class="{{ $item['icon'] }} mr-1 text-[9px]"></i> {{ $item['category'] }}
-                                </span>
-                            </div>
-                        </div>
 
-                        {{-- Metadata --}}
-                        <div class="flex items-center text-[11px] text-slate-400 mb-2 font-semibold">
-                            <i class="fa-regular fa-calendar mr-1.5 text-slate-350"></i> 
-                            {{ $item['published_at'] }}
-                        </div>
-
-                        {{-- Title --}}
-                        <h3 class="card-title text-base font-extrabold text-brand-950 mb-2 leading-snug line-clamp-2">
-                            {{ $item['title'] }}
-                        </h3>
-
-                        {{-- Excerpt --}}
-                        <p class="card-excerpt text-[11px] text-slate-500 leading-relaxed font-light mb-6 line-clamp-3">
-                            {{ Str::limit(strip_tags($item['content']), 120) }}
-                        </p>
-                    </div>
-
-                    {{-- Modal Action Button --}}
-                    <div class="border-t border-slate-100 pt-4 mt-auto">
-                        <button class="open-modal-btn w-full bg-slate-50 hover:bg-slate-100 border border-slate-200/80 text-brand-900 font-bold py-2.5 px-4 rounded-xl text-[11px] transition duration-300 flex items-center justify-center gap-1.5 group shadow-sm"
-                                data-id="{{ $item['id'] }}"
-                                data-title="{{ $item['title'] }}"
-                                data-content="{{ $item['content'] }}"
-                                data-category="{{ $item['category'] }}"
-                                data-date="{{ $item['published_at'] }}"
-                                data-badge-color="{{ $item['badge_color'] }}">
-                            Baca Selengkapnya <i class="fa-solid fa-chevron-right text-[8px] group-hover:translate-x-0.5 transition duration-300"></i>
-                        </button>
-                    </div>
-                </div>
-            @endforeach
 
         </div>
 
@@ -474,41 +317,7 @@ $heroPost = $posts->first();
     </div>
 </section>
 
-{{-- MODERN INTERACTIVE DETAIL MODAL (FOR STATIC CONTENT PREVIEW) --}}
-<div id="info-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
-    <div class="bg-white rounded-[2rem] max-w-2xl w-full mx-4 shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300">
-        <div class="p-6 md:p-8 relative">
-            {{-- Close Button --}}
-            <button id="close-modal" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:text-slate-850 hover:bg-slate-200 transition shadow-sm" title="Tutup">
-                <i class="fa-solid fa-xmark text-base"></i>
-            </button>
-            
-            {{-- Category & Date --}}
-            <div class="flex items-center gap-3 mb-4">
-                <span id="modal-badge" class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border"></span>
-                <span id="modal-date" class="text-xs text-slate-400 font-semibold"></span>
-            </div>
-            
-            {{-- Title --}}
-            <h2 id="modal-title" class="text-xl md:text-2xl font-extrabold text-brand-950 mb-6 leading-tight pr-8"></h2>
-            
-            <hr class="border-slate-100 mb-6">
-            
-            {{-- Content Scrollable --}}
-            <div id="modal-content" class="text-slate-600 text-sm leading-relaxed max-h-[300px] overflow-y-auto pr-2 custom-scrollbar whitespace-pre-line text-justify"></div>
-            
-            <hr class="border-slate-100 my-6">
-            
-            {{-- Footer info --}}
-            <div class="flex justify-between items-center">
-                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wide">Kanwil Ditjenpas Banten</span>
-                <button onclick="closeModal()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-5 py-2.5 rounded-xl text-xs transition">
-                    Tutup Detail
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 {{-- CLIENT-SIDE JAVASCRIPT FOR REAL-TIME FILTERING & SEARCHING --}}
 <script>
@@ -599,50 +408,7 @@ $heroPost = $posts->first();
             filterHub();
         });
 
-        // 3. STATIC MODAL PREVIEW MANAGEMENT
-        const modal = document.getElementById('info-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalContent = document.getElementById('modal-content');
-        const modalBadge = document.getElementById('modal-badge');
-        const modalDate = document.getElementById('modal-date');
 
-        // Attach event listeners to all modal buttons using data-* attributes
-        document.querySelectorAll('.open-modal-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const title = this.getAttribute('data-title');
-                const content = this.getAttribute('data-content');
-                const category = this.getAttribute('data-category');
-                const date = this.getAttribute('data-date');
-                const badgeColorClass = this.getAttribute('data-badge-color');
-
-                modalTitle.textContent = title;
-                modalContent.textContent = content;
-                modalDate.innerHTML = `<i class="fa-regular fa-calendar mr-1.5"></i> ${date}`;
-                modalBadge.textContent = category;
-                modalBadge.className = `px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${badgeColorClass}`;
-
-                modal.classList.remove('hidden');
-                setTimeout(() => {
-                    modal.classList.add('opacity-100');
-                    modal.querySelector('.transform').classList.remove('scale-95');
-                    modal.querySelector('.transform').classList.add('scale-100');
-                }, 10);
-            });
-        });
-
-        window.closeModal = function() {
-            modal.classList.remove('opacity-100');
-            modal.querySelector('.transform').classList.remove('scale-100');
-            modal.querySelector('.transform').classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-        };
-
-        document.getElementById('close-modal').addEventListener('click', closeModal);
-        modal.addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
     });
 </script>
 @endsection
