@@ -143,18 +143,7 @@
                         </div>
                     </div>
                     
-                    <div class="relative group px-1">
-                        <button class="px-4 py-2 text-slate-600 hover:text-brand-700 font-medium flex items-center rounded-lg hover:bg-slate-50 transition">
-                            Layanan <i class="fa-solid fa-chevron-down ml-2 text-[10px] opacity-70"></i>
-                        </button>
-                        <div class="absolute left-0 mt-2 w-56 bg-white border border-slate-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 p-2">
-                            <a href="{{ url('/portal') }}" class="block px-4 py-2.5 text-sm font-semibold text-brand-700 hover:bg-brand-50 hover:text-brand-800 rounded-lg transition">Portal Aplikasi (Gateway)</a>
-                            <hr class="border-slate-100 my-1">
-                            <a href="https://sites.google.com/view/starpasbanten/" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">STARPAS Banten</a>
-                            <a href="https://sipas.ditjenpasbanten.com/" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">SIPAS Banten</a>
-                            <a href="https://sultan.ditjenpasbanten.com/dashboard.php" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium" target="_blank">Sultan Banten</a>
-                        </div>
-                    </div>
+
 
                     <a href="#kontakkanwil" class="px-4 py-2 text-slate-600 hover:text-brand-700 font-medium rounded-lg hover:bg-slate-50 transition">Kontak</a>
                 </nav>
@@ -199,18 +188,7 @@
                 </div>
             </div>
             
-            <div class="space-y-1">
-                <button class="w-full flex justify-between items-center px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition mobile-accordion-btn">
-                    <span>Layanan</span>
-                    <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
-                </button>
-                <div class="hidden flex-col pl-4 pr-2 py-1 space-y-1 border-l-2 border-brand-100 ml-4 mobile-accordion-content">
-                    <a href="{{ url('/portal') }}" class="block px-4 py-2.5 text-sm font-semibold text-brand-700 hover:bg-brand-50 hover:text-brand-800 rounded-lg transition">Portal Aplikasi (Gateway)</a>
-                    <a href="https://sites.google.com/view/starpasbanten/" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium" target="_blank">STARPAS Banten</a>
-                    <a href="https://sipas.ditjenpasbanten.com/" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium" target="_blank">SIPAS Banten</a>
-                    <a href="https://sultan.ditjenpasbanten.com/dashboard.php" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium" target="_blank">Sultan Banten</a>
-                </div>
-            </div>
+
             <a href="#kontakkanwil" class="block px-4 py-3 text-slate-600 font-semibold hover:bg-brand-50 hover:text-brand-700 rounded-xl transition">Kontak</a>
             <div class="pt-4">
                 <a href="https://wa.me/6282266662055" target="_blank" class="w-full bg-brand-700 text-white px-6 py-3 rounded-xl font-bold flex items-center justify-center">
