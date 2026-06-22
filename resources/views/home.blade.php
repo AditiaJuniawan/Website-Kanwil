@@ -243,7 +243,7 @@ $groupedQuickAccess = collect($quickAccess)->groupBy('category');
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                 <!-- 1. Profil Kanwil -->
                 <div class="bg-gradient-to-br from-blue-50/60 to-indigo-50/30 rounded-[2rem] p-6 border border-blue-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-blue-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-1.5 w-full bg-gradient-to-r from-blue-600 to-brand-900 -mt-6 -mx-6 mb-6"></div>
+                    <div class="h-1.5 bg-gradient-to-r from-blue-600 to-brand-900 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-blue-100/80 text-brand-900 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-brand-900 group-hover:text-white">
                             <i class="fa-solid fa-building-user"></i>
@@ -280,7 +280,7 @@ $groupedQuickAccess = collect($quickAccess)->groupBy('category');
 
                 <!-- 2. Layanan Publik -->
                 <div class="bg-gradient-to-br from-amber-50/60 to-orange-50/30 rounded-[2rem] p-6 border border-amber-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="150">
-                    <div class="h-1.5 w-full bg-gradient-to-r from-amber-500 to-gold-400 -mt-6 -mx-6 mb-6"></div>
+                    <div class="h-1.5 bg-gradient-to-r from-amber-500 to-gold-400 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-amber-100/80 text-gold-650 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-gold-500 group-hover:text-white">
                             <i class="fa-solid fa-handshake-angle"></i>
@@ -317,7 +317,7 @@ $groupedQuickAccess = collect($quickAccess)->groupBy('category');
 
                 <!-- 3. Informasi Publik -->
                 <div class="bg-gradient-to-br from-emerald-50/60 to-teal-50/30 rounded-[2rem] p-6 border border-emerald-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-emerald-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-1.5 w-full bg-gradient-to-r from-emerald-500 to-teal-400 -mt-6 -mx-6 mb-6"></div>
+                    <div class="h-1.5 bg-gradient-to-r from-emerald-500 to-teal-400 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-emerald-100/80 text-emerald-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white">
                             <i class="fa-solid fa-circle-info"></i>
@@ -354,7 +354,7 @@ $groupedQuickAccess = collect($quickAccess)->groupBy('category');
 
                 <!-- 4. Dashboard Data -->
                 <div class="bg-gradient-to-br from-cyan-50/60 to-blue-50/30 rounded-[2rem] p-6 border border-cyan-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-cyan-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="250">
-                    <div class="h-1.5 w-full bg-gradient-to-r from-cyan-500 to-blue-400 -mt-6 -mx-6 mb-6"></div>
+                    <div class="h-1.5 bg-gradient-to-r from-cyan-500 to-blue-400 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-cyan-100/80 text-cyan-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-cyan-500 group-hover:text-white">
                             <i class="fa-solid fa-chart-line"></i>
@@ -391,7 +391,7 @@ $groupedQuickAccess = collect($quickAccess)->groupBy('category');
 
                 <!-- 5. Berita & Pengumuman -->
                 <div class="bg-gradient-to-br from-rose-50/60 to-pink-50/30 rounded-[2rem] p-6 border border-rose-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-rose-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                    <div class="h-1.5 w-full bg-gradient-to-r from-rose-500 to-red-400 -mt-6 -mx-6 mb-6"></div>
+                    <div class="h-1.5 bg-gradient-to-r from-rose-500 to-red-400 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-rose-100/80 text-rose-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-rose-500 group-hover:text-white">
                             <i class="fa-solid fa-newspaper"></i>
@@ -428,7 +428,7 @@ $groupedQuickAccess = collect($quickAccess)->groupBy('category');
 
                 <!-- 6. Aplikasi Internal -->
                 <div class="bg-gradient-to-br from-indigo-50/60 to-violet-50/30 rounded-[2rem] p-6 border border-indigo-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-indigo-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="350">
-                    <div class="h-1.5 w-full bg-gradient-to-r from-indigo-600 to-purple-500 -mt-6 -mx-6 mb-6"></div>
+                    <div class="h-1.5 bg-gradient-to-r from-indigo-600 to-purple-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-indigo-100/80 text-indigo-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-indigo-600 group-hover:text-white">
                             <i class="fa-solid fa-laptop-code"></i>
@@ -465,7 +465,7 @@ $groupedQuickAccess = collect($quickAccess)->groupBy('category');
 
                 <!-- 7. Kontak & Pengaduan -->
                 <div class="bg-gradient-to-br from-purple-50/60 to-fuchsia-50/30 rounded-[2rem] p-6 border border-purple-200/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-purple-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                    <div class="h-1.5 w-full bg-gradient-to-r from-purple-600 to-pink-500 -mt-6 -mx-6 mb-6"></div>
+                    <div class="h-1.5 bg-gradient-to-r from-purple-600 to-pink-500 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-purple-100/80 text-purple-600 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-purple-600 group-hover:text-white">
                             <i class="fa-solid fa-comments"></i>
@@ -502,7 +502,7 @@ $groupedQuickAccess = collect($quickAccess)->groupBy('category');
 
                 <!-- 8. Tautan Penting -->
                 <div class="bg-gradient-to-br from-slate-150 to-slate-50 rounded-[2rem] p-6 border border-slate-300/60 shadow-soft hover:shadow-lg hover:-translate-y-1 hover:border-slate-400/50 transition-all duration-300 flex flex-col justify-between group overflow-hidden" data-aos="fade-up" data-aos-delay="450">
-                    <div class="h-1.5 w-full bg-gradient-to-r from-slate-600 to-slate-400 -mt-6 -mx-6 mb-6"></div>
+                    <div class="h-1.5 bg-gradient-to-r from-slate-600 to-slate-400 -mt-6 -mx-6 mb-6"></div>
                     <div>
                         <div class="w-14 h-14 bg-slate-200 text-slate-700 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-300 group-hover:bg-slate-700 group-hover:text-white">
                             <i class="fa-solid fa-link"></i>

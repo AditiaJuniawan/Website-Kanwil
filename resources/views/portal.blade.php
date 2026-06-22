@@ -183,9 +183,9 @@
                     $headerGradient = 'from-rose-500 to-pink-600';
                 }
             @endphp
-            <div class="app-card {{ $glowClass }} bg-white rounded-3xl p-6 border border-slate-150/80 shadow-soft" data-categories="{{ $app->categories }}" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
-                <div class="h-1.5 w-full bg-gradient-to-r {{ $headerGradient }} -mt-6 -mx-6 mb-6 rounded-t-3xl"></div>
-                <div class="flex-grow">
+            <div class="app-card relative overflow-hidden {{ $glowClass }} bg-white rounded-3xl p-6 border border-slate-150/80 shadow-soft" data-categories="{{ $app->categories }}" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r {{ $headerGradient }}"></div>
+                <div class="flex-grow pt-2">
                     <div class="flex justify-between items-start mb-5">
                         <div class="w-12 h-12 {{ $iconBg }} rounded-2xl flex items-center justify-center text-xl shadow-inner">
                             <i class="{{ $app->icon }}"></i>
