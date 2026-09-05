@@ -6,17 +6,13 @@
 
 @section('content')
 <style>
-    /* Sembunyikan footer dan tombol melayang */
     footer, #back-to-top, .fa-whatsapp.text-3xl { display: none !important; }
-    /* Nonaktifkan scroll halaman utama */
-    body { overflow: hidden !important; }
-    /* Hilangkan margin/padding ekstra */
-    main { padding-bottom: 0 !important; margin-bottom: 0 !important; }
-    /* Sembunyikan div floating buttons sepenuhnya jika perlu */
     div[style*="position: fixed; bottom: 2rem"] { display: none !important; }
+    body { overflow: hidden !important; margin: 0; padding: 0; }
+    main { padding: 0 !important; margin: 0 !important; }
 </style>
 
-<div class="w-full h-[calc(100vh-80px)] md:h-[calc(100vh-114px)] bg-slate-100 relative">
-    <iframe src="{{ $pdfUrl }}#toolbar=0&navpanes=0&scrollbar=0" class="absolute inset-0 w-full h-full border-0" title="PDF Viewer"></iframe>
+<div style="width: 100vw; height: calc(100vh - 114px); background-color: #f1f5f9;">
+    <embed src="{{ $pdfUrl }}" type="application/pdf" width="100%" height="100%" />
 </div>
 @endsection
