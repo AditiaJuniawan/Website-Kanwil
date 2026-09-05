@@ -64,10 +64,9 @@ class KanwilController extends Controller
         if ($kanwil && $kanwil->file_renja) {
             $filePath = storage_path('app/public/' . $kanwil->file_renja);
             if (file_exists($filePath) && filesize($filePath) > 0) {
-                return response()->file($filePath, [
-                    'Content-Type' => 'application/pdf',
-                    'Content-Disposition' => 'inline; filename="Renja-Kanwil-Ditjenpas-Banten.pdf"',
-                ]);
+                $pdfUrl = asset('storage/' . $kanwil->file_renja);
+                $title = 'Dokumen Rencana Kerja (Renja)';
+                return view('pdf-viewer', compact('pdfUrl', 'title'));
             }
         }
 
@@ -90,10 +89,9 @@ class KanwilController extends Controller
         if ($kanwil && $kanwil->file_dipa) {
             $filePath = storage_path('app/public/' . $kanwil->file_dipa);
             if (file_exists($filePath) && filesize($filePath) > 0) {
-                return response()->file($filePath, [
-                    'Content-Type' => 'application/pdf',
-                    'Content-Disposition' => 'inline; filename="DIPA-Kanwil-Ditjenpas-Banten.pdf"',
-                ]);
+                $pdfUrl = asset('storage/' . $kanwil->file_dipa);
+                $title = 'Dokumen Daftar Isian Pelaksanaan Anggaran (DIPA)';
+                return view('pdf-viewer', compact('pdfUrl', 'title'));
             }
         }
 
