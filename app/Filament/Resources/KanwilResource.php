@@ -92,6 +92,25 @@ class KanwilResource extends Resource
                                     ]),
                             ]),
                     ]),
+
+                Forms\Components\Section::make('Dokumen Publik (Renja & DIPA)')
+                    ->description('Upload dokumen PDF Rencana Kerja (Renja) dan Daftar Isian Pelaksanaan Anggaran (DIPA) agar dapat langsung diakses publik.')
+                    ->schema([
+                        Forms\Components\FileUpload::make('file_renja')
+                            ->label('File Dokumen Renja (PDF)')
+                            ->acceptedFileTypes(['application/pdf'])
+                            ->disk('public')
+                            ->directory('dokumen')
+                            ->openable()
+                            ->downloadable(),
+                        Forms\Components\FileUpload::make('file_dipa')
+                            ->label('File Dokumen DIPA (PDF)')
+                            ->acceptedFileTypes(['application/pdf'])
+                            ->disk('public')
+                            ->directory('dokumen')
+                            ->openable()
+                            ->downloadable(),
+                    ])->columns(2),
             ]);
     }
 
