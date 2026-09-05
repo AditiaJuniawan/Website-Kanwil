@@ -63,7 +63,7 @@ class KanwilController extends Controller
 
         if ($kanwil && $kanwil->file_renja) {
             $filePath = storage_path('app/public/' . $kanwil->file_renja);
-            if (file_exists($filePath)) {
+            if (file_exists($filePath) && filesize($filePath) > 0) {
                 return response()->file($filePath, [
                     'Content-Type' => 'application/pdf',
                     'Content-Disposition' => 'inline; filename="Renja-Kanwil-Ditjenpas-Banten.pdf"',
@@ -76,7 +76,7 @@ class KanwilController extends Controller
                 <div style="background:#ffffff;padding:40px 30px;border-radius:16px;box-shadow:0 10px 25px -5px rgba(0,0,0,0.05);max-width:480px;border:1px solid #e2e8f0;">
                     <div style="font-size:48px;margin-bottom:16px;">📄</div>
                     <h2 style="font-size:22px;font-weight:700;margin:0 0 10px;color:#0f172a;">Dokumen Renja Belum Tersedia</h2>
-                    <p style="font-size:14px;color:#64748b;line-height:1.6;margin:0 0 24px;">Dokumen Rencana Kerja (Renja) belum diunggah oleh administrator di panel admin.</p>
+                    <p style="font-size:14px;color:#64748b;line-height:1.6;margin:0 0 24px;">Dokumen Rencana Kerja (Renja) belum diunggah dengan benar atau file kosong.</p>
                     <a href="/" style="display:inline-block;background:#0369a1;color:#ffffff;padding:10px 24px;border-radius:9999px;font-size:13px;font-weight:600;text-decoration:none;">Kembali ke Beranda</a>
                 </div>
             </div>
@@ -89,7 +89,7 @@ class KanwilController extends Controller
 
         if ($kanwil && $kanwil->file_dipa) {
             $filePath = storage_path('app/public/' . $kanwil->file_dipa);
-            if (file_exists($filePath)) {
+            if (file_exists($filePath) && filesize($filePath) > 0) {
                 return response()->file($filePath, [
                     'Content-Type' => 'application/pdf',
                     'Content-Disposition' => 'inline; filename="DIPA-Kanwil-Ditjenpas-Banten.pdf"',
@@ -102,7 +102,7 @@ class KanwilController extends Controller
                 <div style="background:#ffffff;padding:40px 30px;border-radius:16px;box-shadow:0 10px 25px -5px rgba(0,0,0,0.05);max-width:480px;border:1px solid #e2e8f0;">
                     <div style="font-size:48px;margin-bottom:16px;">📊</div>
                     <h2 style="font-size:22px;font-weight:700;margin:0 0 10px;color:#0f172a;">Dokumen DIPA Belum Tersedia</h2>
-                    <p style="font-size:14px;color:#64748b;line-height:1.6;margin:0 0 24px;">Dokumen Daftar Isian Pelaksanaan Anggaran (DIPA) belum diunggah oleh administrator di panel admin.</p>
+                    <p style="font-size:14px;color:#64748b;line-height:1.6;margin:0 0 24px;">Dokumen Daftar Isian Pelaksanaan Anggaran (DIPA) belum diunggah dengan benar atau file kosong.</p>
                     <a href="/" style="display:inline-block;background:#0369a1;color:#ffffff;padding:10px 24px;border-radius:9999px;font-size:13px;font-weight:600;text-decoration:none;">Kembali ke Beranda</a>
                 </div>
             </div>

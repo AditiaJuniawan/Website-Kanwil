@@ -142,6 +142,7 @@
                             <a href="{{ url('/dipa') }}" target="_blank" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Dipa</a>
                             <a href="{{ url('/maskot') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Maskot</a>
                             <a href="{{ url('/survei') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Survei</a>
+                            <a href="https://sites.google.com/view/sop-kanwilpasbanten/home" target="_blank" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">SOP</a>
                         </div>
                     </div>
                     
@@ -189,6 +190,7 @@
                     <a href="{{ url('/dipa') }}" target="_blank" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Dipa</a>
                     <a href="{{ url('/maskot') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Maskot</a>
                     <a href="{{ url('/survei') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Survei</a>
+                    <a href="https://sites.google.com/view/sop-kanwilpasbanten/home" target="_blank" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">SOP</a>
                 </div>
             </div>
             
@@ -239,6 +241,7 @@
                         <li><a href="{{ url('/dipa') }}" target="_blank" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> DIPA</a></li>
                         <li><a href="{{ url('/LayananPengaduan') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Pengaduan Online</a></li>
                         <li><a href="{{ url('/survei') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Survei Kepuasan</a></li>
+                        <li><a href="https://sites.google.com/view/sop-kanwilpasbanten/home" target="_blank" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> SOP</a></li>
                     </ul>
                 </div>
 
