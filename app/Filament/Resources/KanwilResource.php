@@ -93,8 +93,8 @@ class KanwilResource extends Resource
                             ]),
                     ]),
 
-                Forms\Components\Section::make('Dokumen Publik (Renja & DIPA)')
-                    ->description('Upload dokumen PDF Rencana Kerja (Renja) dan Daftar Isian Pelaksanaan Anggaran (DIPA) agar dapat langsung diakses publik.')
+                Forms\Components\Section::make('Dokumen Publik (Renja, DIPA, Rencana Aksi, LKjIP)')
+                    ->description('Upload dokumen PDF Rencana Kerja (Renja), Daftar Isian Pelaksanaan Anggaran (DIPA), Rencana Aksi, dan LKjIP agar dapat langsung diakses publik.')
                     ->schema([
                         Forms\Components\FileUpload::make('file_renja')
                             ->label('File Dokumen Renja (PDF)')
@@ -105,6 +105,20 @@ class KanwilResource extends Resource
                             ->downloadable(),
                         Forms\Components\FileUpload::make('file_dipa')
                             ->label('File Dokumen DIPA (PDF)')
+                            ->acceptedFileTypes(['application/pdf'])
+                            ->disk('public')
+                            ->directory('dokumen')
+                            ->openable()
+                            ->downloadable(),
+                        Forms\Components\FileUpload::make('file_rencana_aksi')
+                            ->label('File Rencana Aksi (PDF)')
+                            ->acceptedFileTypes(['application/pdf'])
+                            ->disk('public')
+                            ->directory('dokumen')
+                            ->openable()
+                            ->downloadable(),
+                        Forms\Components\FileUpload::make('file_lkjip')
+                            ->label('File Dokumen LKjIP (PDF)')
                             ->acceptedFileTypes(['application/pdf'])
                             ->disk('public')
                             ->directory('dokumen')

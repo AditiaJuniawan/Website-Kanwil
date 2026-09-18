@@ -140,6 +140,8 @@
                             <a href="{{ url('/visi') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Visi & Misi</a>
                             <a href="{{ url('/renja') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Renja</a>
                             <a href="{{ url('/dipa') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Dipa</a>
+                            <a href="{{ url('/rencana-aksi') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Rencana Aksi</a>
+                            <a href="{{ url('/lkjip') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">LKjIP</a>
                             <a href="{{ url('/maskot') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Maskot</a>
                             <a href="{{ url('/survei') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Survei</a>
                             <a href="https://sites.google.com/view/sop-kanwilpasbanten/home" target="_blank" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">SOP</a>
@@ -188,6 +190,8 @@
                     <a href="{{ url('/visi') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Visi & Misi</a>
                     <a href="{{ url('/renja') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Renja</a>
                     <a href="{{ url('/dipa') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Dipa</a>
+                    <a href="{{ url('/rencana-aksi') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Rencana Aksi</a>
+                    <a href="{{ url('/lkjip') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">LKjIP</a>
                     <a href="{{ url('/maskot') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Maskot</a>
                     <a href="{{ url('/survei') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Survei</a>
                     <a href="https://sites.google.com/view/sop-kanwilpasbanten/home" target="_blank" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">SOP</a>
@@ -239,6 +243,8 @@
                         <li><a href="{{ url('/visi') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Visi & Misi</a></li>
                         <li><a href="{{ url('/renja') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Renja</a></li>
                         <li><a href="{{ url('/dipa') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> DIPA</a></li>
+                        <li><a href="{{ url('/rencana-aksi') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Rencana Aksi</a></li>
+                        <li><a href="{{ url('/lkjip') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> LKjIP</a></li>
                         <li><a href="{{ url('/LayananPengaduan') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Pengaduan Online</a></li>
                         <li><a href="{{ url('/survei') }}" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> Survei Kepuasan</a></li>
                         <li><a href="https://sites.google.com/view/sop-kanwilpasbanten/home" target="_blank" class="hover:translate-x-1 hover:text-brand-400 transition-all duration-300 flex items-center"><i class="fa-solid fa-minus text-brand-600 mr-3 text-xs"></i> SOP</a></li>

@@ -12,6 +12,8 @@ Route::get('/profil', [KanwilController::class, 'profil']);
 Route::get('/maskot', [KanwilController::class, 'maskot']);
 Route::get('/renja', [KanwilController::class, 'renja']);
 Route::get('/dipa', [KanwilController::class, 'dipa']);
+Route::get('/rencana-aksi', [KanwilController::class, 'rencana_aksi']);
+Route::get('/lkjip', [KanwilController::class, 'lkjip']);
 Route::get('/berita', [KanwilController::class, 'post']);
 Route::get('/berita/{slug}', [KanwilController::class, 'show'])->name('berita.show');
 Route::post('/berita/{slug}/comments', [KanwilController::class, 'storeComment'])->name('comments.store');
