@@ -140,8 +140,10 @@
                             <a href="{{ url('/visi') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Visi & Misi</a>
                             <a href="{{ url('/renja') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Renja</a>
                             <a href="{{ url('/dipa') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Dipa</a>
+                            <div class="border-t border-slate-100 my-1"></div>
                             <a href="{{ url('/rencana-aksi') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Rencana Aksi</a>
                             <a href="{{ url('/lkjip') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">LKjIP</a>
+                            <div class="border-t border-slate-100 my-1"></div>
                             <a href="{{ url('/maskot') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Maskot</a>
                             <a href="{{ url('/survei') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">Survei</a>
                             <a href="https://sites.google.com/view/sop-kanwilpasbanten/home" target="_blank" class="block px-4 py-2.5 text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition font-medium">SOP</a>
@@ -190,8 +192,10 @@
                     <a href="{{ url('/visi') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Visi & Misi</a>
                     <a href="{{ url('/renja') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Renja</a>
                     <a href="{{ url('/dipa') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Dipa</a>
+                    <div class="border-t border-slate-100 my-1"></div>
                     <a href="{{ url('/rencana-aksi') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Rencana Aksi</a>
                     <a href="{{ url('/lkjip') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">LKjIP</a>
+                    <div class="border-t border-slate-100 my-1"></div>
                     <a href="{{ url('/maskot') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Maskot</a>
                     <a href="{{ url('/survei') }}" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">Survei</a>
                     <a href="https://sites.google.com/view/sop-kanwilpasbanten/home" target="_blank" class="block px-4 py-2.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-slate-50 rounded-lg transition font-medium">SOP</a>
