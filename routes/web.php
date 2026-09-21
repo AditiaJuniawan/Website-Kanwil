@@ -11,6 +11,7 @@ Route::get('/visi', [KanwilController::class, 'visi']);
 Route::get('/profil', [KanwilController::class, 'profil']);
 Route::get('/maskot', [KanwilController::class, 'maskot']);
 Route::get('/renja', [KanwilController::class, 'renja']);
+Route::get('/renstra', [KanwilController::class, 'renstra']);
 Route::get('/dipa', [KanwilController::class, 'dipa']);
 Route::get('/rencana-aksi', [KanwilController::class, 'rencana_aksi']);
 Route::get('/lkjip', [KanwilController::class, 'lkjip']);

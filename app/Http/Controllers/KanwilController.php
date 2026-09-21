@@ -82,6 +82,31 @@ class KanwilController extends Controller
         ', 404)->header('Content-Type', 'text/html');
     }
 
+    public function renstra()
+    {
+        $kanwil = \App\Models\Kanwil::first();
+
+        if ($kanwil && $kanwil->file_renstra) {
+            $filePath = storage_path('app/public/' . $kanwil->file_renstra);
+            if (file_exists($filePath) && filesize($filePath) > 0) {
+                $pdfUrl = asset('storage/' . $kanwil->file_renstra);
+                $title = 'Dokumen Rencana Strategis (Renstra)';
+                return view('pdf-viewer', compact('pdfUrl', 'title'));
+            }
+        }
+
+        return response('
+            <div style="font-family:system-ui,-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;background:#f8fafc;color:#1e293b;padding:20px;text-align:center;">
+                <div style="background:#ffffff;padding:40px 30px;border-radius:16px;box-shadow:0 10px 25px -5px rgba(0,0,0,0.05);max-width:480px;border:1px solid #e2e8f0;">
+                    <div style="font-size:48px;margin-bottom:16px;">📄</div>
+                    <h2 style="font-size:22px;font-weight:700;margin:0 0 10px;color:#0f172a;">Dokumen Renstra Belum Tersedia</h2>
+                    <p style="font-size:14px;color:#64748b;line-height:1.6;margin:0 0 24px;">Dokumen Rencana Strategis (Renstra) belum diunggah dengan benar atau file kosong.</p>
+                    <a href="/" style="display:inline-block;background:#0369a1;color:#ffffff;padding:10px 24px;border-radius:9999px;font-size:13px;font-weight:600;text-decoration:none;">Kembali ke Beranda</a>
+                </div>
+            </div>
+        ', 404)->header('Content-Type', 'text/html');
+    }
+
     public function dipa()
     {
         $kanwil = \App\Models\Kanwil::first();
