@@ -17,7 +17,9 @@ Route::get('/rencana-aksi', [KanwilController::class, 'rencana_aksi']);
 Route::get('/lkjip', [KanwilController::class, 'lkjip']);
 Route::get('/berita', [KanwilController::class, 'post']);
 Route::get('/berita/{slug}', [KanwilController::class, 'show'])->name('berita.show');
-Route::post('/berita/{slug}/comments', [KanwilController::class, 'storeComment'])->name('comments.store');
+Route::post('/berita/{slug}/comments', [KanwilController::class, 'storeComment'])
+    ->name('comments.store')
+    ->middleware('throttle:5,1');
 Route::get('/survei', [KanwilController::class, 'survei']);
 
 route::get('/tentang',function(){
@@ -50,17 +52,6 @@ route::get('/portal', function() {
     return view('portal', compact('apps'));
 });
 
-route::get('/login',function(){
-    return view('/sesi/index');
-});
-
-
-
-// route::get('/sesi',function(){
-//     return view('/sesi/index');
-// });
-
-
-route::get('/sesi',[SessionController::class,'index']);
-route::post('/sesi/login',[SessionController::class,'login']);
+Route::redirect('/login', '/admin/login');
+Route::redirect('/sesi', '/admin/login');
 

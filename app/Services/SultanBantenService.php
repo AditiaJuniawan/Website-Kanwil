@@ -4,35 +4,49 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class SultanBantenService
 {
     protected ?array $cachedDbData = null;
-    protected bool $dbLoaded = false;
 
     public function getStats()
     {
-        $this->loadFromDb();
-        return $this->cachedDbData ? $this->cachedDbData['stats'] : null;
+        $data = $this->getData();
+        return $data ? $data['stats'] : null;
     }
 
     public function getFullUptData()
     {
-        $this->loadFromDb();
-        return $this->cachedDbData ? $this->cachedDbData['uptData'] : [];
+        $data = $this->getData();
+        return $data ? $data['uptData'] : [];
     }
 
-    protected function loadFromDb(): bool
+    public function getData(): ?array
     {
-        if ($this->dbLoaded) {
-            return $this->cachedDbData !== null;
+        if ($this->cachedDbData !== null) {
+            return $this->cachedDbData;
         }
 
-        $this->dbLoaded = true;
+        // Cache hasil query selama 30 menit (1800 detik)
+        $this->cachedDbData = Cache::remember('sultan_banten_data', 1800, function () {
+            return $this->queryFromDb();
+        });
 
+        return $this->cachedDbData;
+    }
+
+    public function clearCache(): void
+    {
+        Cache::forget('sultan_banten_data');
+        $this->cachedDbData = null;
+    }
+
+    protected function queryFromDb(): ?array
+    {
         try {
-            if (!env('DB_SULTAN_DATABASE')) {
-                return false;
+            if (!config('database.connections.sultan.database')) {
+                return null;
             }
 
             // Test the database connection
@@ -44,7 +58,7 @@ class SultanBantenService
                 ->exists();
 
             if (!$hasData) {
-                return false;
+                return null;
             }
 
             // Get target date (today) and fallback to latest date <= today if no records exist for today
@@ -106,7 +120,7 @@ class SultanBantenService
             $totalKapasitas = array_sum(array_column($upts, 'kapasitas'));
             $persenOverkapasitas = $totalKapasitas > 0 ? round((($totalPenghuni - $totalKapasitas) / $totalKapasitas) * 100, 1) : 0;
 
-            $this->cachedDbData = [
+            return [
                 'uptData' => $upts,
                 'stats' => [
                     'success' => true,
@@ -122,12 +136,9 @@ class SultanBantenService
                     ]
                 ]
             ];
-
-            return true;
         } catch (\Exception $e) {
             Log::error("Sultan Banten direct database connection failed: " . $e->getMessage());
-            $this->cachedDbData = null;
-            return false;
+            return null;
         }
     }
 }

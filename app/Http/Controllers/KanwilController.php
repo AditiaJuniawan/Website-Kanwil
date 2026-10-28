@@ -19,7 +19,7 @@ class KanwilController extends Controller
         $uptData = $this->sultanService->getFullUptData();
         $statsData = $this->sultanService->getStats();
         $kanwil = \App\Models\Kanwil::first();
-        $posts = \App\Models\Post::orderBy('published_at', 'desc')->get();
+        $posts = \App\Models\Post::orderBy('published_at', 'desc')->take(6)->get();
         
         $totalStats = (isset($statsData['success']) && $statsData['success'] && isset($statsData['data']['statistics']))
             ? $statsData['data']['statistics']
@@ -209,18 +209,18 @@ class KanwilController extends Controller
         $post = \App\Models\Post::where('slug', $slug)->firstOrFail();
 
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'nullable|email|max:255',
+            'name' => 'required|string|max:100',
+            'email' => 'nullable|email|max:150',
             'comment' => 'required|string|max:1000',
         ]);
 
         $post->comments()->create([
-            'name' => $validated['name'],
+            'name' => strip_tags($validated['name']),
             'email' => $validated['email'],
-            'comment' => $validated['comment'],
-            'is_approved' => true,
+            'comment' => strip_tags($validated['comment']),
+            'is_approved' => false,
         ]);
 
-        return back()->with('success', 'Komentar Anda berhasil ditambahkan.');
+        return back()->with('success', 'Komentar Anda berhasil dikirim dan akan tampil setelah disetujui oleh admin.');
     }
 }
