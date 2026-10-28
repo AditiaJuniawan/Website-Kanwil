@@ -15,6 +15,12 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function (\Throwable $e, $request) {
+            // Jangan halangi otentikasi (redirect login) dan validasi form
+            if ($e instanceof \Illuminate\Auth\AuthenticationException ||
+                $e instanceof \Illuminate\Validation\ValidationException) {
+                return null;
+            }
+
             if (!config('app.debug')) {
                 if ($request->is('api/*')) {
                     return response()->json([
@@ -24,6 +30,11 @@ return Application::configure(basePath: dirname(__DIR__))
 
                 if ($e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
                     return response()->view('errors.404', [], 404);
+                }
+
+                // Biarkan status HTTP 4xx (403 Forbidden, 419 Page Expired, dll.) ditangani oleh Laravel
+                if ($e instanceof \Symfony\Component\HttpKernel\Exception\HttpExceptionInterface && $e->getStatusCode() < 500) {
+                    return null;
                 }
 
                 return response()->view('errors.maintenance', [], 500);
